@@ -1,14 +1,11 @@
 // ==UserScript==
 // @name			Comic Adapter: TwoKinds
-// @version			2020.01.18
-// @description		Замена оригинального синтаксиса названия и комментариев на синтаксис Комикслейта. Остаётся лишь скопипастить. И картинку залить.
+// @version			2020.06.03
+// @description		Extract Info for Comicslate
 // @include			http*://*twokinds.keenspot.com*
-// @author			Rainbow-Spike
-// @namespace		https://greasyfork.org/users/7568
-// @homepage		https://greasyfork.org/ru/users/7568-dr-yukon
 // @icon			https://www.google.com/s2/favicons?domain=twokinds.keenspot.com
+// @author			Rainbow-Spike
 // @grant			none
-// @run-at			document-end
 // ==/UserScript==
 
 var titler1 = parseInt ( document.getElementsByTagName ( "title" )[0].innerHTML.split ( ': ' )[0] ), // номер
