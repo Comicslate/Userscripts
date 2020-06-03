@@ -1,18 +1,17 @@
 // ==UserScript==
 // @name			Comic Adapter: Legend of Zhathar
-// @version			2019.08.20
-// @description		Extract Link for Comicslate
+// @version			2020.06.03
+// @description		Extract Info for Comicslate
 // @include			http*://zhathar.smackjeeves.com/*
-// @author			Rainbow-Spike
 // @icon			https://www.google.com/s2/favicons?domain=westerndeep.net
+// @author			Rainbow-Spike
 // @grant			none
-// @run-at			document-end
 // ==/UserScript==
 
-var strip = document.querySelector ( '#comic_image' ).getAttribute ( 'src' ).split ( '/' )[9], // ищем путь картинки
+var strip = document.querySelector ( '#comic_image' ).getAttribute ( 'src' ).split ( '/' )[9],
 	header = document.querySelector ( '#comic_header'),
-	dlink = document.createElement ( 'p' ); // готовим параграф
+	dlink = document.createElement ( 'p' );
 
-dlink.innerHTML = strip; // обзываем
-dlink.setAttribute ( 'style', 'font-size: 20px; text-align: center;' ); // стилизуем
-header.appendChild ( dlink ); // прицепляем
+dlink.innerHTML = strip;
+dlink.setAttribute ( 'style', 'font-size: 20px; text-align: center;' );
+header.appendChild ( dlink );
