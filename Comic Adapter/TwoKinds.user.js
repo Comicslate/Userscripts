@@ -8,12 +8,12 @@
 // @grant			none
 // ==/UserScript==
 
-var titler1 = parseInt ( document.getElementsByTagName ( "title" )[0].innerHTML.split ( ': ' )[0] ), // номер
-	titler2 = document.querySelector ( "h1" ).innerHTML.split ( ': ' )[1], // титул
-	trans = document.querySelector ( ".transcript-content" ), // поиск блока транскрипта
-	trans_p = trans.querySelectorAll ( "p" ), // поиск параграфов в транскрипте
-	last_p = trans_p[trans_p.length-1], // последний параграф
-	texter = ''; // заготовка для вики-кода
+var titler1 = parseInt ( document.getElementsByTagName ( "title" )[0].innerHTML.split ( ': ' )[0] ),
+	titler2 = document.querySelector ( "h1" ).innerHTML.split ( ': ' )[1],
+	trans = document.querySelector ( ".transcript-content" ),
+	trans_p = trans.querySelectorAll ( "p" ),
+	last_p = trans_p[trans_p.length-1],
+	texter = '';
 
 // SELECT
 function selectblock ( name ) {
@@ -24,24 +24,22 @@ function selectblock ( name ) {
 	sel.addRange ( rng );
 }
 
-if ( titler1 < 1000 ) titler1 = "0" + titler1; // наращивание номера
-texter += "== Twokinds " + titler1 + " ==<br>**" + titler2 + "**<br><br>{cnav}<br>{{" + titler1 + ".png}}<br>"; // запись титульной части вики-кода
+if ( titler1 < 1000 ) titler1 = "0" + titler1;
+texter += "== Twokinds " + titler1 + " ==<br>**" + titler2 + "**<br><br>{cnav}<br>{{" + titler1 + ".png}}<br>";
 
 // ТРАНСКРИПТ
-if ( trans != null ) { // если блок транскрипта не пустой
-	if ( last_p.innerHTML.match ( "Page transcript provided" ).length != 0 ) { // если есть примечание об авторстве
-		trans.removeChild ( last_p ); // удаление
-	}
+if ( trans != null ) {
+	if ( last_p.innerHTML.match ( "Page transcript provided" ).length != 0 ) trans.removeChild ( last_p );
 	texter += "&lt;!--<br>" + trans.innerHTML
 		.replace ( /<p>/g, '' )
 		.replace ( /<\/p>/g, '<br>' )
 /*		.replace ( /<em>([^<]+)<\/em>/g, "//$1//" )
 		.replace ( /<strong>([^<]+)<\/strong>/g, "**$1**" )
-		.replace ( /<em>([^<]+)<\/em>/g, "//$1//" ) // вложения жирных в курсивы обрабатываются снова */
-		+ "--&gt;<br>"; // запись транскрипта в комментарий в вики-коде
+		.replace ( /<em>([^<]+)<\/em>/g, "//$1//" ) */
+		+ "--&gt;<br>";
 }
 
-texter += "{cnav}"; // концовка вики-кода
-trans.innerHTML = texter; // запись собранного вики-кода вместо транскрипта
+texter += "{cnav}";
+trans.innerHTML = texter;
 
 selectblock ( trans );
