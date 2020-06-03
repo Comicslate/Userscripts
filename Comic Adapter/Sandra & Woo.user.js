@@ -1,26 +1,23 @@
 // ==UserScript==
 // @name			Comic Adapter: Sandra & Woo
-// @version			2020.04.20
+// @version			2020.06.03
 // @description		Extract Info for Comicslate
 // @include			http*://*sandraandwoo.com*
-// @author			Rainbow-Spike
-// @namespace		https://greasyfork.org/users/7568
-// @homepage		https://greasyfork.org/ru/users/7568-dr-yukon
 // @icon			https://www.google.com/s2/favicons?domain=sandraandwoo.com
+// @author			Rainbow-Spike
 // @grant			none
-// @run-at			document-end
 // ==/UserScript==
 
-var nav = document.querySelector ( ".nav" ), // навигация
-	titler = document.querySelector ( ".post-comic h2" ), // поиск блока титула
-	entry = document.querySelector ( ".entry" ), // поиск блока примечаний
-	entry_p = document.querySelectorAll ( ".entry > p" ), // поиск параграфов в примечаниях
-	entry_li = document.querySelectorAll ( ".entry > li" ), // поиск списков в примечаниях
-	trans = document.querySelector ( ".transcript" ), // поиск блока транскрипта
-	trans_li = document.querySelectorAll ( ".transcript li" ), // поиск списков в транскрипте
-	tag_div = document.querySelector ( ".tags" ), // поиск блока тегов
-		tag_a = tag_div.querySelectorAll ( "a" ), // список тегов
-	texter = ''; // заготовка для транскрипта
+var nav = document.querySelector ( ".nav" ),
+	titler = document.querySelector ( ".post-comic h2" ),
+	entry = document.querySelector ( ".entry" ),
+	entry_p = document.querySelectorAll ( ".entry > p" ),
+	entry_li = document.querySelectorAll ( ".entry > li" ),
+	trans = document.querySelector ( ".transcript" ),
+	trans_li = document.querySelectorAll ( ".transcript li" ),
+	tag_div = document.querySelector ( ".tags" ),
+		tag_a = tag_div.querySelectorAll ( "a" ),
+	texter = '';
 
 nav.style.cssText += 'position: absolute; top: 200px;';
 
@@ -36,8 +33,8 @@ function selectblock ( name ) {
 // ТИТУЛ
 texter += titler.innerHTML
 	.replace ( /\[?(\d+)\]? (.*)/, "== Sandra and Woo $1 ==<br>**$2**<br><br>{cnav}<br>{{$1.png}}<br>" )
-	.replace ( /^\[(\d+)\]$/, "== Sandra and Woo $1 ==<br><br>{cnav}<br>{{$1.png}}<br>" ); // запись титульной части вики-кода
-titler.innerHTML = titler.innerHTML.replace ( /\[(\d+)\].*/, "$1" ); // зачистка титула до номера
+	.replace ( /^\[(\d+)\]$/, "== Sandra and Woo $1 ==<br><br>{cnav}<br>{{$1.png}}<br>" );
+titler.innerHTML = titler.innerHTML.replace ( /\[(\d+)\].*/, "$1" );
 
 // ПАРАГРАФЫ ПРИМЕЧАНИЙ
 if ( entry_p.length !== undefined ) {
@@ -45,7 +42,7 @@ if ( entry_p.length !== undefined ) {
 		texter += "<br>" + entry_p[i].innerHTML
 			.replace ( /<a [^<]+ href="([^"]+)">([^<]+)<\/a>/g, "[[$1|$2]]" )
 			.replace ( /<em>([^<]+)<\/em>/g, "//$1//" )
-			.replace ( /<strong>([^<]+)<\/strong>/g, "**$1**" ) + "\\\\<br>"; // докувикификация и запись параграфов примечаний в вики-код
+			.replace ( /<strong>([^<]+)<\/strong>/g, "**$1**" ) + "\\\\<br>";
 	}
 }
 
@@ -55,13 +52,13 @@ if ( entry_li.length !== undefined ) {
 		texter += "&nbsp;&nbsp;* "+entry_li[j].innerHTML
 			.replace ( /<a [^"]+ href="([^"]+)">([^<]+)<\/a>/g, "[[$1|$2]]" )
 			.replace ( /<em>([^<]+)<\/em>/g, "//$1//" )
-			.replace ( /<strong>([^<]+)<\/strong>/g, "**$1**" ) + "<br>"; // докувикификация и запись списков примечаний в вики-код
+			.replace ( /<strong>([^<]+)<\/strong>/g, "**$1**" ) + "<br>";
 	}
 }
 
 // ТРАНСКРИПТ
-if ( trans !== null ) { // если блок транскрипта не пустой
-	texter += "&lt;!--<br>"; // запись транскрипта в комментарий в вики-коде
+if ( trans !== null ) {
+	texter += "&lt;!--<br>";
 	if ( trans_li.length !== undefined ) {
 		for ( var k = 0; k < trans_li.length; k++ ) {
 			texter += "&nbsp;&nbsp;* " + trans_li[k].innerHTML
@@ -72,22 +69,26 @@ if ( trans !== null ) { // если блок транскрипта не пус�
 }
 
 // ТЕГИ
-if ( tag_div !== null ) { // если блок тегов не пустой
+if ( tag_div !== null ) {
 	for ( var l = 0; l < tag_a.length; l++ ) {
- 		tag_a[l].innerHTML = tag_a[l].innerHTML.replace ( / /g, "_" ); // обработка каждого тега
+ 		tag_a[l].innerHTML = tag_a[l].innerHTML.replace ( / /g, "_" );
 	}
 	texter += tag_div.innerHTML
 	.replace ( /, /g, " " )
-	.replace ( /└ Tags: (.*) \s+/, "{{tag>$1}}<br>" ); // обработка строки с тегами и её запись в вики-код
-	tag_div.parentNode.removeChild ( tag_div ); // удаление блока тегов
+	.replace ( /└ Tags: (.*) \s+/, "{{tag>$1}}<br>" );
+	tag_div.parentNode.removeChild ( tag_div );
 }
 
-texter += "{cnav}"; // концовка вики-кода
-texter = texter.replace ( "\\\\<br>&nbsp;&nbsp;*", "<br>&nbsp;&nbsp;*" ); // полировка
-entry.innerHTML = texter; // запись собранного вики-кода вместо примечаний
+texter += "{cnav}";
+texter = texter.replace ( "\\\\<br>&nbsp;&nbsp;*", "<br>&nbsp;&nbsp;*" );
+entry.innerHTML = texter;
 
 selectblock ( entry );
 
-var prev = document.querySelector ( '.nav-previous > a' ); prev.accessKey = "z";
-var next = document.querySelector ( '.nav-next > a' ); if ( next != null ) next.accessKey = "x";
-document.querySelector('#comic a').href = document.querySelector('#comic a img').src; // ссылка на картинку передвиг на вмещающий её линк - плюс в Gesturefy жест на сохранение ссылки
+document.querySelector('#comic a').href = document.querySelector('#comic a img').src;
+
+// ХОТКЕИ
+var prev = document.querySelector ( '.nav-previous > a' ),
+	next = document.querySelector ( '.nav-next > a' );
+if ( prev != null ) prev.accessKey = "z";
+if ( next != null ) next.accessKey = "x";
