@@ -1,16 +1,14 @@
 // ==UserScript==
 // @name            Comic Adapter: DMFA
-// @version         2020.06.02
+// @version         2020.06.03
 // @description     Extract Info for Comicslate
 // @include         http*://*missmab.com*
 // @icon            https://www.google.com/s2/favicons?domain=missmab.com
-// @grant           none
 // @author          Rainbow-Spike
-// @namespace       https://greasyfork.org/users/7568
-// @homepage        https://greasyfork.org/ru/users/7568-dr-yukon
+// @grant           none
 // ==/UserScript==
 
-var	insert = document.querySelector ( "i" ), // search target for text insertion
+var insert = document.querySelector ( "i" ), // search target for text insertion
 	text = insert.innerHTML.replace ( /\.\.\./g, "…" ), // replace 3 dots BTW
 	title = '', number = '',
 	chapter = 'Chapter 31: Friends in High Places'; // name of chapter
