@@ -3,12 +3,9 @@
 // @version         2020.04.28
 // @description     Extract Info for Comicslate
 // @include         http*://*nerfnow.com*
-// @author          Rainbow-Spike
-// @namespace       https://greasyfork.org/users/7568
-// @homepage        https://greasyfork.org/ru/users/7568-dr-yukon
 // @icon            https://www.google.com/s2/favicons?domain=nerfnow.com
+// @author          Rainbow-Spike
 // @grant           none
-// @run-at			document-end
 // ==/UserScript==
 
 // HOTKEYS
