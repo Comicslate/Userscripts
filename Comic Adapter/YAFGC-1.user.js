@@ -4,24 +4,31 @@
 // @description     Extract Info for Comicslate
 // @include			http*://*yafgc.net*
 // @icon			https://www.google.com/s2/favicons?domain=yafgc.net
-// @grant			none
 // @author			Rainbow-Spike
+// @grant			none
 // ==/UserScript==
 
-var prev = document.querySelector ( ".navi-prev" ),
-	next = document.querySelector ( ".navi-next" );
-prev.accessKey = "p";
-next.accessKey = "n";
-
-var put = document.querySelector ( "#menubar-wrapper" ),
-	cont = document.querySelector ( ".post-content" ),
-	titler = cont.querySelector ( "h2" ),
-	chap = cont.querySelector ( ".comic-chapter" ),
-	chapa = chap.querySelector ( "a" ),
-	char = cont.querySelector ( ".comic-characters" ),
-	loc = cont.querySelector ( ".comic-locations" ),
-	ent = cont.querySelector ( ".entry" ),
+var sidebar = document.querySelector ( "#menubar-wrapper" ),
+	content = document.querySelector ( ".post-content" ),
+		title = content.querySelector ( "h2" ),
+			title_a = title.querySelector ( "a" ),
+		chap = content.querySelector ( ".comic-chapter" ),
+			chap_a = chap.querySelector ( "a" ),
+		char = content.querySelector ( ".comic-characters" ),
+		loc = content.querySelector ( ".comic-locations" ),
+		ent = content.querySelector ( ".entry" ),
 	texter = '';
+
+// IMAGELINK
+var com_div = document.querySelector ( '#comic' ),
+	com_a = com_div.querySelector ( 'a' ),
+	com_img = com_div.querySelector ( 'img' );
+if ( com_a == null ) {
+	com_a = document.createElement ( 'a' );
+	com_a.append ( com_img );
+	com_div.append ( com_a );
+};
+com_a.href = com_img.src;
 
 // SELECT
 function selectblock ( name ) {
@@ -33,37 +40,44 @@ function selectblock ( name ) {
 }
 
 // ТИТУЛ
-texter += titler.innerHTML.replace ( /^\d+:? (.*)$/, "**$1**" );
+if ( title_a == undefined ) title_a = title;
+texter += title_a.innerHTML.replace ( /^\d+:? (.*)$/, "**$1**" );
 
 // ГЛАВА
-if ( chap != null ) texter = texter.replace ( /^\*\*/, "**" + chapa.innerHTML + ": " );
+if ( chap != undefined ) texter = texter.replace ( "<br>**", "<br>**" + chap_a.innerHTML + ": " );
 
 // ПЕРСОНАЖИ
-if ( char != null ) {
+if ( char != undefined ) {
 	texter += "<br><br>" + char.innerHTML
 		.replace ( "Characters:", "Персонажи:" )
-		.replace ( /\<a href="http:\/\/yafgc.net\/character\/[^"]+" rel="tag"\>([^\<]+)\<\/a>/g, "[[?do=search&id=ns%3Agamer%3Ayafgc+$1|$1]]" ); // мусор после href
+		.replace ( /\<a href="https:\/\/www.yafgc.net\/character\/[^"]+" rel="tag"\>([^\<]+)\<\/a>/g, "[[/?do=search&id=ns%3Aru%3Agamer%3Ayet-another-fantasy-gamer-comic+$1|$1]]" );
 }
 
 // МЕСТНОСТЬ
-if ( loc != null ) {
-	texter += ( char != null ) ? "\\\\<br>" : "<br><br>";
+if ( loc != undefined ) {
+	texter += ( char != undefined ) ? "\\\\<br>" : "<br><br>";
 	texter += loc.innerHTML
 		.replace ( "Location:", "Местность:" )
-		.replace ( /\<a href="http:\/\/yafgc.net\/location\/[^"]+" rel="tag"\>([^\<]+)\<\/a>/g, "[[?do=search&id=ns%3Agamer%3Ayafgc+$1|$1]]" ); // мусор после href
+		.replace ( /\<a href="https:\/\/www.yafgc.net\/location\/[^"]+" rel="tag"\>([^\<]+)\<\/a>/g, "[[/?do=search&id=ns%3Aru%3Agamer%3Ayet-another-fantasy-gamer-comic+$1|$1]]" );
 }
 
 // ПРОЧЕЕ
-if (ent != null) {
-	texter += ( loc == null ) ? "<br>" : "";
+if ( ent != undefined ) {
+	texter += ( loc == undefined ) ? "<br>" : "";
 	texter += "<br>" + ent.innerHTML
-		.replace ( /\<br\>/g,"\\\\<br>" )
-		.replace ( /\<a [^/>]+ href="([^"]+)"\>([^\<]+)\<\/a>/g, "[[$1|$2]]" ) // мусор до href
-		.replace ( /\<img src="([^"]+)"[^/>]+\>/g, "{{$1}}" ) // после src идёт alt
+		.replace ( /\<br\>/g, "\\\\<br>" )
+		.replace ( /\<a [^/>]+ href="([^"]+)"\>([^\<]+)\<\/a>/g, "[[$1|$2]]" )
+		.replace ( /\<img src="([^"]+)"[^/>]+\>/g, "{{$1}}" )
 		.replace ( /\<em>([^\<]+)\<\/em>/g, "//$1//" )
-		.replace ( /\<strong>([^\<]+)\<\/strong>/g, "**$1**" ); // докувикификация
+		.replace ( /\<strong>([^\<]+)\<\/strong>/g, "**$1**" );
 }
+// sidebar.setAttribute ( 'style', 'padding: 15px' );
+sidebar.innerHTML = texter;
 
-// put.setAttribute ( 'style', 'padding: 15px' );
-put.innerHTML = texter;
-selectblock ( put );
+selectblock ( sidebar );
+
+// HOTKEYS
+var prev = document.querySelector ( ".navi-prev" ),
+	next = document.querySelector ( ".navi-next" );
+if ( prev != null ) prev.accessKey = "z";
+if ( next != null ) next.accessKey = "x";
