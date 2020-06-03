@@ -9,14 +9,14 @@
 // ==/UserScript==
 
 var sidebar = document.querySelector ( "#sidebar-header" ),
-	content = document.querySelector ( ".post-content"),
+	content = document.querySelector ( ".post-content" ),
 		title = content.querySelector ( "h2" ),
 			title_a = title.querySelector ( "a" ),
-		chap = content.querySelector ( ".comic-chapter"),
+		chap = content.querySelector ( ".comic-chapter" ),
 			chap_a = chap.querySelector ( "a" ),
 		char = content.querySelector ( ".comic-characters" ),
-		loc = content.querySelector ( ".comic-locations"),
-		ent = content.querySelector ( ".entry"),
+		loc = content.querySelector ( ".comic-locations" ),
+		ent = content.querySelector ( ".entry" ),
 	texter = '';
 
 // IMAGELINK
