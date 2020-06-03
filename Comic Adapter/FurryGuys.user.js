@@ -1,14 +1,11 @@
 // ==UserScript==
 // @name			Comic Adapter: FurryGuys
-// @version			2020.04.27
+// @version			2020.06.03
 // @description		Extract Info for Comicslate
 // @include			http*://*acomics.ru/~FurryGuys/*
-// @author			Rainbow-Spike
-// @namespace		https://greasyfork.org/users/7568
-// @homepage		https://greasyfork.org/ru/users/7568-dr-yukon
 // @icon			https://www.google.com/s2/favicons?domain=acomics.ru
+// @author			Rainbow-Spike
 // @grant			none
-// @run-at			document-end
 // ==/UserScript==
 
 var title = document.querySelector ( ".issueName" ).innerHTML, // поиск титула
