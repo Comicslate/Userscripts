@@ -1,12 +1,10 @@
 // ==UserScript==
 // @name			Comic Adapter: Awkward Zombie
-// @version			2020.05.02
+// @version			2020.06.03
 // @description		Extract Info for Comicslate
 // @include			http*://*awkwardzombie.com*
-// @author			Rainbow-Spike
-// @namespace		https://greasyfork.org/users/7568
-// @homepage		https://greasyfork.org/ru/users/7568-dr-yukon
 // @icon			https://www.google.com/s2/favicons?domain=awkwardzombie.com
+// @author			Rainbow-Spike
 // @grant			none
 // ==/UserScript==
 
