@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Nerf Now
-// @version         2020.06.03
+// @version         2020.06.04
 // @description     Extract Info for Comicslate
 // @include         http*://*nerfnow.com*
 // @icon            https://www.google.com/s2/favicons?domain=nerfnow.com
@@ -20,8 +20,9 @@ prev.parentNode.innerHTML += ( "<li><b>" + num + "</b></li>" );
 
 // IMAGELINK
 var com_div = document.querySelector ( '#comic' ),
-	com_a = com_div.querySelector ( 'a' ),
-	com_img = com_div.querySelector ( 'img' );
+		com_a = com_div.querySelector ( 'a' ),
+		com_img = com_div.querySelector ( 'img' ),
+			com_title = com_img.title;
 if ( com_a == null ) {
 	com_a = document.createElement ( 'a' );
 	com_a.append ( com_img );
@@ -30,7 +31,7 @@ if ( com_a == null ) {
 com_a.href = com_img.src;
 
 // ASSEMBLY
-var texter = "== Nerf Now!! " + num + " ==<br><br>{cnav}<br>{{" + num + ".png}}<br>",
+var texter = "== Nerf Now!! " + num + " ==<br>**" + com_title + "**<br><br>{cnav}<br>{{" + num + ".png}}<br>",
 	comcon = document.querySelector ( ".comment-container" ),
 	comm = document.querySelector ( ".comment" );
 if ( comm != null ) {
