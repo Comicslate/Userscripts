@@ -1,1 +1,4 @@
-# Comicslate-userscripts
+Comic Adapter/ - юзерскрипты для ускорения обновлений с сайтов комиксов
+Comicslate/ - юзерскрипты для работы с Комикслейтом
+
+Rainbow-Spike, 2020
