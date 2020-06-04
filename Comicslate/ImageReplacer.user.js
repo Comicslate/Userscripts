@@ -41,6 +41,7 @@ function gap ( ) {
 				zoom_mark = !readCookie ( folder_cookie1 );
 			new_img.setAttribute ( 'src', img_src );
 			new_a.setAttribute ( 'href', window.location + '?do=edit' ); // клик по картинке ведёт в редактирование
+			new_a.className = 'img-repl';
 			new_a.style = 'margin: 0 auto; display: table; transform-origin: left top 0;';
 			if ( zoom_mark ) {
 				var	page = document.querySelector ( ".page" ),
