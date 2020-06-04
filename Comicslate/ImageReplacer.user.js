@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate ImageReplacer
-// @version			2020.06.04
+// @version			2020.06.05
 // @description		Replace/insert render images
 // @description:ru	Замена/вставка отрендеренных картинок
 // @include			http*://*comicslate.org/*
@@ -8,6 +8,14 @@
 // @author			Rainbow-Spike
 // @grant			none
 // ==/UserScript==
+
+var mode = 2, /* режим
+				0 - вставить перед первым навигатором (экзот)
+				1 - вставить перед исходником
+				2 - замена исходника
+				3 - вставить за исходником
+				4 - вставить за последним навигатором (экзот) */
+	opacity = 0.3;
 
 function readCookie ( name ) { // чтение куки
 	var nameEQ = name + '=',
@@ -24,21 +32,13 @@ function readCookie ( name ) { // чтение куки
 
 function gap ( ) {
 	if ( document.querySelectorAll ( ".editBox" ).length != 1 ) {
-		var mode = 2, /* режим
-					0 - вставить перед первым навигатором (экзот)
-					1 - вставить перед исходником
-					2 - замена исходника
-					3 - вставить за исходником
-					4 - вставить за последним навигатором (экзот) */
-			opacity = 0.3;
 		document.querySelectorAll ( ".ct-container" ).forEach ( function ( e ) {
 			var img = e.querySelector ( "img" ),
 				img_src = img.getAttribute ( 'src' ).replace ( /\/\/(.+)_media\/(.+)\.[^\.]+$/, "//app.$1embed.webp?id=$2" ),
 				parent = e.parentNode,
 				new_img = document.createElement ( 'img' ),
 				new_a = document.createElement ( 'a' ),
-				folder_cookie1 = 'disZoom_' + JSINFO.namespace,
-				zoom_mark = !readCookie ( folder_cookie1 );
+				zoom_mark = !readCookie ( 'disZoom_' + JSINFO.namespace );
 			new_img.setAttribute ( 'src', img_src );
 			new_a.setAttribute ( 'href', window.location + '?do=edit' ); // клик по картинке ведёт в редактирование
 			new_a.className = 'img-repl';
@@ -72,4 +72,4 @@ function gap ( ) {
 		} )
 	}
 }
-setTimeout ( gap, 300 );
+setTimeout ( gap, 100 );
