@@ -29,11 +29,12 @@ function action ( ) {
 	if ( next_a != null ) next_a.accessKey = 'x';
 
 	// ISSUE NUMBER
-	var num = ( prev_a != null ) ? ( parseInt ( prev_a.href.match ( /[^\/]+$/ ) ) + 1 ) : 4,
+	var numb = ( prev_a != null ) ? ( parseInt ( prev_a.href.match ( /[^\/]+$/ ) ) + 1 ) : 4,
+		num = numb.toString().padStart ( 4, "0" ),
 		num_li = document.createElement ( 'li' ),
 		num_b = document.createElement ( 'b' );
 	num_li.append ( num_b );
-	num_b.append ( num );
+	num_b.append ( numb );
 	if ( nav != null ) nav.insertBefore ( num_li, next );
 
 	// IMAGELINK
