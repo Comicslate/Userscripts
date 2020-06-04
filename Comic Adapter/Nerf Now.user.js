@@ -67,4 +67,4 @@ function action ( ) {
 		selectblock ( comcon );
 	}
 }
-setTimeout ( action, 1000 );
+setTimeout ( action, 100 );
