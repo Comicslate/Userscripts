@@ -10,7 +10,8 @@
 
 var insert = document.createElement ( 'div' ),
 	node = document.querySelector ( '#cc-comicbody' ),
-	img = document.querySelector ( '#cc-comic' );
+	img = document.querySelector ( '#cc-comic' ),
+	title;
 
 // SELECT
 function selectblock ( name ) {
@@ -22,7 +23,8 @@ function selectblock ( name ) {
 }
 
 function action ( ) {
-	insert.innerHTML = ( img != null ) ? '**' + img.getAttribute ( 'title' ) + '**' : '' ;
+	title = ( img != null ) ? '**' + img.getAttribute ( 'title' ).replace ( 'Issue', 'Выпуск' ) + '**' : '';
+	insert.innerHTML = title;
 	( node != null ) ? node.appendChild ( insert ) : '';
 	selectblock ( insert );
 }
