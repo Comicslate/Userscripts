@@ -38,6 +38,6 @@ setTimeout ( action, 300 );
 
 // HOTKEYS
 var prev = document.querySelector ( '#leftarrow' ).parentNode.parentNode,
-	next = document.querySelector ( '.cc_next' ).parentNode.parentNode;
+	next = document.querySelector ( '#rightarrow' ).parentNode.parentNode;
 if ( prev != null ) prev.accessKey = "z";
 if ( next != null ) next.accessKey = "x";
