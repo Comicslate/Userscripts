@@ -13,7 +13,7 @@ var node = document.querySelector ( 'body' ),
 	number = window.location.search.split ( '=' ) [ 1 ],
 	img = document.querySelector ( 'img.comic' ),
 	texter,
-	comm, title, t, itle, i, tle;
+	comm, T, t, itle, I, tle;
 
 // SELECT
 function selectblock ( name ) {
@@ -32,11 +32,13 @@ if ( next != null ) next.accessKey = "x";
 
 function action ( ) {
 	comm = ( img != null ) ? img.getAttribute ( 'title' ) : '';
-	t = comm.charAt ( 0 ); itle = comm.slice ( 1 );
-	i = comm.charAt ( 1 ); tle = comm.slice ( 2 );
-	title = ( t.toLowerCase ( ) != t.toUpperCase ( ) ) ? t.toUpperCase ( ) + itle : t + i.toUpperCase ( ) + tle;
+	t = comm.charAt ( 0 ).toLowerCase ( );
+	T = t.toUpperCase ( );
+	itle = comm.slice ( 1 );
+	I = comm.charAt ( 1 ).toUpperCase ( );
+	tle = comm.slice ( 2 );
 	texter = '== Dinosaur Comics ' + number + ' ==<br><br>{cnav}<br>{{' + number + '.png}}<br><br>';
-	texter += ( comm != ( '' | null ) ) ? title + '<br>' : '';
+	texter += ( comm != ( '' | null ) ) ? ( ( t != T ) ? T + itle : t + I + tle ) + '<br>' : '';
 	texter += '{cnav}';
 	insert.innerHTML = texter;
 	( node != null ) ? node.insertBefore ( insert, node.firstChild ) : '';
