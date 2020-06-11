@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Dinosaur Comics
-// @version         2020.06.10
+// @version         2020.06.11
 // @description     Extract Info for Comicslate
 // @include         http*://*qwantz.com*
 // @icon            https://www.google.com/s2/favicons?domain=qwantz.com
@@ -8,7 +8,7 @@
 // @grant           none
 // ==/UserScript==
 
-var node = document.querySelector ( 'body' ),
+var node = document.querySelector ( '#header' ),
 	insert = document.createElement ( 'span' ),
 	number = window.location.search.split ( '=' ) [ 1 ],
 	img = document.querySelector ( 'img.comic' ),
@@ -41,6 +41,7 @@ function action ( ) {
 	texter += ( comm != ( '' | null ) ) ? ( ( t != T ) ? T + itle : t + I + tle ) + '<br>' : '';
 	texter += '{cnav}';
 	insert.innerHTML = texter;
+	insert.className = 'doku';
 	( node != null ) ? node.insertBefore ( insert, node.firstChild ) : '';
 
 	selectblock ( insert );
