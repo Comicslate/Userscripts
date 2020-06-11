@@ -41,7 +41,6 @@ function action ( ) {
 	texter += ( comm != ( '' | null ) ) ? ( ( t != T ) ? T + itle : t + I + tle ) + '<br>' : '';
 	texter += '{cnav}';
 	insert.innerHTML = texter;
-	insert.className = 'doku';
 	( node != null ) ? node.insertBefore ( insert, node.firstChild ) : '';
 
 	selectblock ( insert );
