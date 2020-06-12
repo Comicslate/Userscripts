@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Dinosaur Comics
-// @version         2020.06.11
+// @version         2020.06.12
 // @description     Extract Info for Comicslate
 // @include         http*://*qwantz.com*
 // @icon            https://www.google.com/s2/favicons?domain=qwantz.com
@@ -8,41 +8,44 @@
 // @grant           none
 // ==/UserScript==
 
-var node = document.querySelector ( '#header' ),
+let node = document.querySelector ( '#header' ),
 	insert = document.createElement ( 'span' ),
 	number = window.location.search.split ( '=' ) [ 1 ],
-	img = document.querySelector ( 'img.comic' ),
-	texter,
-	comm, T, t, itle, I, tle;
+	img = document.querySelector ( 'img.comic' );
 
 // SELECT
 function selectblock ( name ) {
-	var rng = document.createRange ( );
+	let rng = document.createRange ( );
 	rng.selectNode ( name );
-	var sel = window.getSelection ( );
+	let sel = window.getSelection ( );
 	sel.removeAllRanges ( );
 	sel.addRange ( rng );
 }
 
 // HOTKEYS
-var prev = document.querySelector ( '.nohover:nth-of-type(1) a' ),
-	next = document.querySelector ( '.nohover:nth-of-type(2) a' );
-if ( prev != null ) prev.accessKey = "z";
-if ( next != null ) next.accessKey = "x";
+let prevLink = document.querySelector ( '[rel="prev"]' ),
+	nextLink = document.querySelector ( '[rel="next"]' );
+    if ( prevLink ) prevLink.accessKey = 'z';
+    if ( nextLink ) nextLink.accessKey = 'x';
+
+function title ( ) {
+	let comm = img.getAttribute ( 'title' ) || '',
+		title =
+			comm != ( '' | null )
+			? '<br>' + (
+				comm.charAt ( 0 ).toLowerCase ( ) != comm.charAt ( 0 ).toUpperCase ( )
+					? comm.charAt ( 0 ).toUpperCase ( ) + comm.slice ( 1 )
+					: comm.charAt ( 0 ).toLowerCase ( ) + comm.charAt ( 1 ).toUpperCase ( ) + comm.slice ( 2 )
+				) + '<br>'
+			: '';
+	return title;
+}
 
 function action ( ) {
-	comm = ( img != null ) ? img.getAttribute ( 'title' ) : '';
-	t = comm.charAt ( 0 ).toLowerCase ( );
-	T = t.toUpperCase ( );
-	itle = comm.slice ( 1 );
-	I = comm.charAt ( 1 ).toUpperCase ( );
-	tle = comm.slice ( 2 );
-	texter = '== Dinosaur Comics ' + number + ' ==<br><br>{cnav}<br>{{' + number + '.png}}<br><br>';
-	texter += ( comm != ( '' | null ) ) ? ( ( t != T ) ? T + itle : t + I + tle ) + '<br>' : '';
-	texter += '{cnav}';
-	insert.innerHTML = texter;
-	( node != null ) ? node.insertBefore ( insert, node.firstChild ) : '';
-
+	insert.innerHTML = '== Dinosaur Comics ' + number + ' ==<br><br>{cnav}<br>{{' + number + '.png}}<br>' + title ( ) + '{cnav}';
+	( node != null )
+		? node.insertBefore ( insert, node.firstChild )
+		: '';
 	selectblock ( insert );
 }
-setTimeout ( action, 100 );
+action ( );
