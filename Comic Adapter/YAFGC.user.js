@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comic Adapter: YAFGC
-// @version			2020.06.03
+// @version			2020.06.12
 // @description     Extract Info for Comicslate
 // @include			http*://*yafgc.net*
 // @icon			https://www.google.com/s2/favicons?domain=yafgc.net
@@ -41,7 +41,7 @@ function selectblock ( name ) {
 
 // ТИТУЛ
 if ( title_a == undefined ) title_a = title;
-texter += title_a.innerHTML.replace ( /^(\d+):? (.*)$/, "== Yet Another Fantasy Gamer Comic $1 ==<br>**$2**<br>{cnav}<br>{{$1.jpg}}" );
+texter += title_a.innerHTML.replace ( /^(\d+):? (.*)$/, "== Yet Another Fantasy Gamer Comic $1 ==<br>**$2**<br><br>{cnav}<br>{{$1.jpg}}" );
 
 // ГЛАВА
 if ( chap != undefined ) texter = texter.replace ( "<br>**", "<br>**" + chap_a.innerHTML + ": " );
