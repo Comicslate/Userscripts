@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoReplacer
-// @version			2020.06.04
+// @version			2020.06.12
 // @description		Автозамены в Комикслейте
 // @include			http*://*comicslate.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
@@ -47,6 +47,7 @@ var wiki__text = document.querySelector ( "#wiki__text" ),
 		[ "Off-white", "Off-White" ],
 		[ "The-roomies", "The Roomies" ],
 
+		[ "Yet-another-fantasy-gamer-comic", "Yet Another Fantasy Gamer Comic" ],
 		[ "Nerf-now", "Nerf Now!!" ],
 		[ "Gamercat", "GaMERCaT" ],
 		// [ "New", "Living with hipstergirl and gamergirl" ],
