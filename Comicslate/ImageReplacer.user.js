@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate ImageReplacer
-// @version			2020.06.05
+// @version			2020.06.15
 // @description		Replace/insert render images
 // @description:ru	Замена/вставка отрендеренных картинок
 // @include			http*://*comicslate.org/*
@@ -34,7 +34,8 @@ function gap ( ) {
 	if ( document.querySelectorAll ( ".editBox" ).length != 1 ) {
 		document.querySelectorAll ( ".ct-container" ).forEach ( function ( e ) {
 			var img = e.querySelector ( "img" ),
-				img_src = img.getAttribute ( 'src' ).replace ( /\/\/(.+)_media\/(.+)\.[^\.]+$/, "//app.$1embed.webp?id=$2" ),
+//				img_src = img.getAttribute ( 'src' ).replace ( /\/\/(.+)_media\/(.+)\.[^\.]+$/, "//app.$1embed.webp?id=$2" ),
+				img_src = 'https://app.comicslate.org/embed.webp?id=' + window.location.pathname.slice(1),
 				parent = e.parentNode,
 				new_img = document.createElement ( 'img' ),
 				new_a = document.createElement ( 'a' ),
