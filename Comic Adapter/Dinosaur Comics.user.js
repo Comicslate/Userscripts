@@ -10,7 +10,7 @@
 
 let node = document.querySelector ( '#header' ),
 	insert = document.createElement ( 'span' ),
-	number = window.location.search.split ( '=' ) [ 1 ],
+	number = window.location.search.split ( '=' ) [ 1 ].padStart ( 4, "0" ),
 	img = document.querySelector ( 'img.comic' );
 
 // SELECT
