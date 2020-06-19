@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Dinosaur Comics
-// @version         2020.06.12
+// @version         2020.06.19
 // @description     Extract Info for Comicslate
 // @include         http*://*qwantz.com*
 // @icon            https://www.google.com/s2/favicons?domain=qwantz.com
