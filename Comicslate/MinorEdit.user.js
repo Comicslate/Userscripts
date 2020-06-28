@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate MinorEdit
-// @version			2020.06.04
+// @version			2020.06.28
 // @description		"Minor changes" autocheck
 // @description:ru	Автовыбор "малой правки"
 // @include			http*://*comicslate.org/*do=*
@@ -11,7 +11,7 @@
 // @grant			none
 // ==/UserScript==
 
-var lever = 0, /*	1 - галочить только повторы
+var lever = 0, /*	1 - галочить только исправления, создания не галочить
 					0 - галочить всех подряд (для генерации страниц-десятников)
 					первая правка (создание) не может быть малой!! */
 	mark = document.querySelector ( "#minoredit" ),
