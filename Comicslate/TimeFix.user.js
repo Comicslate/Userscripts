@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name			Comicslate TimeFix
-// @version			2020.06.04
+// @version			2020.07.05
 // @description:ru	Исправление часового пояса на Комикслейте
 // @description		Correcting timezone on a Comicslate
-// @include			http*://*comicslate.org/*
+// @match			*://*comicslate.org/*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
@@ -12,7 +12,7 @@
 
 function timefix ( ) {
 	var shift = 10, // fix it for your needs : поправь это под свои нужды
-		place = document.querySelectorAll ( ".pageinfo, .date, .diffnav option, th.minor a, th.minor + th a, .approval_date, .approval_previous, .apr_upd, .apr_prev, .sum" );
+		place = document.querySelectorAll ( ".pageinfo, .date, .diffnav option, th.minor a, th.minor + th a, .approval_date, .approval_previous, .apr_upd, .apr_prev, .sum, .draft__status" );
 	if ( place.length > 0 ) {
 		for ( var i in place ) {
 			if ( place [ i ].innerHTML != undefined ) {
