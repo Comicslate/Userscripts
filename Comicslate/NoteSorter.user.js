@@ -16,9 +16,10 @@ if ( ( wiki_text != null ) && !wiki_text.textContent.match ( 'Не_сортир�
 		begin = parts.slice ( 0 , 1 ),
 		notes = parts.slice ( 1 ),
 		num = parts.length - 2,
-		end = '{{' + notes [ num ].split ( '{{' ) [ 1 ],
+		end = '{{<' + notes [ num ].split ( '{{<' ) [ 1 ],
 		centers = [ ],
-		borders = [ ];
+		borders = [ ],
+		new_notes = [ ];
 	notes [ num ] = notes [ num ].split ( '{{' ) [ 0 ];
 	for ( var i = 0; i <= num; i++ ) { // создание списков
 		var nparts = notes [ i ].split ( '\n' ),
@@ -74,7 +75,6 @@ if ( ( wiki_text != null ) && !wiki_text.textContent.match ( 'Не_сортир�
 			}
 		}
 	)
-	var new_notes = [ ];
 	for ( var l = 0; l < end_array.length; l++ ) {
 		new_notes [ l ] = notes [ end_array [ l ] [ 0 ] ];
 	}
