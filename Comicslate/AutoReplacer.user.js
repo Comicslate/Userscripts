@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name			Comicslate AutoReplacer
-// @version			2020.06.12
+// @version			2020.07.23
 // @description		Автозамены в Комикслейте
-// @include			http*://*comicslate.org/*
+// @match			http*://*comicslate.org/*do=edit*
+// @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
@@ -25,7 +26,7 @@ var wiki__text = document.querySelector ( "#wiki__text" ),
 
 		[ "Ozy-and-millie", "Ozy and Millie" ],
 		[ "Dan-and-mabs-furry-adventures", "Dan and Mab's Furry Adventures" ],
-		//[ "New", "My Life with Fel (new)" ],
+		// [ "New", "My Life with Fel (new)" ],
 		[ "Heavenly-nostrils", "Heavenly Nostrils" ],
 		[ "Tales-of-the-questor", "Tales of the Questor" ],
 		[ "Theri-there", "Theri There" ],
