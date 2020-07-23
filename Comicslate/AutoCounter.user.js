@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name			Comicslate AutoCounter
-// @version			2020.06.04
+// @version			2020.07.23
 // @description		Автозамена номеров в Комикслейте
-// @include			http*://*comicslate.org/*do=*
+// @match			http*://*comicslate.org/*do=edit*
+// @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
@@ -20,7 +21,7 @@ if ( wiki__text !== null ) {
 	}
 	if ( window.location.href.match ( 'furry-guys' ) !== null ) {
 /*		var num1 = text.match ( /Furry Guys (\d+)/ )[1] * 1 - 992;
-		if ( num1 !== null ) text = text.replace ( 'Выпуск 13-*', 'Выпуск 13-' + num1 + '*' );*/
+		if ( num1 !== null ) text = text.replace ( 'Выпуск 14-*', 'Выпуск 14-' + num1 + '*' );*/
 		if ( window.location.href.match ( '\/en\/' ) !== null ) text = text.replace ( 'Выпуск', 'Issue' )
 	}
 	if ( window.location.href.match ( 'heavenly-nostrils' ) !== null
