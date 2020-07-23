@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2020.07.19
+// @version			2020.07.23
 // @description		Сортировка наклеек
-// @match			*://*comicslate.org/*do=edit*
+// @match			http*://*comicslate.org/*do=edit*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
