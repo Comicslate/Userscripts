@@ -1,9 +1,8 @@
 // ==UserScript==
 // @name			Comicslate TimeFix
-// @version			2020.07.05
-// @description:ru	Исправление часового пояса на Комикслейте
-// @description		Correcting timezone on a Comicslate
-// @match			*://*comicslate.org/*
+// @version			2020.07.23
+// @description		Исправление часового пояса на Комикслейте
+// @match			http*://*comicslate.org/*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
