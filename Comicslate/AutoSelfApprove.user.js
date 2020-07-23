@@ -1,11 +1,9 @@
 // ==UserScript==
 // @name			Comicslate AutoSelfApprove
-// @version			2020.06.04
-// @description		Autoapprove self edits
-// @description:ru	Автоодобрение своих правок
-// @include			http*://*comicslate.org/*
+// @version			2020.07.23
+// @description		Автоодобрение своих правок
+// @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
-// @exclude			http*://*comicslate.org/en/sci-fi/freefall/*
 // @exclude			http*://*comicslate.org/ru/sci-fi/freefall/*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
