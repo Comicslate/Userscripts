@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name			Comicslate IndexEditor
+// @name			Comicslate Index EditLinker
 // @version			2020.07.23
 // @description		Добавление "?do=edit" к ссылкам в "карте сайта"
 // @match			http*://*comicslate.org/*do=index*
