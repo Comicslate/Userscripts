@@ -1,15 +1,16 @@
 // ==UserScript==
 // @name			Comicslate AutoClicker
-// @version			2020.06.04
-// @description		Comic timer clicker
-// @description:ru	Листание комикса по таймеру
-// @include			http*://*comicslate.org/*
+// @version			2020.07.23
+// @description		Листание комикса по таймеру
+// @match			http*://*comicslate.org/*
+// @exclude			http*://*comicslate.org/*do=*
+// @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
 // ==/UserScript==
 
-var timer = 4;
+var timer = 30;
 
 function clicker ( ) {
 	document.querySelector ( '#navnext' ).click ( );
