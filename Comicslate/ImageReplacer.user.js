@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name			Comicslate ImageReplacer
-// @version			2020.06.15
-// @description		Replace/insert render images
-// @description:ru	Замена/вставка отрендеренных картинок
-// @include			http*://*comicslate.org/*
+// @version			2020.07.23
+// @description		Замена/вставка отрендеренных картинок
+// @match			http*://*comicslate.org/*
+// @exclude			http*://*comicslate.org/*do=*
+// @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
