@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name			Comicslate SaveEdit
+// @name			Comicslate Macros SaveEdit
 // @version			2020.07.23
 // @description		Закреп в макросах автовхода редактора после сохранения
 // @match			http*://*comicslate.org/ru/macro*
