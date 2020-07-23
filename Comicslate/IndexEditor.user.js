@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name			Comicslate IndexEditor
-// @version			2020.06.04
-// @description		Add "?do=edit" to links in the "sitemap"
-// @description:ru	Добавление "?do=edit" к ссылкам в "карте сайта"
-// @include			http*://*comicslate.org/*do=index
-// @include			http*://*comicslate.org/*idx=*
+// @version			2020.07.23
+// @description		Добавление "?do=edit" к ссылкам в "карте сайта"
+// @match			http*://*comicslate.org/*do=index*
+// @match			http*://*comicslate.org/*idx=*
+// @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
 // ==/UserScript==
 
-var lang = 'en',
+var lang = '',
 	fromlang = '',
 	href = 0, // для translate-раздела, замена локалей на капслоки
 	band = 0; // замена лент, 1 - d на h, 2 - наоборот
