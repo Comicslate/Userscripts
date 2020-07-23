@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name			Comicslate BatchEdit AutoCheck
-// @version			2020.06.04
+// @version			2020.07.23
 // @description		Автовыбор вариантов
-// @include			http*://*comicslate.org/*
-// @exclude			http*://*comicslate.org/lib/exe/mediamanager.php*
+// @match			http*://*comicslate.org/*page=batchedit*
+// @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
@@ -11,4 +11,4 @@
 
 var apply = document.querySelector ( "#be-applyall" );
 
-if ( apply ) apply.click();
+if ( apply ) apply.click ( );
