@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name			Comicslate ImageNice
-// @version			2020.06.05
+// @version			2020.07.23
 // @description		Вставка красоты под картинками
-// @include			http*://*comicslate.org/*
+// @match			http*://*comicslate.org/*
+// @exclude			http*://*comicslate.org/*do=*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
