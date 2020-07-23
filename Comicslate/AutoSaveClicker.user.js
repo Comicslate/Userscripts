@@ -1,11 +1,9 @@
 // ==UserScript==
 // @name			Comicslate AutoSaveClicker
-// @version			2020.06.04
-// @description		Autoclick Save button
-// @description:ru	Автоклик сохранения
-// @include			http*://*comicslate.org/*
-// @exclude			http*://*comicslate.org/*do=index*
-// @exclude			http*://*comicslate.org/*idx=*
+// @version			2020.07.23
+// @description		Автоклик сохранения
+// @match			http*://*comicslate.org/*do=edit*
+// @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
