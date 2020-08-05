@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate ImageReplacer
-// @version			2020.07.23
+// @version			2020.08.06
 // @description		Замена/вставка отрендеренных картинок
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -36,7 +36,7 @@ function gap ( ) {
 		document.querySelectorAll ( ".ct-container" ).forEach ( function ( e ) {
 			var img = e.querySelector ( "img" ),
 //				img_src = img.getAttribute ( 'src' ).replace ( /\/\/(.+)_media\/(.+)\.[^\.]+$/, "//app.$1embed.webp?id=$2" ),
-				img_src = 'https://app.comicslate.org/embed.webp?id=' + window.location.pathname.slice(1),
+				img_src = 'https://app.comicslate.org/embed.webp?id=' + window.location.pathname.slice(1) + '&date=' + Date.now ( ),
 				parent = e.parentNode,
 				new_img = document.createElement ( 'img' ),
 				new_a = document.createElement ( 'a' ),
