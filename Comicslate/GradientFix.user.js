@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate GradientFix
-// @version			2020.07.28
+// @version			2020.08.08
 // @description		Фиксатор градиентов
 // @match			http*://*comicslate.org/*do=edit*
 // @exclude			http*://browsershots.org/*
@@ -40,14 +40,19 @@ function grad_fix ( ) {
 }
 
 function grad_start ( ) {
-	var grd_target = document.querySelector ( '#cotaned_toolbar' ),
-		grd_button = document.createElement ( 'button' );
-	grd_button.type = 'button';
-	grd_button.className = 'button toolbutton';
-	grd_button.title = 'Градиенты';
-	grd_button.innerHTML = 'Градиенты';
-	grd_target.appendChild ( grd_button );
-	grd_button.onclick = grad_fix;
+	if ( document.querySelector ( '#grad_stop' ) == null ) {
+		var grd_target = document.querySelector ( '#cotaned_toolbar' );
+		if ( grd_target != null ) {
+			var grd_button = document.createElement ( 'button' );
+			grd_button.type = 'button';
+			grd_button.className = 'button toolbutton';
+			grd_button.id = 'grad_stop';
+			grd_button.title = 'Градиенты';
+			grd_button.innerHTML = 'Градиенты';
+			grd_target.appendChild ( grd_button );
+			grd_button.onclick = grad_fix;
+		}
+	}
 }
 
-setTimeout ( grad_start, 3000 );
+setInterval ( grad_start, 100 );
