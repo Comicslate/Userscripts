@@ -34,6 +34,8 @@ comm = comm
 	.replace ( /\s*(<br>)*\s*$/g, "" )
 	.replace ( /\s*(<br>)*\s*У нас есть.+Вики-фур<\/a>\s*(<br>)*\s*/g, "" )
 	.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*Спасибо, что голосуете за комикс!\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
+	.replace ( /<br>/g, "\\\\\n<br />" )
+	.replace ( /\\\\\n<br \/>\\\\\n<br \/>/g, "\n<br \/>\n<br \/>" )
 	.replace ( /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
 	.replace ( /<img[^>]*title="([^"]+)"[^>]*src="[^"]+emoticons[^"]+"[^>]*>/g, "$1" )
 	.replace ( /<em[^>]*>([^<]+)<\/em>/g, "//$1//" )
@@ -54,12 +56,12 @@ entry.innerHTML = '== Furry Guys '
 	+ number
 	+ '.'
 	+ picsrc
-	+ '}}<br>{{&lt;cotan}}'
+	+ '}}<br>{{&lt;cotan}}<br>'
 	+ (
 		( pictitle !== '' )
-		? '<br>//'
+		? '//'
 			+ pictitle
-			+ '//'
+			+ '//<br>'
 			+ (
 				( comm !== '' )
 				? '<br>'
@@ -69,10 +71,10 @@ entry.innerHTML = '== Furry Guys '
 	)
 	+ (
 		( comm !== '' )
-		? '<br>'
-		+ comm
+		? comm
+		+ '<br>'
 		: ''
 	)
-	+ '<br>{cnav}';
+	+ '{cnav}';
 
 selectblock ( entry );
