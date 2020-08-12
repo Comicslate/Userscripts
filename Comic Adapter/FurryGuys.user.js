@@ -25,6 +25,20 @@ function selectblock ( name ) {
 	sel.addRange ( rng );
 }
 
+comm = comm
+	.replace ( /<p[^>]*>\s*(<br>)*\s*(.+)\s*(<br>)*\s*<\/p>/g, "$2" )
+	.replace ( /<.?span[^>]*>/g, "" )
+	.replace ( / style="[^"]*"/g, "" )
+	.replace ( /&nbsp;/g, " " )
+	.replace ( /\*(.)/g, "* $1" )
+	.replace ( /\s*(<br>)*\s*$/g, "" )
+	.replace ( /\s*(<br>)*\s*У нас есть.+Вики-фур<\/a>\s*(<br>)*\s*/g, "" )
+	.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*Спасибо, что голосуете за комикс!\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
+	.replace ( /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
+	.replace ( /<img[^>]*title="([^"]+)"[^>]*src="[^"]+emoticons[^"]+"[^>]*>/g, "$1" )
+	.replace ( /<em[^>]*>([^<]+)<\/em>/g, "//$1//" )
+	.replace ( /<strong[^>]*>([^<]+)<\/strong>/g, "**$1**" );
+
 entry.style.cssText += "height: auto !important;";
 
 entry.innerHTML = '== Furry Guys '
@@ -40,12 +54,12 @@ entry.innerHTML = '== Furry Guys '
 	+ number
 	+ '.'
 	+ picsrc
-	+ '}}<br>{{&lt;cotan}}<br>'
+	+ '}}<br>{{&lt;cotan}}'
 	+ (
 		( pictitle !== '' )
-		? '//'
+		? '<br>//'
 			+ pictitle
-			+ '//<br>'
+			+ '//'
 			+ (
 				( comm !== '' )
 				? '<br>'
@@ -55,21 +69,10 @@ entry.innerHTML = '== Furry Guys '
 	)
 	+ (
 		( comm !== '' )
-		? comm
-			.replace ( /<p>\s*(.+)\s*<\/p>/g, "$1" )
-			.replace ( /<.?span[^>]*>/g, "" )
-			.replace ( / style="[^"]*"/g, "" )
-			.replace ( /&nbsp;/g, " ")
-			.replace ( /\*(.)/g, "* $1")
-			.replace ( /<br> ?У нас есть.+Вики-фур<\/a> ?(<br>)*/g, "" )
-			.trim()
-			.replace ( /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
-			.replace ( /<img[^>]*title="([^"]+)"[^>]*src="[^"]+emoticons[^"]+"[^>]*>/g, "$1" )
-			.replace ( /<em[^>]*>([^<]+)<\/em>/g, "//$1//" )
-			.replace ( /<strong[^>]*>([^<]+)<\/strong>/g, "**$1**" )
-			+ "<br>"
+		? '<br>'
+		+ comm
 		: ''
 	)
-	+ '{cnav}';
+	+ '<br>{cnav}';
 
 selectblock ( entry );
