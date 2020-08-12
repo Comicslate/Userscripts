@@ -14,7 +14,8 @@ var number = window.location.toString ( ).split ( '/' ).pop ( ) || ( document.qu
 		picsrc = pic.getAttribute ( "src" ).split ( '.' ) [ 1 ] || 'png',
 	title = pic.getAttribute ( "alt" ) || ( document.querySelector ( ".issueName" ).innerHTML || '' ),
 	comm = document.querySelector ( ".description" ).innerHTML || '',
-	entry = document.querySelector ( "nav.serial" ) || ( document.querySelector ( "nav" ) || '' );
+	entry = document.createElement ( 'div' ),
+	place = document.querySelector ( "#content" ) || '';
 
 // ВЫДЕЛЕНИЕ
 function selectblock ( name ) {
@@ -36,12 +37,13 @@ comm = comm
 	.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*Спасибо, что голосуете за комикс!\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
 	.replace ( /<br>/g, "\\\\\n<br />" )
 	.replace ( /\\\\\n<br \/>\\\\\n<br \/>/g, "\n<br \/>\n<br \/>" )
+	.replace ( / [-|—] /, " – " )
 	.replace ( /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
 	.replace ( /<img[^>]*title="([^"]+)"[^>]*src="[^"]+emoticons[^"]+"[^>]*>/g, "$1" )
 	.replace ( /<em[^>]*>([^<]+)<\/em>/g, "//$1//" )
 	.replace ( /<strong[^>]*>([^<]+)<\/strong>/g, "**$1**" );
 
-entry.style.cssText += "height: auto !important;";
+entry.style = "background: #e7f3ee; border: #000 solid 1px; border-radius: 5px; margin: 5px; padding: 5px;";
 
 entry.innerHTML = '== Furry Guys '
 	+ number
@@ -76,5 +78,7 @@ entry.innerHTML = '== Furry Guys '
 		: ''
 	)
 	+ '{cnav}';
+
+place.parentNode.insertBefore ( entry, place );
 
 selectblock ( entry );
