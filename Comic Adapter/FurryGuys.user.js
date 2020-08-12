@@ -8,11 +8,11 @@
 // @grant			none
 // ==/UserScript==
 
-var number = document.querySelector ( ".issueNumber" ).innerHTML.split ( '/' )[ 0 ] * 1 || ( window.location.toString ( ).split ( '/' ).pop ( ) || '' ),
+var number = window.location.toString ( ).split ( '/' ).pop ( ) || ( document.querySelector ( ".issueNumber" ).innerHTML.split ( '/' )[ 0 ] * 1 || '' ),
 	pic = document.querySelector ( "#mainImage" ) || '',
 		pictitle = pic.getAttribute ( "title" ) || '',
 		picsrc = pic.getAttribute ( "src" ).split ( '.' ) [ 1 ] || 'png',
-	title = document.querySelector ( ".issueName" ).innerHTML || ( pic.getAttribute ( "alt" ) || '' ),
+	title = pic.getAttribute ( "alt" ) || ( document.querySelector ( ".issueName" ).innerHTML || '' ),
 	comm = document.querySelector ( ".description" ).innerHTML || '',
 	entry = document.querySelector ( "nav.serial" ) || ( document.querySelector ( "nav" ) || '' );
 
@@ -60,8 +60,9 @@ entry.innerHTML = '== Furry Guys '
 			.replace ( /<.?span[^>]*>/g, "" )
 			.replace ( / style="[^"]*"/g, "" )
 			.replace ( /&nbsp;/g, " ")
-//			.trim
+			.replace ( /\*(.)/g, "* $1")
 			.replace ( /<br> ?У нас есть.+Вики-фур<\/a> ?(<br>)*/g, "" )
+			.trim()
 			.replace ( /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
 			.replace ( /<img[^>]*title="([^"]+)"[^>]*src="[^"]+emoticons[^"]+"[^>]*>/g, "$1" )
 			.replace ( /<em[^>]*>([^<]+)<\/em>/g, "//$1//" )
