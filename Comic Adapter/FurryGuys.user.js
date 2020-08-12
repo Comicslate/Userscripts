@@ -43,7 +43,7 @@ comm = comm
 	.replace ( /<em[^>]*>([^<]+)<\/em>/g, "//$1//" )
 	.replace ( /<strong[^>]*>([^<]+)<\/strong>/g, "**$1**" );
 
-entry.style = "background: #e7f3ee; border: #000 solid 1px; border-radius: 5px; margin: 5px; padding: 5px;";
+entry.style = "background: #e7f3ee; border: #c7d3ce outset 3px; border-radius: 10px; margin: 2px; padding: 2px;";
 
 entry.innerHTML = '== Furry Guys '
 	+ number
