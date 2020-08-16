@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2020.07.23
+// @version			2020.08.17
 // @description		Сортировка наклеек
 // @match			http*://*comicslate.org/*do=edit*
 // @exclude			http*://browsershots.org/*
@@ -66,13 +66,7 @@ if ( ( wiki_text != null ) && !wiki_text.textContent.match ( 'Не_сортир�
 	var end_array = [ ].concat ( centers, borders );
 	end_array.sort (
 		function ( a, b ) {
-			if ( a [ 1 ] < b [ 1 ] ) {
-				return 0;
-			} else if ( a [ 1 ] > b [ 1 ] ) {
-				return 1;
-			} else {
-				return 0;
-			}
+			return a [ 1 ] - b [ 1 ];
 		}
 	)
 	for ( var l = 0; l < end_array.length; l++ ) {
