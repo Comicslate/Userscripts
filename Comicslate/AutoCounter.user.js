@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name			Comicslate AutoCounter
-// @version			2020.07.23
+// @version			2020.08.18
 // @description		Автозамена номеров в Комикслейте
 // @match			http*://*comicslate.org/*do=edit*
+// @match			http*://*comicslate.org/*do=draft*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
