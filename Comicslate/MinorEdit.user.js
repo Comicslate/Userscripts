@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name			Comicslate MinorEdit
-// @version			2020.07.23
+// @version			2020.08.18
 // @description		Автовыбор "малой правки"
 // @match			http*://*comicslate.org/*do=edit*
+// @match			http*://*comicslate.org/*do=draft*
 // @exclude			http*://*comicslate.org/*news*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
