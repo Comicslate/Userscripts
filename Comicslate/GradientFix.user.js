@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name			Comicslate GradientFix
-// @version			2020.08.08
+// @version			2020.08.18
 // @description		Фиксатор градиентов
 // @match			http*://*comicslate.org/*do=edit*
+// @match			http*://*comicslate.org/*do=draft*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
