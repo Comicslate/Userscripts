@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comic Adapter: FurryGuys
-// @version			2020.08.12
+// @version			2020.08.20
 // @description		Extract Info for Comicslate
 // @include			http*://*acomics.ru/~FurryGuys/*
 // @icon			https://www.google.com/s2/favicons?domain=acomics.ru
@@ -12,8 +12,8 @@ var number = window.location.toString ( ).split ( '/' ).pop ( ) || ( document.qu
 	pic = document.querySelector ( "#mainImage" ) || '',
 		pictitle = pic.getAttribute ( "title" ) || '',
 		picsrc = pic.getAttribute ( "src" ).split ( '.' ) [ 1 ] || 'png',
-	title = pic.getAttribute ( "alt" ) || ( document.querySelector ( ".issueName" ).innerHTML || '' ),
-	comm = document.querySelector ( ".description" ).innerHTML || '',
+		title = pic.getAttribute ( "alt" ) || ( document.querySelector ( ".issueName" ).innerHTML || '' ),
+	comm = document.querySelector ( ".description" ) || '',
 	entry = document.createElement ( 'div' ),
 	place = document.querySelector ( "#content" ) || '';
 
@@ -26,22 +26,24 @@ function selectblock ( name ) {
 	sel.addRange ( rng );
 }
 
-comm = comm
-	.replace ( /<p[^>]*>\s*(<br>)*\s*(.+)\s*(<br>)*\s*<\/p>/g, "$2" )
-	.replace ( /<.?span[^>]*>/g, "" )
-	.replace ( / style="[^"]*"/g, "" )
-	.replace ( /&nbsp;/g, " " )
-	.replace ( /\*(.)/g, "* $1" )
-	.replace ( /\s*(<br>)*\s*$/g, "" )
-	.replace ( /\s*(<br>)*\s*У нас есть.+Вики-фур<\/a>\s*(<br>)*\s*/g, "" )
-	.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*Спасибо, что голосуете за комикс!\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
-	.replace ( /<br>/g, "\\\\\n<br />" )
-	.replace ( /\\\\\n<br \/>\\\\\n<br \/>/g, "\n<br \/>\n<br \/>" )
-	.replace ( / [-|—] /, " – " )
-	.replace ( /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
-	.replace ( /<img[^>]*title="([^"]+)"[^>]*src="[^"]+emoticons[^"]+"[^>]*>/g, "$1" )
-	.replace ( /<em[^>]*>([^<]+)<\/em>/g, "//$1//" )
-	.replace ( /<strong[^>]*>([^<]+)<\/strong>/g, "**$1**" );
+comm = ( comm !== '' )
+	? comm.innerHTML
+		.replace ( /<p[^>]*>\s*(<br>)*\s*(.+)\s*(<br>)*\s*<\/p>/g, "$2" )
+		.replace ( /<.?span[^>]*>/g, "" )
+		.replace ( / style="[^"]*"/g, "" )
+		.replace ( /&nbsp;/g, " " )
+		.replace ( /\*(.)/g, "* $1" )
+		.replace ( /\s*(<br>)*\s*$/g, "" )
+		.replace ( /\s*(<br>)*\s*У нас есть.+Вики-фур<\/a>\s*(<br>)*\s*/g, "" )
+		.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*Спасибо, что голосуете за комикс!\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
+		.replace ( /<br>/g, "\\\\\n<br />" )
+		.replace ( /\\\\\n<br \/>\\\\\n<br \/>/g, "\n<br \/>\n<br \/>" )
+		.replace ( / [-|—] /, " – " )
+		.replace ( /<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
+		.replace ( /<img[^>]*title="([^"]+)"[^>]*src="[^"]+emoticons[^"]+"[^>]*>/g, "$1" )
+		.replace ( /<em[^>]*>([^<]+)<\/em>/g, "//$1//" )
+		.replace ( /<strong[^>]*>([^<]+)<\/strong>/g, "**$1**" )
+	: '';
 
 entry.style = "background: #e7f3ee; border: #c7d3ce outset 3px; border-radius: 10px; margin: 2px; padding: 2px;";
 
