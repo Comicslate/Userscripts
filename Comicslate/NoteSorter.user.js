@@ -13,7 +13,7 @@
 var wiki_text = document.querySelector ( '#wiki__text' );
 
 if ( ( wiki_text != null ) && !wiki_text.textContent.match ( 'Не_сортировать' ) && ( wiki_text.textContent.match ( 'cotan' || 'aimg' ) != null ) ) {
-	var parts = wiki_text.textContent.split ( '@' ), // разделение и зачистка
+	var parts = wiki_text.textContent.split ( '\n@' ), // разделение и зачистка
 		begin = parts.slice ( 0 , 1 ),
 		notes = parts.slice ( 1 ),
 		num = parts.length - 2,
@@ -73,5 +73,5 @@ if ( ( wiki_text != null ) && !wiki_text.textContent.match ( 'Не_сортир�
 	for ( var l = 0; l < end_array.length; l++ ) {
 		new_notes [ l ] = notes [ end_array [ l ] [ 0 ] ];
 	}
-	wiki_text.value = begin + '@' + new_notes.join ( '@' ) + end;
+	wiki_text.value = ( begin + '\n@' + new_notes.join ( '\n@' ) + '\n' + end ).replace ( /~\n\n@/g, '~\n@');
 }
