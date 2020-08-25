@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2020.08.18
+// @version			2020.08.26
 // @description		Сортировка наклеек
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -12,7 +12,7 @@
 
 var wiki_text = document.querySelector ( '#wiki__text' );
 
-if ( ( wiki_text != null ) && !wiki_text.textContent.match ( 'Не_сортировать' ) ) {
+if ( ( wiki_text != null ) && !wiki_text.textContent.match ( 'Не_сортировать' ) && ( wiki_text.textContent.match ( 'cotan' || 'aimg' ) != null ) ) {
 	var parts = wiki_text.textContent.split ( '@' ), // разделение и зачистка
 		begin = parts.slice ( 0 , 1 ),
 		notes = parts.slice ( 1 ),
