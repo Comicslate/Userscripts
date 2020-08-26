@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2020.08.26
+// @version			2020.08.26.1
 // @description		Сортировка наклеек
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -12,7 +12,7 @@
 
 var wiki_text = document.querySelector ( '#wiki__text' );
 
-if ( ( wiki_text != null ) && !wiki_text.textContent.match ( 'Не_сортировать' ) && ( wiki_text.textContent.match ( 'cotan' || 'aimg' ) != null ) ) {
+if ( !wiki_text.textContent.match ( 'Не_сортировать' ) && ( wiki_text.textContent.match ( 'cotan' || 'aimg' ) != null ) ) {
 	var parts = wiki_text.textContent.split ( '\n@' ), // разделение и зачистка
 		begin = parts.slice ( 0 , 1 ),
 		notes = parts.slice ( 1 ),
@@ -21,7 +21,7 @@ if ( ( wiki_text != null ) && !wiki_text.textContent.match ( 'Не_сортир�
 		centers = [ ],
 		borders = [ ],
 		new_notes = [ ];
-	notes [ num ] = notes [ num ].split ( '{{' ) [ 0 ];
+	notes [ num ] = notes [ num ].split ( '\n{{' ) [ 0 ];
 	for ( var i = 0; i <= num; i++ ) { // создание списков
 		var nparts = notes [ i ].split ( '\n' ),
 			coords = nparts [ 0 ].split ( ';' ) [ 0 ].split ( ',', 4 ),
