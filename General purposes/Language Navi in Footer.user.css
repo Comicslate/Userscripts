@@ -1,0 +1,17 @@
+nav.translation {
+	position: fixed;
+	bottom: 0;
+	right: 2px;
+	background-color: #FFF;
+	z-index: 2;
+	border-top-left-radius: 10px;
+}
+.plugin_translation ul li {
+	border: solid 1px rgba(45,201,211,1);
+	border-bottom: 0;
+	border-radius: 30% 30% 0 0;
+	background-color: rgba(45,201,211,.1);
+}
+.plugin_translation ul li a {
+	margin: 0 0.45em 0 0.5em;
+}
