@@ -1,0 +1,16 @@
+/* оголение фона */
+.ct-note-content span {
+	display: none;
+}
+
+/* анимация мерцания */
+@keyframes blink {
+	50% { border-color: white; }
+	100% { border-color: black; }
+}
+
+/* мерцание наклеек */
+.ct_bg .ct-note {
+	border: 1px solid;
+	animation: blink 1s ease-in infinite;
+}
