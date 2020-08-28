@@ -1,11 +1,14 @@
 // ==UserScript==
 // @name			Comic Adapter: FurryGuys
-// @version			2020.08.20
+// @version			2020.08.28
 // @description		Extract Info for Comicslate
 // @include			http*://*acomics.ru/~FurryGuys/*
 // @icon			https://www.google.com/s2/favicons?domain=acomics.ru
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/FurryGuys.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/FurryGuys.user.js
 // ==/UserScript==
 
 var number = window.location.toString ( ).split ( '/' ).pop ( ) || ( document.querySelector ( ".issueNumber" ).innerHTML.split ( '/' )[ 0 ] * 1 || '' ),
@@ -34,7 +37,8 @@ comm = ( comm !== '' )
 		.replace ( /&nbsp;/g, " " )
 		.replace ( /\*(.)/g, "* $1" )
 		.replace ( /\s*(<br>)*\s*$/g, "" )
-		.replace ( /\s*(<br>)*\s*У нас есть.+Вики-фур<\/a>\s*(<br>)*\s*/g, "" )
+		.replace ( /\s*(<br>)*\s*У нас есть.+Аск<\/a>\s*\.?\s*(<br>)*\s*/g, "" )
+		.replace ( /\s*(<br>)*\s*У нас есть.+Вики-фур<\/a>\s*\.?\s*(<br>)*\s*/g, "" )
 		.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*Спасибо, что голосуете за комикс!\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
 		.replace ( /<br>/g, "\\\\\n<br />" )
 		.replace ( /\\\\\n<br \/>\\\\\n<br \/>/g, "\n<br \/>\n<br \/>" )
