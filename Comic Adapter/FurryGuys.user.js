@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comic Adapter: FurryGuys
-// @version			2020.08.28
+// @version			2020.08.30
 // @description		Extract Info for Comicslate
 // @include			http*://*acomics.ru/~FurryGuys/*
 // @icon			https://www.google.com/s2/favicons?domain=acomics.ru
@@ -40,6 +40,7 @@ comm = ( comm !== '' )
 		.replace ( /\s*(<br>)*\s*У нас есть.+Аск<\/a>\s*\.?\s*(<br>)*\s*/g, "" )
 		.replace ( /\s*(<br>)*\s*У нас есть.+Вики-фур<\/a>\s*\.?\s*(<br>)*\s*/g, "" )
 		.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*Спасибо, что голосуете за комикс!\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
+		.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*В голосовалке[^<]+\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
 		.replace ( /<br>/g, "\\\\\n<br />" )
 		.replace ( /\\\\\n<br \/>\\\\\n<br \/>/g, "\n<br \/>\n<br \/>" )
 		.replace ( / [-|—] /, " – " )
