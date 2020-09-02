@@ -1,17 +1,17 @@
 // ==UserScript==
 // @name			Comicslate AutoSelfApprove
-// @version			2020.07.23
+// @version			2020.09.03
 // @description		Автоодобрение своих правок
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
-// @exclude			http*://*comicslate.org/ru/sci-fi/freefall/*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoSelfApprove.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoSelfApprove.user.js
 // ==/UserScript==
-
-// en freefall для вычитки
 
 var approve_link = document.querySelector ( ".approval_action a" ),
 	self = 'robot_spike';
