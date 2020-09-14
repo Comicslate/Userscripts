@@ -1,4 +1,5 @@
-/* Левое меню */
+/* ЛЕВОЕ МЕНЮ */
+.nav-menu__item_of_mirrors, /* Индексирование/Переезд сайта */
 .nav-menu__item_of_serp-snippets, /* Представление в поиске */
 .nav-menu__item_of_info, /* Информация о сайте */
 .nav-menu__item_of_shop, /* Турбо-страницы для интернет-магазинов */
@@ -9,17 +10,28 @@
 	display: none;
 }
 
-/* Сводка - турбо магазин */
-.dashboard-item_type_turbo-shop-pages {
+.announce, /* анонсы */
+.content__chunk { /* главное окно */
+	border-radius: 30px;
+}
+
+/* УДАЛЕНИЕ УПОМИНАНИЙ ТУРБО-СТРАНИЦ ДЛЯ ИНТЕРНЕТ-МАГАЗИНОВ */
+.dashboard-item_type_turbo-shop-pages, /* Сводка */
+.quality__widget_type_shop-problems, /* Качество сайта/Показатели качества */
+.turbo-problem-counter__item_type_counter div:nth-of-type(2) { /* Диагностика/Диагностика сайта */
 	display: none;
 }
 
-/* Качество сайта/Показатели качества - турбо магазин */
-.quality__widget_type_shop-problems {
+.SiteSelect { /* выбор сайта */
 	display: none;
 }
 
-/* Диагностика/Диагностика сайта - турбо магазин */
-.turbo-problem-counter__item_type_counter div:nth-of-type(2) {
+/* ВЫПАДАЮЩЕЕ МЕНЮ СПРАВА ВВЕРХУ */
+.menu_type_navigation li:nth-of-type(4),
+.menu_type_navigation li:nth-of-type(5) {
+	display: none;
+} 
+
+.CustomLangSwitcher { /* Языки в подвале */
 	display: none;
 }
