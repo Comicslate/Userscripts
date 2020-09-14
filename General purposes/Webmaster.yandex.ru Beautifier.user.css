@@ -10,8 +10,9 @@
 	display: none;
 }
 
-.announce, /* анонсы */
-.content__chunk { /* главное окно */
+/* ГЛАВНОЕ ОКНО */
+.announce, /* Анонс-плашки */
+.content__chunk { /* Главное окно */
 	border-radius: 30px;
 }
 
