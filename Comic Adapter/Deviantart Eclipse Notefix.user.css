@@ -1,0 +1,8 @@
+a[data-hook="deviation_link"] h2 { /* титулы полные */
+	white-space: normal;
+}
+
+a[aria-label="Comment"],
+button[aria-label="Favourite"] { /* комменты и лайки убрать */
+	display: none;
+}
