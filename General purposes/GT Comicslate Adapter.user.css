@@ -1,0 +1,231 @@
+/* i really want this to be global */
+
+.page { /* основной блок */
+	max-width: 99% !important;
+}
+
+body.with-lang-list .input { /* поле ввода */
+	width: 50%; /* для сохранения ширины при выборе языков */
+}
+
+body.with-lang-list .ls-wrap { /* полоса языков */
+	max-width: inherit; /* для сохранения ширины при выборе языков */
+	width: 200%; /* для сохранения ширины при выборе языков */
+}
+
+.language-list {
+	border: 1px solid #999;
+	display: inline-flex !important;
+	margin-bottom: 0;
+	padding-left: 0;
+	width: calc(50% - 2px);
+}
+
+.language_list_languages {
+	padding: 3px !important;
+}
+
+.language-list-unfiltered-langs-sl_list,
+.language-list-unfiltered-langs-tl_list {
+	display: flex;
+}
+
+.language_list_section {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.language_list_item_wrapper {
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	width: max-content;
+	max-width: 75px;
+	margin: 2px;
+}
+
+.language_list_item_wrapper-az,
+.language_list_item_wrapper-sq,
+.language_list_item_wrapper-am,
+.language_list_item_wrapper-ar,
+.language_list_item_wrapper-hy,
+.language_list_item_wrapper-af,
+.language_list_item_wrapper-eu,
+.language_list_item_wrapper-bn,
+.language_list_item_wrapper-my,
+.language_list_item_wrapper-bs,
+.language_list_item_wrapper-cy,
+.language_list_item_wrapper-vi,
+.language_list_item_wrapper-haw,
+.language_list_item_wrapper-gl,
+.language_list_item_wrapper-ka,
+.language_list_item_wrapper-gu,
+.language_list_item_wrapper-zu,
+.language_list_item_wrapper-ig,
+.language_list_item_wrapper-yi,
+.language_list_item_wrapper-ga,
+.language_list_item_wrapper-is,
+.language_list_item_wrapper-yo,
+.language_list_item_wrapper-kk,
+.language_list_item_wrapper-kn,
+.language_list_item_wrapper-ca,
+.language_list_item_wrapper-ky,
+.language_list_item_wrapper-zh-TW,
+.language_list_item_wrapper-co,
+.language_list_item_wrapper-ht,
+.language_list_item_wrapper-ku,
+.language_list_item_wrapper-km,
+.language_list_item_wrapper-xh,
+.language_list_item_wrapper-lo,
+.language_list_item_wrapper-la,
+.language_list_item_wrapper-lv,
+.language_list_item_wrapper-lt,
+.language_list_item_wrapper-lb,
+.language_list_item_wrapper-mk,
+.language_list_item_wrapper-mg,
+.language_list_item_wrapper-ms,
+.language_list_item_wrapper-ml,
+.language_list_item_wrapper-mt,
+.language_list_item_wrapper-mi,
+.language_list_item_wrapper-mr,
+.language_list_item_wrapper-mn,
+.language_list_item_wrapper-ne,
+.language_list_item_wrapper-nl,
+.language_list_item_wrapper-no,
+.language_list_item_wrapper-or,
+.language_list_item_wrapper-pa,
+.language_list_item_wrapper-fa,
+.language_list_item_wrapper-ps,
+.language_list_item_wrapper-ro,
+.language_list_item_wrapper-rw,
+.language_list_item_wrapper-sm,
+.language_list_item_wrapper-ceb,
+.language_list_item_wrapper-sr,
+.language_list_item_wrapper-st,
+.language_list_item_wrapper-si,
+.language_list_item_wrapper-sd,
+.language_list_item_wrapper-sk,
+.language_list_item_wrapper-sl,
+.language_list_item_wrapper-so,
+.language_list_item_wrapper-sw,
+.language_list_item_wrapper-su,
+.language_list_item_wrapper-tg,
+.language_list_item_wrapper-th,
+.language_list_item_wrapper-ta,
+.language_list_item_wrapper-te,
+.language_list_item_wrapper-tk,
+.language_list_item_wrapper-tt,
+.language_list_item_wrapper-uz,
+.language_list_item_wrapper-ug,
+.language_list_item_wrapper-ur,
+.language_list_item_wrapper-tl,
+.language_list_item_wrapper-fy,
+.language_list_item_wrapper-ha,
+.language_list_item_wrapper-hmn,
+.language_list_item_wrapper-hr,
+.language_list_item_wrapper-ny,
+.language_list_item_wrapper-cs,
+.language_list_item_wrapper-sv,
+.language_list_item_wrapper-sn,
+.language_list_item_wrapper-gd,
+.language_list_item_wrapper-et,
+.language_list_item_wrapper-jw,
+.language-list-search-box,
+.language-list-toolbar,
+.detect_language,
+.language_list_item_icon {
+	display: none !important;
+}
+
+.language_list_item_wrapper-be {order: 0;}
+.language_list_item_wrapper-bg {order: 1;}
+.language_list_item_wrapper-da {order: 2;}
+.language_list_item_wrapper-de {order: 3;}
+.language_list_item_wrapper-el {order: 4;}
+.language_list_item_wrapper-en {order: 5;}
+.language_list_item_wrapper-eo {order: 6;}
+.language_list_item_wrapper-es {order: 7;}
+.language_list_item_wrapper-fi {order: 8;}
+.language_list_item_wrapper-fr {order: 9;}
+.language_list_item_wrapper-iw {order: 10;}
+.language_list_item_wrapper-hi {order: 11;}
+.language_list_item_wrapper-hu {order: 12;}
+.language_list_item_wrapper-id {order: 13;}
+.language_list_item_wrapper-it {order: 14;}
+.language_list_item_wrapper-ja {order: 15;}
+.language_list_item_wrapper-ko {order: 16;}
+.language_list_item_wrapper-pl {order: 17;}
+.language_list_item_wrapper-pt {order: 18;}
+.language_list_item_wrapper-ru {order: 19;}
+.language_list_item_wrapper-tr {order: 20;}
+.language_list_item_wrapper-uk {order: 21;}
+.language_list_item_wrapper-zh-CN {order: 22;}
+
+.language_list_item_wrapper-be div:before {
+	content: 'be ';
+}
+.language_list_item_wrapper-bg div:before {
+	content: 'bg ';
+}
+.language_list_item_wrapper-da div:before {
+	content: 'da ';
+}
+.language_list_item_wrapper-de div:before {
+	content: 'de ';
+}
+.language_list_item_wrapper-el div:before {
+	content: 'el ';
+}
+.language_list_item_wrapper-en div:before {
+	content: 'en ';
+}
+.language_list_item_wrapper-eo div:before {
+	content: 'eo ';
+}
+.language_list_item_wrapper-es div:before {
+	content: 'es ';
+}
+.language_list_item_wrapper-fi div:before {
+	content: 'fi ';
+}
+.language_list_item_wrapper-fr div:before {
+	content: 'fr ';
+}
+.language_list_item_wrapper-iw div:before {
+	content: 'he ';
+}
+.language_list_item_wrapper-hi div:before {
+	content: 'hi ';
+}
+.language_list_item_wrapper-hu div:before {
+	content: 'hu ';
+}
+.language_list_item_wrapper-id div:before {
+	content: 'id ';
+}
+.language_list_item_wrapper-it div:before {
+	content: 'it ';
+}
+.language_list_item_wrapper-ja div:before {
+	content: 'ja ';
+}
+.language_list_item_wrapper-ko div:before {
+	content: 'ko ';
+}
+.language_list_item_wrapper-pl div:before {
+	content: 'pl ';
+}
+.language_list_item_wrapper-pt div:before {
+	content: 'pt ';
+}
+.language_list_item_wrapper-ru div:before {
+	content: 'ru ';
+}
+.language_list_item_wrapper-tr div:before {
+	content: 'tr ';
+}
+.language_list_item_wrapper-uk div:before {
+	content: 'uk ';
+}
+.language_list_item_wrapper-zh-CN div:before {
+	content: 'zh ';
+}
