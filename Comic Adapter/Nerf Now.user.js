@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Nerf Now
-// @version         2020.06.05
+// @version         2020.10.04
 // @description     Extract Info for Comicslate
 // @include         http*://*nerfnow.com*
 // @icon            https://www.google.com/s2/favicons?domain=nerfnow.com
