@@ -50,7 +50,7 @@ function action ( ) {
 	if ( com_img != null ) com_a.href = com_img.src;
 
 	// ASSEMBLY
-	var texter = '== Nerf Now!! ' + num + ' ==' + com_title + '<br><br>{cnav}<br>{{' + num + '.png}}<br>',
+	var texter = '== Nerf Now!! ' + num + ' ==' + com_title + '<br><br>{cnav}<br>{{' + num + '.png}}<br><br>',
 		comcon = document.querySelector ( '.comment-container' ),
 		comm = document.querySelector ( '.comment' );
 	if ( comm != null ) {
@@ -58,11 +58,16 @@ function action ( ) {
 			lastp = ps.length - 1;
 		if ( ps [ lastp ].innerHTML == '&nbsp;' ) comm.removeChild ( ps [ lastp ] );
 		texter += comm.innerHTML
+			.replace ( /\<p>(\s|&nbsp;|\<\/?code>)*<\/p>/g, '' )
+			.replace ( /\ *<\/p>\s+<p[^>]*>/g, '\\\\<br>' )
+			.replace ( /\<\/?(p|span)[^>]*>/g, '' )
+			.replace ( /\n\n/g, '\n' )
+			.replace ( /\\\\<br>&nbsp;\\\\<br>/g, '<br><br>' )
 			.replace ( /\<a href="([^"]+)"\>([^\<]+)\<\/a>/g, '[[$1|$2]]' )
 			.replace ( /\<(i|em)>([^\<]+)\<\/(i|em)>/g, '//$2//' )
 			.replace ( /\<(b|strong)>([^\<]+)\<\/(b|strong)>/g, '**$2**' );
 	}
-	texter += '{cnav}';
+	texter += '<br>{cnav}';
 	if ( comcon != null ) {
 		comcon.innerHTML = texter;
 		selectblock ( comcon );
