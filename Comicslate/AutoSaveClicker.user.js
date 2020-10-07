@@ -1,19 +1,24 @@
 // ==UserScript==
 // @name			Comicslate AutoSaveClicker
-// @version			2020.08.18
+// @version			2020.10.08
 // @description		Автоклик сохранения
-// @match			http*://*comicslate.org/*do=edit*
-// @match			http*://*comicslate.org/*do=draft*
+// @match			http*://*comicslate.org/*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
 // ==/UserScript==
 
-var lever = 1, /* генератор страниц
-				0 + Comicslate NaviClicker
-				1 + Comicslate IndexEditor */
+var lever = 1, // генератор страниц
 	sv = document.querySelector ( "#edbtn__save" ),
 	timer = 2;
 
-sv ? sv.click ( ) : ( lever ? setTimeout ( function ( ) { window.close ( ) }, timer * 1000 ) : '' )
+sv
+	? sv.click ( )
+	: (
+		lever
+		? setTimeout ( function ( ) { window.close ( ) }, timer * 1000 ) // 1 + Comicslate IndexEditor
+		: '' // 0 + Comicslate NaviClicker
+	)
+
+// при отсутствии реакции закрытия в фоксе - about:config -> dom.allow_scripts_to_close_windows -> true
