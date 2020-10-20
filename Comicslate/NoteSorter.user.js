@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2020.10.20
+// @version			2020.10.20.1
 // @description		Сортировка наклеек
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 var wiki_text = document.querySelector ( '#wiki__text' ),
-	math = 1;
+	math = 0;
 
 if ( !wiki_text.textContent.match ( 'Не_сортировать' ) && ( wiki_text.textContent.match ( 'cotan' || 'aimg' ) != null ) ) {
 	var parts = wiki_text.textContent.split ( '\n{{<' ),
@@ -28,18 +28,16 @@ if ( !wiki_text.textContent.match ( 'Не_сортировать' ) && ( wiki_te
 			coords = nontext.shift ( ).split ( ',' ),
 			coord = '',
 			mark = nparts.toString ( ).charAt ( 0 );
-		if ( math ) {
-			for ( var j = 0; j <= 3; j++ ) { // сложение-вычитание
-				if ( coords [ j ].match ( /\+/g ) != null ) {
-					coord = coords [ j ].split ( '+' );
-					coords [ j ] = coord [ 0 ] * 1 + coord [ 1 ] * 1;
-				} else if ( coords [ j ].match ( /\-/g ) != null ) {
-					coord = coords [ j ].split ( '-' );
-					coords [ j ] = coord [ 0 ] * 1 - coord [ 1 ] * 1;
-				};
+		for ( var j = 0; j <= 3; j++ ) { // сложение-вычитание
+			if ( coords [ j ].match ( /\+/g ) != null ) {
+				coord = coords [ j ].split ( '+' );
+				coords [ j ] = coord [ 0 ] * 1 + coord [ 1 ] * 1;
+			} else if ( coords [ j ].match ( /\-/g ) != null ) {
+				coord = coords [ j ].split ( '-' );
+				coords [ j ] = coord [ 0 ] * 1 - coord [ 1 ] * 1;
 			};
-			notes [ i ] = coords.join ( ',' ) + ( nontext != '' ? ';' + nontext : '' ) + '\n' + nparts.join ( '\n' );
-		}
+		};
+		if ( math ) notes [ i ] = coords.join ( ',' ) + ( nontext != '' ? ';' + nontext : '' ) + '\n' + nparts.join ( '\n' );
 		if ( mark == '#' ) { // для фонов
 			var center = [ ];
 			center.push ( i ); // изначальный notes-номер
