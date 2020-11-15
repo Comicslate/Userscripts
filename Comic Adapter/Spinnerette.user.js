@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Spinnerette
-// @version         2020.06.06
+// @version         2020.11.15
 // @description     Extract Info for Comicslate
 // @include         http*://*spinnyverse.com*
 // @icon            https://www.google.com/s2/favicons?domain=spinnyverse.com
@@ -31,7 +31,7 @@ function action ( ) {
 setTimeout ( action, 300 );
 
 // HOTKEYS
-var prev = document.querySelector ( '.cc-prev' ),
-	next = document.querySelector ( '.cc_next' );
+var prev = document.querySelector ( '.cc-nav .cc-prev' ),
+	next = document.querySelector ( '.cc-nav .cc-next' );
 if ( prev != null ) prev.accessKey = "z";
 if ( next != null ) next.accessKey = "x";
