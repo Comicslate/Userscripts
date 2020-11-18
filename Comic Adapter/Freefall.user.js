@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2020.09.25
+// @version			2020.11.18
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @icon            https://www.google.com/s2/favicons?domain=freefall.purrsia.com
@@ -16,4 +16,4 @@ title = document.querySelector (
 	? "font"
 	: "table + b"
 );
-title.innerHTML += ' ' + number;
+title.innerHTML += ' ' + number + ' - Dinner with the Thurmads';
