@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoReplacer
-// @version			2020.08.18
+// @version			2020.12.13
 // @description		Автозамены в Комикслейте
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -17,8 +17,18 @@ var wiki__text = document.querySelector ( "#wiki__text" ),
 		[ "Sequential-art", "Sequential Art" ],
 		//[ " Fur ", " Sequential Art (Версия Зверь *TranslayerЪ* Внутри) " ],
 
+		[ "Missing-pieces", "Missing Pieces" ],
 		[ "The-first-king", "The First King" ],
 		[ "Maishas-story", "Maisha's story"],
+		[ "Taka-alternative-theory", "Taka alternative Theory"],
+		[ "Kings-and-vagabonds", "Kings and Vagabonds"],
+		[ "Scars-reign", "Scar's Reign" ],
+		[ "The-east-land-chronicles", "The East Land Chronicles" ],
+		[ "Short-stories", "Истории от Savu" ],
+		[ "The-lost-days", "The Lost Days" ],
+		[ "The-lion-queen", "The Lion Queen"],
+		[ "Brokenfangs-commentcomic", "Brokenfangs CommentComic" ],
+		[ "Heir-to-pride-rock", "Heir to Pride Rock" ],
 
 		[ "Wolfs-rain-next-generation", "Wolf's Rain – Next Generation" ],
 		[ "Chakra-battle-of-the-titans", "Chakra: Battle of the Titans" ],
