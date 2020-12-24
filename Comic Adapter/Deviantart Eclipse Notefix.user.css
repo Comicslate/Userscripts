@@ -6,3 +6,11 @@ a[aria-label="Comment"],
 button[aria-label="Favourite"] { /* комменты и лайки убрать */
 	display: none;
 }
+
+.YGCoP { /* крестик кри просмотре картинки */
+	display: none;
+}
+
+._1izoQ._2kD7E { /* попытка вывести картику поверх всего */
+	z-index: 1000000;
+}
