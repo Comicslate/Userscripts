@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Webtoons
-// @version         2020.11.14
+// @version         2020.12.30
 // @description     Extract Info for Comicslate
 // @include         http*://*webtoons.com*
 // @icon            https://www.google.com/s2/favicons?domain=webtoons.com
@@ -8,7 +8,9 @@
 // @grant           none
 // ==/UserScript==
 
-var lever = 2,
+var lever = 0,
+	//name = 'ZomKom',
+	comic = 'Bethellium',
 	timer = 300,
 	nod = document.createElement ( "span" ),
 	imgs, x, img, a, num, title, comment;
@@ -49,15 +51,18 @@ switch ( lever ) {
 		break
 	case 2: // SUPPLY
 		num = document.querySelector ( '._btnOpenEpisodeList' ).innerHTML.split ( '#' ) [ 1 ].padStart ( 4, "0" );
-		nod.innerHTML = "== ZomCom " + num + " ==<br>";
+		nod.innerHTML = "== " + comic + " " + num + " ==<br>";
 		title = document.querySelector ( '.subj_episode' ).innerHTML.replace ( /^ ?(.*?) ?$/, '$1' );
-		if ( title != null ) nod.innerHTML +="**" + title + "**<br>";
+		if ( title != null )
+			nod.innerHTML +="**" + title + "**<br>";
 		nod.innerHTML += "<br>{cnav}<br>";
 		comment = document.querySelector ( '.creator_note p' );
 		if ( comment != null ) nod.innerHTML += "&lt;box unborder unbg center>" + comment.innerHTML.replace ( / ?$/, "" ) + "&lt;/box><br>";
 		imgs = document.querySelectorAll ( "img._images" );
-		for ( x = 0; x < imgs.length; x++ ) nod.innerHTML += "{{ " + num + "-" + ( x + 1 ) + ".jpg }}<br>";
-		if ( imgs.length == 1 ) nod.innerHTML = nod.innerHTML.replace ( "-1.", "." );
+		for ( x = 0; x < imgs.length; x++ )
+			nod.innerHTML += "{{ " + num + "-" + ( x + 1 ) + ".jpg }}<br>";
+		if ( imgs.length == 1 )
+			nod.innerHTML = nod.innerHTML.replace ( "-1.", "." );
 		nod.innerHTML += "{cnav}";
 		break
 	default:
@@ -70,5 +75,7 @@ selectblock ( nod );
 // HOTKEYS
 var prev = document.querySelector ( '.pg_prev' ),
 	next = document.querySelector ( '.pg_next' );
-if ( prev != null ) prev.accessKey = "z";
-if ( next != null ) next.accessKey = "x";
+if ( prev != null )
+	prev.accessKey = "z";
+if ( next != null )
+	next.accessKey = "x";
