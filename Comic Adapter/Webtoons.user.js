@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Webtoons
-// @version         2020.12.30
+// @version         2020.12.30.1
 // @description     Extract Info for Comicslate
 // @include         http*://*webtoons.com*
 // @icon            https://www.google.com/s2/favicons?domain=webtoons.com
@@ -8,12 +8,13 @@
 // @grant           none
 // ==/UserScript==
 
-var lever = 0,
+var lever = 1,
 	//name = 'ZomKom',
 	comic = 'Bethellium',
 	timer = 300,
 	nod = document.createElement ( "span" ),
-	imgs, x, img, a, num, title, comment;
+	num = document.querySelector ( '._btnOpenEpisodeList' ).innerHTML.split ( '#' ) [ 1 ].padStart ( 4, "0" ),
+	imgs, x, img, a, title, comment;
 nod.style = 'font-size: 15px; left: 5px; position: fixed; top: 50px; width: 550px; ';
 
 function selectblock ( name ) {
@@ -37,7 +38,7 @@ function links ( lv ) {
 			nod.appendChild ( a );
 		} else {
 			img = img.replace ( /.+\//g, "" ).replace ( /\?.+/g, "" );
-			nod.innerHTML += img + '<br>\n';
+			nod.innerHTML += 'ren "' + img + '" "' + num + '-' + ( x + 1 ) + ' ' + img + '"<br>\n';
 		}
 	}
 }
@@ -50,7 +51,6 @@ switch ( lever ) {
 		setInterval ( links ( 0 ), timer );
 		break
 	case 2: // SUPPLY
-		num = document.querySelector ( '._btnOpenEpisodeList' ).innerHTML.split ( '#' ) [ 1 ].padStart ( 4, "0" );
 		nod.innerHTML = "== " + comic + " " + num + " ==<br>";
 		title = document.querySelector ( '.subj_episode' ).innerHTML.replace ( /^ ?(.*?) ?$/, '$1' );
 		if ( title != null )
