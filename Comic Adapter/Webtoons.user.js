@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Webtoons
-// @version         2021.01.03
+// @version         2021.01.04
 // @description     Extract Info for Comicslate
 // @include         http*://*webtoons.com*
 // @icon            https://www.google.com/s2/favicons?domain=webtoons.com
@@ -9,11 +9,12 @@
 // ==/UserScript==
 
 var lever = 2,
-	//name = 'ZomKom',
-	comic = 'Bethellium',
+	comic = 'ZomKom',
+	//comic = 'Bethellium',
 	timer = 300,
 	nod = document.createElement ( "span" ),
-	num = ( document.querySelector ( '._btnOpenEpisodeList' ).innerHTML.split ( '#' ) [ 1 ] * 1 - 1 ).toString ( ).padStart ( 4, "0" ),
+//	num = ( document.querySelector ( '._btnOpenEpisodeList' ).innerHTML.split ( '#' ) [ 1 ] * 1 - 0 ).toString ( ).padStart ( 4, "0" ),
+	num = document.querySelector ( '._btnOpenEpisodeList' ).innerHTML.split ( '#' ) [ 1 ].padStart ( 4, "0" ),
 	imgs, x, img, a, title, comment;
 nod.style = 'font-size: 15px; left: 5px; position: fixed; top: 50px; width: 550px; ';
 
@@ -52,18 +53,18 @@ switch ( lever ) {
 		break
 	case 2: // SUPPLY
 		nod.innerHTML = "== " + comic + " " + num + " ==<br>";
-		title = document.querySelector ( '.subj_episode' ).innerHTML.replace ( /^ ?(.*?) ?$/, '$1' );
+		title = document.querySelector ( '.subj_episode' ).innerHTML.replace ( /^ ?(Bethellium: )? ?(.*?) ?$/, '$2' );
 		if ( title != null )
-			nod.innerHTML +="**" + title + "**<br>";
+			nod.innerHTML += "**" + title + "**<br>";
 		nod.innerHTML += "<br>{cnav}<br>";
 		comment = document.querySelector ( '.creator_note p' );
 		if ( comment != null ) nod.innerHTML += "&lt;box unborder unbg center>" + comment.innerHTML.replace ( / ?$/, "" ) + "&lt;/box><br>";
 		imgs = document.querySelectorAll ( "img._images" );
-//		for ( x = 0; x < imgs.length; x++ )
-//			nod.innerHTML += "{{ " + num + "-" + ( x + 1 ) + ".jpg }}<br>";
-			nod.innerHTML += "{{ " + num + ".png }}<br>";
-//		if ( imgs.length == 1 )
-//			nod.innerHTML = nod.innerHTML.replace ( "-1.", "." );
+		for ( x = 0; x < imgs.length; x++ )
+			nod.innerHTML += "{{ " + num + "-" + ( x + 1 ) + ".jpg }}<br>";
+//			nod.innerHTML += "{{ " + num + ".png }}<br>";
+		if ( imgs.length == 1 )
+			nod.innerHTML = nod.innerHTML.replace ( "-1.", "." );
 		nod.innerHTML += "{cnav}";
 		break
 	default:
