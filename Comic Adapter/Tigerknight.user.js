@@ -9,7 +9,7 @@
 // ==/UserScript==
 
 var place = document.querySelector ( 'header' );
-var title = '**' + ( document.querySelector ( '.comic-title' ).innerHTML.split ( ' - ' ) [ 1 ] ) + '**<br><br>';
+var title = '**' + ( document.querySelector ( '.comic-title' ).innerHTML.split ( ' - ' ) [ 1 ].replace ( / ?<a.+<\/a>/g, '' ) ) + '**<br><br>';
 var comment = document.querySelector ( '.comment-contents' ).innerHTML.split ( '</span>' ) [ 1 ].replace ( '</p>\n<p>', '\\\\<br>' ).replace ( /(  +|\n|<\/?p>)/g, '' );
 place.innerHTML = title + comment;
 
