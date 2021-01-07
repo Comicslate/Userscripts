@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Tigerknight
-// @version         2021.01.07.1
+// @version         2021.01.07.2
 // @description     Extract Info for Comicslate
 // @include         http*://*tigerknight.com*
 // @icon            https://www.google.com/s2/favicons?domain=tigerknight.com
@@ -16,6 +16,9 @@ var comment =
 	.innerHTML
 	.split ( '</span>' ) [ 1 ]
 	.trim()
+	.replace ( /<a [^>]*href *= *"([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
+	.replace ( /\[\[https?:\/\/([^.]+).wikipedia.[^\/]+\/wiki\/([^\|\]]+)/g, "[[$1w>$2" )
+	.replace ( /w>([^_\|\]]+)_([^\|\]]+)/g, "w>$1 $2" )
 	.replace ( /<p>Reposted.+<\/p>/, '' )
 	.replace ( '</p>\n<p>', '\\\\<br>' )
 	.replace ( /(  +|\n|<\/?p>)/g, ' ' );
