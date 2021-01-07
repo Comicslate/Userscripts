@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Tigerknight
-// @version         2021.01.08
+// @version         2021.01.08.1
 // @description     Extract Info for Comicslate
 // @include         http*://*tigerknight.com*
 // @icon            https://www.google.com/s2/favicons?domain=tigerknight.com
@@ -10,9 +10,12 @@
 
 var place = document.querySelector ( 'header' ),
 	title = '**' + document.querySelector ( '.comic-title' ).innerHTML.replace ( /^[^-]+ - /g, '' ).replace ( / ?<a.+<\/a>/g, '' ) + '**',
-	comment = document.querySelector ( '.comment-contents' ).innerHTML.split ( 'Jan</span>' ) [ 1 ],
+	comment = document.querySelector ( '.comment-contents' ),
 	rgxp = /w>([^\|\]]+)_([^_\|\]]+)/g;
 
+comment = ( comment != null )
+	? comment.innerHTML.split ( 'Jan</span>' ) [ 1 ]
+	: '' ; // если комментов нет совсем
 comment = ( comment != undefined )
 	? comment.trim ( )
 		.replace ( /<a [^>]*href *= *"([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
@@ -21,9 +24,14 @@ comment = ( comment != undefined )
 		.replace ( '</p>\n<p>', '\\\\<br>' )
 		.replace ( /(  +|\n|<\/?p>)/g, ' ' )
 		.trim ( )
-	: '';
-if ( comment !== '' ) title += '<br><br>';
-while ( comment.match ( rgxp ) ) { comment = comment.replace ( rgxp, "w>$1 $2" ) };
+	: ''; // если нет коммента от Жана
+if ( comment !== '' ) title += '<br><br>'; // смычка между частями
+while ( comment.match ( rgxp ) ) { comment = comment.replace ( rgxp, "w>$1 $2" ) }; // отработка всех подчерков в интервики
+
+// в теории можно добавить реакцию на одинаковость страницы и титула
+// var iwiki = comment.match ( /w>([^\|\]]+)\|"?([^\|\]]+)"?/i );
+// if ( iwiki [ 1 ] === iwiki [ 2 ] ) comment.replace ( /w>([^\|\]]+)\|"?([^\|\]]+)"?/i, 'w>$1' )
+// но этот вариант только для одной интервики на страницу... надо for каждый матч отдельно. или while 	regexp.prototype.exec()
 
 place.innerHTML = title + comment;
 
