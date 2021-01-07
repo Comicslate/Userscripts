@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Tigerknight
-// @version         2021.01.07.2
+// @version         2021.01.07.3
 // @description     Extract Info for Comicslate
 // @include         http*://*tigerknight.com*
 // @icon            https://www.google.com/s2/favicons?domain=tigerknight.com
@@ -8,20 +8,22 @@
 // @grant           none
 // ==/UserScript==
 
-var place = document.querySelector ( 'header' );
-var title = '**' + document.querySelector ( '.comic-title' ).innerHTML.replace ( /^[^-]+ - /g, '' ).replace ( / ?<a.+<\/a>/g, '' ) + '**';
-var comment =
+var place = document.querySelector ( 'header' ),
+	title = '**' + document.querySelector ( '.comic-title' ).innerHTML.replace ( /^[^-]+ - /g, '' ).replace ( / ?<a.+<\/a>/g, '' ) + '**',
+	comment =
 	document
 	.querySelector ( '.comment-contents' )
 	.innerHTML
 	.split ( '</span>' ) [ 1 ]
-	.trim()
+	.trim ( )
 	.replace ( /<a [^>]*href *= *"([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
 	.replace ( /\[\[https?:\/\/([^.]+).wikipedia.[^\/]+\/wiki\/([^\|\]]+)/g, "[[$1w>$2" )
-	.replace ( /w>([^_\|\]]+)_([^\|\]]+)/g, "w>$1 $2" )
 	.replace ( /<p>Reposted.+<\/p>/, '' )
 	.replace ( '</p>\n<p>', '\\\\<br>' )
-	.replace ( /(  +|\n|<\/?p>)/g, ' ' );
+	.replace ( /(  +|\n|<\/?p>)/g, ' ' )
+	.trim ( ),
+	rgxp = /w>([^\|\]]+)_([^_\|\]]+)/g;
+while ( comment.match ( rgxp ) ) { comment = comment.replace ( rgxp, "w>$1 $2" ) }
 if ( comment !== '' ) title += '<br><br>';
 place.innerHTML = title + comment;
 
