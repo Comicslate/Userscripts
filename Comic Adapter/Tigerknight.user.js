@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Tigerknight
-// @version         2021.01.06.1
+// @version         2021.01.07
 // @description     Extract Info for Comicslate
 // @include         http*://*tigerknight.com*
 // @icon            https://www.google.com/s2/favicons?domain=tigerknight.com
@@ -10,7 +10,14 @@
 
 var place = document.querySelector ( 'header' );
 var title = '**' + document.querySelector ( '.comic-title' ).innerHTML.replace ( /^[^-]+ - /g, '' ).replace ( / ?<a.+<\/a>/g, '' ) + '**<br><br>';
-var comment = document.querySelector ( '.comment-contents' ).innerHTML.split ( '</span>' ) [ 1 ].replace ( '</p>\n<p>', '\\\\<br>' ).replace ( /(  +|\n|<\/?p>)/g, ' ' );
+var comment =
+	document
+	.querySelector ( '.comment-contents' )
+	.innerHTML
+	.split ( '</span>' ) [ 1 ]
+	.replace ( /<p>Reposted.+<\/p>/, '' )
+	.replace ( '</p>\n<p>', '\\\\<br>' )
+	.replace ( /(  +|\n|<\/?p>)/g, ' ' );
 place.innerHTML = title + comment;
 
 function selectblock ( name ) {
