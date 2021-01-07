@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comic Adapter: Sandra & Woo
-// @version			2020.06.03
+// @version			2021.01.07
 // @description		Extract Info for Comicslate
 // @include			http*://*sandraandwoo.com*
 // @icon			https://www.google.com/s2/favicons?domain=sandraandwoo.com
@@ -40,7 +40,9 @@ titler.innerHTML = titler.innerHTML.replace ( /\[(\d+)\].*/, "$1" );
 if ( entry_p.length !== undefined ) {
 	for ( var i = 0; i < entry_p.length; i++ ) {
 		texter += "<br>" + entry_p[i].innerHTML
-			.replace ( /<a [^<]+ href="([^"]+)">([^<]+)<\/a>/g, "[[$1|$2]]" )
+			.replace ( /<a [^>]*href *= *"([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
+			.replace ( /\[\[https?:\/\/([^.]+).wikipedia.[^\/]+\/wiki\/([^\|\]]+)/g, "[[$1w>$2" )
+			.replace ( /w>([^_\|\]]+)_([^\|\]]+)/g, "w>$1 $2" )
 			.replace ( /<em>([^<]+)<\/em>/g, "//$1//" )
 			.replace ( /<strong>([^<]+)<\/strong>/g, "**$1**" ) + "\\\\<br>";
 	}
