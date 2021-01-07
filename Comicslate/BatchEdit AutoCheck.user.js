@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate BatchEdit AutoCheck
-// @version			2020.08.08
+// @version			2021.01.08
 // @description		Автовыбор вариантов
 // @match			http*://*comicslate.org/*page=batchedit*
 // @exclude			http*://browsershots.org/*
@@ -9,10 +9,12 @@
 // @grant			none
 // ==/UserScript==
 
-var apply = document.querySelector ( "#be-applyall" );
+var apply = document.querySelector ( "#be-applyall" ),
+	minor = document.querySelector ( "#be-minor" );
 
-function action ( ) {
-	if ( apply ) apply.click ( );
+function action ( cl ) {
+	if ( cl ) cl.click ( );
 }
 
-setTimeout ( action, 300 );
+setTimeout ( action ( minor ), 300 );
+setTimeout ( action ( apply ), 300 );
