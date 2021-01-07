@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NaviClicker
-// @version			2020.07.23
+// @version			2021.01.07
 // @description		Добавление "?do=edit" прямой ссылки в редактор к красным/зелёным ссылкам в навигаторе, автоклик на них
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -12,9 +12,10 @@
 
 var cnav = document.querySelector ( ".cnav" ),
 	c_prev = 0,
-	c_next = 0,
+	c_next = 1,
 	c_green = 0,
-	qs;
+	qs,
+	timer = 2000;
 
 if ( cnav != null ) {
 	if ( c_green != 0 ) {
@@ -35,7 +36,7 @@ if ( cnav != null ) {
 	)
 	if ( c_next != 0 && qs == undefined ) qs = document.querySelector ( ".wikilink2#navnext" )
 	if ( c_prev != 0 && qs == undefined ) qs = document.querySelector ( ".wikilink2#navprev" )
-	if ( qs != null ) qs.click ( )
+	if ( qs != null ) setTimeout ( function ( ) { qs.click ( ) }, timer );
 }
 
 // в сочетании с Comicslate AutoSaveClicker - генератор страниц
