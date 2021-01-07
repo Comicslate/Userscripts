@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Tigerknight
-// @version         2021.01.07.3
+// @version         2021.01.08
 // @description     Extract Info for Comicslate
 // @include         http*://*tigerknight.com*
 // @icon            https://www.google.com/s2/favicons?domain=tigerknight.com
@@ -10,21 +10,21 @@
 
 var place = document.querySelector ( 'header' ),
 	title = '**' + document.querySelector ( '.comic-title' ).innerHTML.replace ( /^[^-]+ - /g, '' ).replace ( / ?<a.+<\/a>/g, '' ) + '**',
-	comment =
-	document
-	.querySelector ( '.comment-contents' )
-	.innerHTML
-	.split ( '</span>' ) [ 1 ]
-	.trim ( )
-	.replace ( /<a [^>]*href *= *"([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
-	.replace ( /\[\[https?:\/\/([^.]+).wikipedia.[^\/]+\/wiki\/([^\|\]]+)/g, "[[$1w>$2" )
-	.replace ( /<p>Reposted.+<\/p>/, '' )
-	.replace ( '</p>\n<p>', '\\\\<br>' )
-	.replace ( /(  +|\n|<\/?p>)/g, ' ' )
-	.trim ( ),
+	comment = document.querySelector ( '.comment-contents' ).innerHTML.split ( 'Jan</span>' ) [ 1 ],
 	rgxp = /w>([^\|\]]+)_([^_\|\]]+)/g;
-while ( comment.match ( rgxp ) ) { comment = comment.replace ( rgxp, "w>$1 $2" ) }
+
+comment = ( comment != undefined )
+	? comment.trim ( )
+		.replace ( /<a [^>]*href *= *"([^"]+)"[^>]*>([^<]+)<\/a>/g, "[[$1|$2]]" )
+		.replace ( /\[\[https?:\/\/([^.]+).wikipedia.[^\/]+\/wiki\/([^\|\]]+)/g, "[[$1w>$2" )
+		.replace ( /<p>Reposted.+<\/p>/, '' )
+		.replace ( '</p>\n<p>', '\\\\<br>' )
+		.replace ( /(  +|\n|<\/?p>)/g, ' ' )
+		.trim ( )
+	: '';
 if ( comment !== '' ) title += '<br><br>';
+while ( comment.match ( rgxp ) ) { comment = comment.replace ( rgxp, "w>$1 $2" ) };
+
 place.innerHTML = title + comment;
 
 function selectblock ( name ) {
