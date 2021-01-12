@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Tigerknight
-// @version         2021.01.09
+// @version         2021.01.13
 // @description     Extract Info for Comicslate
 // @include         http*://*tigerknight.com*
 // @icon            https://www.google.com/s2/favicons?domain=tigerknight.com
@@ -9,9 +9,9 @@
 // ==/UserScript==
 
 var chapter = document.querySelector ( '.comic-bookmark-nav option' );
-chapter = ( chapter != null )
+chapter = /*( chapter != null )
 	? chapter.innerHTML + ' - '
-	: '' ;
+	:*/ '' ;
 
 var title = document.querySelector ( '.comic-title' );
 title = ( title != null )
@@ -30,6 +30,8 @@ comment = ( comment != undefined )
 		.replace ( /<p>Reposted.+<\/p>/, '' )
 		.replace ( /(<\/p>\n<p>|<br>)/g, '\\\\<br>' )
 		.replace ( /(  +|\n|<\/?p>)/g, ' ' )
+		.replace ( /<em>([^<]+)<\/em>/g, "//$1//" )
+		.replace ( /<strong>([^<]+)<\/strong>/g, "**$1**" )
 		.trim ( )
 	: '';
 
