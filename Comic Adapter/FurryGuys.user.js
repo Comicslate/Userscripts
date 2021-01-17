@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comic Adapter: FurryGuys
-// @version			2021.01.17
+// @version			2021.01.17.1
 // @description		Extract Info for Comicslate
 // @include			http*://*acomics.ru/~FurryGuys/*
 // @icon			https://www.google.com/s2/favicons?domain=acomics.ru
@@ -32,16 +32,11 @@ function selectblock ( name ) {
 comm = ( comm !== '' )
 	? comm.innerHTML
 		.replace ( /<p[^>]*>\s*(<br>)*\s*(.+)\s*(<br>)*\s*<\/p>/g, "$2" )
-		.replace ( /<.?span[^>]*>/g, "" )
-		.replace ( / style="[^"]*"/g, "" )
+		.replace ( /(<.?span[^>]*>| style="[^"]*")/g, "" )
 		.replace ( /&nbsp;/g, " " )
 		.replace ( /\*(.)/g, "* $1" )
 		.replace ( /\s*(<br>)*\s*$/g, "" )
-		.replace ( /\s*(<br>)*\s*У нас есть.+Аск<\/a>\s*\.?\s*(<br>)*\s*/g, "" )
-		.replace ( /\s*(<br>)*\s*У нас есть.+Вики-фур<\/a>\s*\.?\s*(<br>)*\s*/g, "" )
-		.replace ( /\s*(<br>)*\s*, а также страничка с эксклюзивными.+Бусти<\/a>\s*\.?\s*(<br>)*\s*/g, "" )
-		.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*Спасибо, что голосуете за комикс!\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
-		.replace ( /\s*(<br>)*\s*(<strong[^>]*>)?\s*(<br>)*\s*В голосовалке[^<]+\s*(<br>)*\s*(<\/strong>)?\s*(<br>)*\s*/g, "" )
+		.replace ( /\s*(<br>)*\s*(У нас есть.+(Аск|Вики-фур|, а также страничка с эксклюзивными.+Бусти)<\/a>\s*\.?|(<strong[^>]*>)?\s*(<br>)*\s*(Спасибо, что голосуете за комикс!|В голосовалке[^<]+)\s*(<br>)*\s*(<\/strong>)?)\s*(<br>)*\s*/g, "" )
 		.replace ( /<br>/g, "\\\\\n<br />" )
 		.replace ( /\\\\\n<br \/>\\\\\n<br \/>/g, "\n<br \/>\n<br \/>" )
 		.replace ( / [-|—] /, " – " )
