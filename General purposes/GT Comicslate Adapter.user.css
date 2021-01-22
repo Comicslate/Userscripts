@@ -2,68 +2,127 @@
 	max-width: 99% !important;
 }
 
-.aL9XFd .SL5JTc {
-	column-count: 12;
+.SL5JTc { /* лента языков */
 	padding-left: 5px;
 }
 
-.rT1Yue[jsname="rPx1uf"] {
+.rT1Yue[jsname="rPx1uf"] { /* для перестановки порядка языков */
 	display: inline-flex !important;
-	width: 1879px;
 }
 
-div[data-language-code="az"],div[data-language-code="sq"],div[data-language-code="am"],div[data-language-code="ar"],div[data-language-code="hy"],div[data-language-code="af"],div[data-language-code="eu"],div[data-language-code="bn"],div[data-language-code="my"],div[data-language-code="bs"],div[data-language-code="cy"],div[data-language-code="vi"],div[data-language-code="haw"],div[data-language-code="gl"],div[data-language-code="ka"],div[data-language-code="gu"],div[data-language-code="zu"],div[data-language-code="ig"],div[data-language-code="yi"],div[data-language-code="ga"],div[data-language-code="is"],div[data-language-code="yo"],div[data-language-code="kk"],div[data-language-code="kn"],div[data-language-code="ca"],div[data-language-code="ky"],div[data-language-code="zh-TW"],div[data-language-code="co"],div[data-language-code="ht"],div[data-language-code="ku"],div[data-language-code="km"],div[data-language-code="xh"],div[data-language-code="lo"],div[data-language-code="la"],div[data-language-code="lv"],div[data-language-code="lt"],div[data-language-code="lb"],div[data-language-code="mk"],div[data-language-code="mg"],div[data-language-code="ms"],div[data-language-code="ml"],div[data-language-code="mt"],div[data-language-code="mi"],div[data-language-code="mr"],div[data-language-code="mn"],div[data-language-code="ne"],div[data-language-code="nl"],div[data-language-code="no"],div[data-language-code="or"],div[data-language-code="pa"],div[data-language-code="fa"],div[data-language-code="ps"],div[data-language-code="ro"],div[data-language-code="rw"],div[data-language-code="sm"],div[data-language-code="ceb"],div[data-language-code="sr"],div[data-language-code="st"],div[data-language-code="si"],div[data-language-code="sd"],div[data-language-code="sk"],div[data-language-code="sl"],div[data-language-code="so"],div[data-language-code="sw"],div[data-language-code="su"],div[data-language-code="tg"],div[data-language-code="th"],div[data-language-code="ta"],div[data-language-code="te"],div[data-language-code="tk"],div[data-language-code="tt"],div[data-language-code="uz"],div[data-language-code="ug"],div[data-language-code="ur"],div[data-language-code="tl"],div[data-language-code="fy"],div[data-language-code="ha"],div[data-language-code="hmn"],div[data-language-code="hr"],div[data-language-code="ny"],div[data-language-code="cs"],div[data-language-code="sv"],div[data-language-code="sn"],div[data-language-code="gd"],div[data-language-code="et"],div[data-language-code="jw"],
-div[data-language-code="auto"], button[data-language-code="auto"],
+/* удаление лишнего */
+button[data-language-code="auto"], /* определить язык */
 .RstnCb.sG5QRb, /* найти язык */
 .rT1Yue.O7tFcd, /* последние выбранные языки*/
 .ltCBQb /* значок выбранного последнего языка*/ { 
 	display: none !important;
 }
 
-div[data-language-code="be"] {order: 0;}
-div[data-language-code="bg"] {order: 1;}
-div[data-language-code="da"] {order: 2;}
-div[data-language-code="de"] {order: 3;}
-div[data-language-code="el"] {order: 4;}
-div[data-language-code="en"] {order: 5;}
-div[data-language-code="eo"] {order: 6;}
-div[data-language-code="es"] {order: 7;}
-div[data-language-code="fi"] {order: 8;}
-div[data-language-code="fr"] {order: 9;}
-div[data-language-code="iw"] {order: 10;}
-div[data-language-code="hi"] {order: 11;}
-div[data-language-code="hu"] {order: 12;}
-div[data-language-code="id"] {order: 13;}
-div[data-language-code="it"] {order: 14;}
-div[data-language-code="ja"] {order: 15;}
-div[data-language-code="ko"] {order: 16;}
-div[data-language-code="pl"] {order: 17;}
-div[data-language-code="pt"] {order: 18;}
-div[data-language-code="ru"] {order: 19;}
-div[data-language-code="tr"] {order: 20;}
-div[data-language-code="uk"] {order: 21;}
-div[data-language-code="zh-CN"] {order: 22;}
+div.ordo2 { /* языки */
+	border-right: 1px solid #ddd;
+	display: none;
+}
 
-div[data-language-code="be"] div:before {content: 'be ';}
-div[data-language-code="bg"] div:before {content: 'bg ';}
-div[data-language-code="da"] div:before {content: 'da ';}
-div[data-language-code="de"] div:before {content: 'de ';}
-div[data-language-code="el"] div:before {content: 'el ';}
-div[data-language-code="en"] div:before {content: 'en ';}
-div[data-language-code="eo"] div:before {content: 'eo ';}
-div[data-language-code="es"] div:before {content: 'es ';}
-div[data-language-code="fi"] div:before {content: 'fi ';}
-div[data-language-code="fr"] div:before {content: 'fr ';}
-div[data-language-code="iw"] div:before {content: 'he ';}
-div[data-language-code="hi"] div:before {content: 'hi ';}
-div[data-language-code="hu"] div:before {content: 'hu ';}
-div[data-language-code="id"] div:before {content: 'id ';}
-div[data-language-code="it"] div:before {content: 'it ';}
-div[data-language-code="ja"] div:before {content: 'ja ';}
-div[data-language-code="ko"] div:before {content: 'ko ';}
-div[data-language-code="pl"] div:before {content: 'pl ';}
-div[data-language-code="pt"] div:before {content: 'pt ';}
-div[data-language-code="ru"] div:before {content: 'ru ';}
-div[data-language-code="tr"] div:before {content: 'tr ';}
-div[data-language-code="uk"] div:before {content: 'uk ';}
-div[data-language-code="zh-CN"] div:before {content: 'zh ';}
+@media(device-width:1280px) {
+	div.ordo2 {
+		width: calc((1280px - 34px)/23);
+	}
+	div.ordo2 div:before {
+		text-indent: 10px;
+	}
+}
+
+@media(device-width:1366px) {
+	div.ordo2 {
+		width: calc((1366px - 35px)/23);
+	}
+	div.ordo2 div:before {
+		text-indent: 13px;
+	}
+}
+
+@media(device-width:1536px) { /* 1920/125%scale */
+	div.ordo2 {
+		width: calc((1536px - 37px)/23);
+	}
+	div.ordo2 div:before {
+		text-indent: 17px;
+	}
+}
+
+@media(device-width:1600px) {
+	div.ordo2 {
+		width: calc((1600px - 37px)/23);
+	}
+	div.ordo2 div:before {
+		text-indent: 17px;
+	}
+}
+
+@media(device-width:1920px) {
+	div.ordo2 {
+		width: calc((1920px - 41px)/23);
+	}
+	div.ordo2 div:before {
+		text-indent: 24px;
+	}
+}
+
+/* перестановка и выделение нужных языков */
+div[data-language-code="be"] {order: 0; display: inline-flex;}
+div[data-language-code="bg"] {order: 1; display: inline-flex;}
+div[data-language-code="da"] {order: 2; display: inline-flex;}
+div[data-language-code="de"] {order: 3; display: inline-flex;}
+div[data-language-code="el"] {order: 4; display: inline-flex;}
+div[data-language-code="en"] {order: 5; display: inline-flex;}
+div[data-language-code="eo"] {order: 6; display: inline-flex;}
+div[data-language-code="es"] {order: 7; display: inline-flex;}
+div[data-language-code="fi"] {order: 8; display: inline-flex;}
+div[data-language-code="fr"] {order: 9; display: inline-flex;}
+div[data-language-code="iw"] {order: 10; display: inline-flex;}
+div[data-language-code="hi"] {order: 11; display: inline-flex;}
+div[data-language-code="hu"] {order: 12; display: inline-flex;}
+div[data-language-code="id"] {order: 13; display: inline-flex;}
+div[data-language-code="it"] {order: 14; display: inline-flex;}
+div[data-language-code="ja"] {order: 15; display: inline-flex;}
+div[data-language-code="ko"] {order: 16; display: inline-flex;}
+div[data-language-code="pl"] {order: 17; display: inline-flex;}
+div[data-language-code="pt"] {order: 18; display: inline-flex;}
+div[data-language-code="ru"] {order: 19; display: inline-flex;}
+div[data-language-code="tr"] {order: 20; display: inline-flex;}
+div[data-language-code="uk"] {order: 21; display: inline-flex;}
+div[data-language-code="zh-CN"] {order: 22; display: inline-flex;}
+
+div.ordo2 div { /* сдвигаем и белим полные названия языков */
+	display: block;
+	color: #fff;
+    text-indent: 99px;
+}
+
+div.ordo2 div:before { /* новые отметки */
+	color: #000;
+	float: left;
+}
+div[data-language-code="be"] div:before {content: '🇧🇾 be ';}
+div[data-language-code="bg"] div:before {content: '🇧🇬 bg ';}
+div[data-language-code="da"] div:before {content: '🇩🇰 da ';}
+div[data-language-code="de"] div:before {content: '🇩🇪 de ';}
+div[data-language-code="el"] div:before {content: '🇬🇷 el ';}
+div[data-language-code="en"] div:before {content: '🇺🇸 en ';}
+div[data-language-code="eo"] div:before {content: '🏴 eo ';}
+div[data-language-code="es"] div:before {content: '🇪🇸 es ';}
+div[data-language-code="fi"] div:before {content: '🇫🇮 fi ';}
+div[data-language-code="fr"] div:before {content: '🇫🇷 fr ';}
+div[data-language-code="iw"] div:before {content: '🇮🇱 he ';}
+div[data-language-code="hi"] div:before {content: '🇮🇳 hi ';}
+div[data-language-code="hu"] div:before {content: '🇭🇺 hu ';}
+div[data-language-code="id"] div:before {content: '🇮🇩 id ';}
+div[data-language-code="it"] div:before {content: '🇮🇹 it ';}
+div[data-language-code="ja"] div:before {content: '🇯🇵 ja ';}
+div[data-language-code="ko"] div:before {content: '🇰🇷 ko ';}
+div[data-language-code="pl"] div:before {content: '🇵🇱 pl ';}
+div[data-language-code="pt"] div:before {content: '🇵🇹 pt ';}
+div[data-language-code="ru"] div:before {content: '🇷🇺 ru ';}
+div[data-language-code="tr"] div:before {content: '🇹🇷 tr ';}
+div[data-language-code="uk"] div:before {content: '🇺🇦 uk ';}
+div[data-language-code="zh-CN"] div:before {content: '🇨🇳 zh ';}
