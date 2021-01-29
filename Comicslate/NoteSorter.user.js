@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2021.01.30.1
+// @version			2021.01.30.2
 // @description		Сортировка наклеек
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
