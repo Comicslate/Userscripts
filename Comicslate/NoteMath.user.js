@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name			Comicslate NoteMath
-// @version			2021.01.29
-// @description		Сортировка наклеек
+// @version			2021.01.30.1
+// @description		Счисление координат
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
 // @match			http*://*comicslate.org/*do=draft*
@@ -12,7 +12,7 @@
 // ==/UserScript==
 
 var wiki_text = document.querySelector ( '#wiki__text' ),
-	wtext = wiki_text.textContent;
+	wtext = wiki_text.value;
 
 if ( wtext.match ( 'cotan' ) != null ) {
 	var cotan = wtext.split ( '{{cotan' );
