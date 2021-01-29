@@ -74,11 +74,7 @@ if (
 				}
 			}
 			var end_array = [ ].concat ( centers, borders ); // слияние массивов фонов и текстов, пересортировка по индексам
-			end_array.sort (
-				function ( a, b ) {
-					return a [ 1 ] - b [ 1 ];
-				}
-			)
+			end_array.sort ( ( a, b ) => a [ 1 ] - b [ 1 ] );
 			for ( var k = 0; k < end_array.length; k++ ) { // сборка конечного массива
 				new_notes [ k ] = notes [ end_array [ k ] [ 0 ] ];
 			}
