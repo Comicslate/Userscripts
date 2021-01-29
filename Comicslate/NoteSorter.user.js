@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2020.12.02
+// @version			2021.01.29
 // @description		Сортировка наклеек
 // @match			http*://*comicslate.org/*do=edit*
+// @match			http*://*comicslate.org/*do=preview*
 // @match			http*://*comicslate.org/*do=draft*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
