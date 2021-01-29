@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2021.01.29
+// @version			2021.01.30.1
 // @description		Сортировка наклеек
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
@@ -12,8 +12,7 @@
 // ==/UserScript==
 
 var wiki_text = document.querySelector ( '#wiki__text' ),
-	wtext = wiki_text.textContent,
-	math = 1;
+	wtext = wiki_text.value;
 
 if (
 	!wtext.match ( 'Не_сортировать' )
@@ -35,18 +34,7 @@ if (
 				var nparts = notes [ i ].split ( '\n' ),
 					nontext = nparts.shift ( ).split ( ';' ),
 					coords = nontext.shift ( ).split ( ',' ),
-					coord = '',
 					mark = nparts.toString ( ).charAt ( 0 );
-				for ( var j = 0; j <= 3; j++ ) { // сложение-вычитание
-					if ( coords [ j ].match ( /\+/g ) != null ) {
-						coord = coords [ j ].split ( '+' );
-						coords [ j ] = coord [ 0 ] * 1 + coord [ 1 ] * 1;
-					} else if ( coords [ j ].match ( /\-/g ) != null ) {
-						coord = coords [ j ].split ( '-' );
-						coords [ j ] = coord [ 0 ] * 1 - coord [ 1 ] * 1;
-					};
-				};
-				if ( math ) notes [ i ] = coords.join ( ',' ) + ( nontext != '' ? ';' + nontext : '' ) + '\n' + nparts.join ( '\n' );
 				if ( mark == '#' ) { // для фонов
 					var center = [ ];
 					center.push ( i ); // изначальный notes-номер
@@ -66,7 +54,7 @@ if (
 				}
 			}
 			for ( i = 0; i < borders.length; i++ ) { // проверка на вхождение центра фона в область действия текста
-				for ( j = 0; j < centers.length; j++ ) {
+				for ( var j = 0; j < centers.length; j++ ) {
 					if (
 						(
 							( centers [ j ] [ 2 ] > borders [ i ] [ 2 ] ) // центр фона правее левой границы текста
