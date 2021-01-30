@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate BatchEdit AutoCheck
-// @version			2021.01.08
+// @version			2021.01.30
 // @description		Автовыбор вариантов
 // @match			http*://*comicslate.org/*page=batchedit*
 // @exclude			http*://browsershots.org/*
@@ -9,12 +9,18 @@
 // @grant			none
 // ==/UserScript==
 
-var apply = document.querySelector ( "#be-applyall" ),
+var apply = document.querySelectorAll ( ".be-apply input" ),
 	minor = document.querySelector ( "#be-minor" );
 
 function action ( cl ) {
-	if ( cl ) cl.click ( );
+	if ( cl.length !== undefined ) {
+		for ( var i = 0; i < cl.length; i++ ) {
+			if ( cl [ i ].checked == false ) cl [ i ].click ( );
+		}
+	} else {
+		if ( cl.checked == false ) cl.click ( );
+	}
 }
 
-setTimeout ( action ( minor ), 300 );
-setTimeout ( action ( apply ), 300 );
+setInterval ( action ( minor ), 300 );
+setInterval ( action ( apply ), 300 );
