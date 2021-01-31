@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoApprove
-// @version			2021.01.31
+// @version			2021.01.31.1
 // @description		Автоодобрение правок
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -9,20 +9,20 @@
 // @author			Rainbow-Spike
 // @grant			none
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
-// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoSelfApprove.user.js
-// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoSelfApprove.user.js
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoApprove.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoApprove.user.js
 // ==/UserScript==
 
 var approve_link = document.querySelector ( ".approval_action a" ),
 	self = 'robot_spike',
-	lever = 1;
+	lever = 0;
 
-if ( lever ) {
-	if (
-		approve_link != null
-		&&
-		document.querySelectorAll ( ".pageinfo bdi" ) [ 1 ].innerHTML == self
-	) approve_link.click ( )
-} else {
-	approve_link.click ( )
+if ( approve_link != null ) {
+	if ( lever ) {
+		if ( document.querySelectorAll ( ".pageinfo bdi" ) [ 1 ].innerHTML == self ) {
+			approve_link.click ( )
+		}
+	} else {
+		approve_link.click ( )
+	}
 }
