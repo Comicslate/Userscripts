@@ -1,0 +1,47 @@
+/* расширяем основное окно */
+body {
+	overflow-y: hidden;
+}
+.dl_translator_page_container {
+	min-height: calc(100vh - 103px);
+}
+.dl_body--redesign .dl_top_element--wide {
+	max-width: 100%; padding: 0 10px;
+}
+
+/* прибираемся в верхнем меню, языках, подоконных кнопках и внизу */
+.dl_header_menu_v2__items,
+button[dl-test="translator-lang-option-en-GB"],
+button[dl-test="translator-lang-option-nl-NL"],
+button[dl-test="translator-lang-option-pt-BR"]
+.lmt__target_toolbar__share, .lmt__rating-up, .lmt__rating-down,
+#lmt_pro_ad_container, #lmt_quotes_article {
+	display: none !important;
+}
+
+/* сдвиг верхнего меню */
+.lmt--web .lmt__docTrans-tab-container {
+	left: 194px;
+	margin-right: 194px;
+	position: relative;
+	top: -60px;
+}
+
+/* рамки рабочего поля */
+.lmt__side_container--source .lmt__textarea_container { padding: 8px 28px 36px 8px !important; }
+.lmt__side_container--target .lmt__textarea_container { padding: 8px 8px 36px 12px !important; }
+
+/* жмём футер */
+footer, .dl_footer__container { padding: 0 !important; }
+.dl_footer__social { top: 0; }
+
+/* флажки */
+button[dl-test*="lang-option-be"]:before {content: '🇧🇾 be ';} button[dl-test*="lang-option-bg"]:before {content: '🇧🇬 bg ';} button[dl-test*="lang-option-da"]:before {content: '🇩🇰 da ';}
+button[dl-test*="lang-option-de"]:before {content: '🇩🇪 de ';} button[dl-test*="lang-option-el"]:before {content: '🇬🇷 el ';} button[dl-test*="lang-option-en"]:before {content: '🇬🇧 en ';}
+button[dl-test*="lang-option-en-US"]:before {content: '🇺🇸 en ';} button[dl-test*="lang-option-eo"]:before {content: '🏴 eo ';} button[dl-test*="lang-option-es"]:before {content: '🇪🇸 es ';}
+button[dl-test*="lang-option-fi"]:before {content: '🇫🇮 fi ';} button[dl-test*="lang-option-fr"]:before {content: '🇫🇷 fr ';} button[dl-test*="lang-option-hi"]:before {content: '🇮🇳 hi ';}
+button[dl-test*="lang-option-hu"]:before {content: '🇭🇺 hu ';} button[dl-test*="lang-option-id"]:before {content: '🇮🇩 id ';} button[dl-test*="lang-option-it"]:before {content: '🇮🇹 it ';}
+button[dl-test*="lang-option-iw"]:before {content: '🇮🇱 he ';} button[dl-test*="lang-option-ja"]:before {content: '🇯🇵 ja ';} button[dl-test*="lang-option-ko"]:before {content: '🇰🇷 ko ';}
+button[dl-test*="lang-option-nl"]:before {content: '🇳🇱 nl ';} button[dl-test*="lang-option-pl"]:before {content: '🇵🇱 pl ';} button[dl-test*="lang-option-pt"]:before {content: '🇵🇹 pt ';}
+button[dl-test*="lang-option-pt-BR"]:before {content: '🇧🇷 br ';} button[dl-test*="lang-option-ru"]:before {content: '🇷🇺 ru ';} button[dl-test*="lang-option-tr"]:before {content: '🇹🇷 tr ';}
+button[dl-test*="lang-option-uk"]:before {content: '🇺🇦 uk ';} button[dl-test*="lang-option-zh"]:before {content: '🇨🇳 zh ';}
