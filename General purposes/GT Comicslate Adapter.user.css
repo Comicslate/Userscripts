@@ -12,6 +12,7 @@
 
 /* удаление лишнего */
 button[data-language-code="auto"], /* определить язык */
+#ow183 > div > span > .Ydl7dd.q7sDqe.eT1oJ.yHy1rc.VfPpkd-Bz112c-LgbsSe, /* значок share внизу */
 .RstnCb.sG5QRb, /* найти язык */
 .rT1Yue.O7tFcd, /* последние выбранные языки*/
 .ltCBQb /* значок выбранного последнего языка*/ { 
@@ -69,29 +70,29 @@ div.ordo2 { /* языки */
 }
 
 /* перестановка и выделение нужных языков */
-div[data-language-code="be"] {order: 0; display: inline-flex;}
-div[data-language-code="bg"] {order: 1; display: inline-flex;}
-div[data-language-code="da"] {order: 2; display: inline-flex;}
-div[data-language-code="de"] {order: 3; display: inline-flex;}
-div[data-language-code="el"] {order: 4; display: inline-flex;}
-div[data-language-code="en"] {order: 5; display: inline-flex;}
-div[data-language-code="eo"] {order: 6; display: inline-flex;}
-div[data-language-code="es"] {order: 7; display: inline-flex;}
-div[data-language-code="fi"] {order: 8; display: inline-flex;}
-div[data-language-code="fr"] {order: 9; display: inline-flex;}
-div[data-language-code="iw"] {order: 10; display: inline-flex;}
-div[data-language-code="hi"] {order: 11; display: inline-flex;}
-div[data-language-code="hu"] {order: 12; display: inline-flex;}
-div[data-language-code="id"] {order: 13; display: inline-flex;}
-div[data-language-code="it"] {order: 14; display: inline-flex;}
-div[data-language-code="ja"] {order: 15; display: inline-flex;}
-div[data-language-code="ko"] {order: 16; display: inline-flex;}
-div[data-language-code="pl"] {order: 17; display: inline-flex;}
-div[data-language-code="pt"] {order: 18; display: inline-flex;}
-div[data-language-code="ru"] {order: 19; display: inline-flex;}
-div[data-language-code="tr"] {order: 20; display: inline-flex;}
-div[data-language-code="uk"] {order: 21; display: inline-flex;}
-div[data-language-code="zh-CN"] {order: 22; display: inline-flex;}
+div.ordo2[data-language-code="be"] {order: 0; display: inline-flex;}
+div.ordo2[data-language-code="bg"] {order: 1; display: inline-flex;}
+div.ordo2[data-language-code="da"] {order: 2; display: inline-flex;}
+div.ordo2[data-language-code="de"] {order: 3; display: inline-flex;}
+div.ordo2[data-language-code="el"] {order: 4; display: inline-flex;}
+div.ordo2[data-language-code="en"] {order: 5; display: inline-flex;}
+div.ordo2[data-language-code="eo"] {order: 6; display: inline-flex;}
+div.ordo2[data-language-code="es"] {order: 7; display: inline-flex;}
+div.ordo2[data-language-code="fi"] {order: 8; display: inline-flex;}
+div.ordo2[data-language-code="fr"] {order: 9; display: inline-flex;}
+div.ordo2[data-language-code="iw"] {order: 10; display: inline-flex;}
+div.ordo2[data-language-code="hi"] {order: 11; display: inline-flex;}
+div.ordo2[data-language-code="hu"] {order: 12; display: inline-flex;}
+div.ordo2[data-language-code="id"] {order: 13; display: inline-flex;}
+div.ordo2[data-language-code="it"] {order: 14; display: inline-flex;}
+div.ordo2[data-language-code="ja"] {order: 15; display: inline-flex;}
+div.ordo2[data-language-code="ko"] {order: 16; display: inline-flex;}
+div.ordo2[data-language-code="pl"] {order: 17; display: inline-flex;}
+div.ordo2[data-language-code="pt"] {order: 18; display: inline-flex;}
+div.ordo2[data-language-code="ru"] {order: 19; display: inline-flex;}
+div.ordo2[data-language-code="tr"] {order: 20; display: inline-flex;}
+div.ordo2[data-language-code="uk"] {order: 21; display: inline-flex;}
+div.ordo2[data-language-code="zh-CN"] {order: 22; display: inline-flex;}
 
 div.ordo2 div { /* сдвигаем и белим полные названия языков */
 	display: block;
@@ -103,26 +104,26 @@ div.ordo2 div:before { /* новые отметки */
 	color: #000;
 	float: left;
 }
-div[data-language-code="be"] div:before {content: '🇧🇾 be ';}
-div[data-language-code="bg"] div:before {content: '🇧🇬 bg ';}
-div[data-language-code="da"] div:before {content: '🇩🇰 da ';}
-div[data-language-code="de"] div:before {content: '🇩🇪 de ';}
-div[data-language-code="el"] div:before {content: '🇬🇷 el ';}
-div[data-language-code="en"] div:before {content: '🇺🇸 en ';}
-div[data-language-code="eo"] div:before {content: '🏴 eo ';}
-div[data-language-code="es"] div:before {content: '🇪🇸 es ';}
-div[data-language-code="fi"] div:before {content: '🇫🇮 fi ';}
-div[data-language-code="fr"] div:before {content: '🇫🇷 fr ';}
-div[data-language-code="iw"] div:before {content: '🇮🇱 he ';}
-div[data-language-code="hi"] div:before {content: '🇮🇳 hi ';}
-div[data-language-code="hu"] div:before {content: '🇭🇺 hu ';}
-div[data-language-code="id"] div:before {content: '🇮🇩 id ';}
-div[data-language-code="it"] div:before {content: '🇮🇹 it ';}
-div[data-language-code="ja"] div:before {content: '🇯🇵 ja ';}
-div[data-language-code="ko"] div:before {content: '🇰🇷 ko ';}
-div[data-language-code="pl"] div:before {content: '🇵🇱 pl ';}
-div[data-language-code="pt"] div:before {content: '🇵🇹 pt ';}
-div[data-language-code="ru"] div:before {content: '🇷🇺 ru ';}
-div[data-language-code="tr"] div:before {content: '🇹🇷 tr ';}
-div[data-language-code="uk"] div:before {content: '🇺🇦 uk ';}
-div[data-language-code="zh-CN"] div:before {content: '🇨🇳 zh ';}
+div.ordo2[data-language-code="be"] > div:before {content: '🇧🇾 be ';}
+div.ordo2[data-language-code="bg"] > div:before {content: '🇧🇬 bg ';}
+div.ordo2[data-language-code="da"] > div:before {content: '🇩🇰 da ';}
+div.ordo2[data-language-code="de"] > div:before {content: '🇩🇪 de ';}
+div.ordo2[data-language-code="el"] > div:before {content: '🇬🇷 el ';}
+div.ordo2[data-language-code="en"] > div:before {content: '🇺🇸 en ';}
+div.ordo2[data-language-code="eo"] > div:before {content: '🏴 eo ';}
+div.ordo2[data-language-code="es"] > div:before {content: '🇪🇸 es ';}
+div.ordo2[data-language-code="fi"] > div:before {content: '🇫🇮 fi ';}
+div.ordo2[data-language-code="fr"] > div:before {content: '🇫🇷 fr ';}
+div.ordo2[data-language-code="iw"] > div:before {content: '🇮🇱 he ';}
+div.ordo2[data-language-code="hi"] > div:before {content: '🇮🇳 hi ';}
+div.ordo2[data-language-code="hu"] > div:before {content: '🇭🇺 hu ';}
+div.ordo2[data-language-code="id"] > div:before {content: '🇮🇩 id ';}
+div.ordo2[data-language-code="it"] > div:before {content: '🇮🇹 it ';}
+div.ordo2[data-language-code="ja"] > div:before {content: '🇯🇵 ja ';}
+div.ordo2[data-language-code="ko"] > div:before {content: '🇰🇷 ko ';}
+div.ordo2[data-language-code="pl"] > div:before {content: '🇵🇱 pl ';}
+div.ordo2[data-language-code="pt"] > div:before {content: '🇵🇹 pt ';}
+div.ordo2[data-language-code="ru"] > div:before {content: '🇷🇺 ru ';}
+div.ordo2[data-language-code="tr"] > div:before {content: '🇹🇷 tr ';}
+div.ordo2[data-language-code="uk"] > div:before {content: '🇺🇦 uk ';}
+div.ordo2[data-language-code="zh-CN"] > div:before {content: '🇨🇳 zh ';}
