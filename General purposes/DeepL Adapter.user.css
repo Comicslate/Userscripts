@@ -20,6 +20,9 @@ button[dl-test="translator-lang-option-pt-BR"]
 }
 
 /* сдвиг верхнего меню */
+.lmt--web {
+	z-index: 11;
+}
 .lmt--web .lmt__docTrans-tab-container {
 	left: 194px;
 	margin-right: 194px;
