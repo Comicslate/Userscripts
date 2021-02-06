@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoApprove
-// @version			2021.01.31.1
+// @version			2021.02.06
 // @description		Автоодобрение правок
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -18,11 +18,7 @@ var approve_link = document.querySelector ( ".approval_action a" ),
 	lever = 0;
 
 if ( approve_link != null ) {
-	if ( lever ) {
-		if ( document.querySelectorAll ( ".pageinfo bdi" ) [ 1 ].innerHTML == self ) {
-			approve_link.click ( )
-		}
-	} else {
-		approve_link.click ( )
-	}
+	( lever )
+		? ( ( document.querySelectorAll ( ".pageinfo bdi" ) [ 1 ].innerHTML == self ) ? approve_link.click ( ) : '' )
+		: approve_link.click ( )
 }
