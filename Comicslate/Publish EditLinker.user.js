@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate Publish EditLinker
-// @version			2021.02.06
+// @version			2021.02.06.1
 // @description		Добавление do к ссылкам в "паблише"
 // @match			https://comicslate.org/de/publish
 // @exclude			http*://browsershots.org/*
@@ -13,8 +13,8 @@
 
 // ==/UserScript==
 
-var lv = 3;
-var insert = [ 'edit', 'preview', 'revisions', 'backlink' ];
+var lv = 3,
+	insert = [ 'edit', 'preview', 'revisions', 'backlink' ];
 
 function action ( ) {
 	document.querySelectorAll ( ".apr_table .apr_page a" ).forEach (
