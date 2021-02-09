@@ -1,11 +1,9 @@
 // ==UserScript==
 // @name			Comicslate AutoSaveClicker
-// @version			2021.01.31
+// @version			2021.02.10
 // @description		Автоклик сохранения
-// @match			http*://*comicslate.org/*
-// @exclude			http*://*comicslate.org/*do=index*
-// @exclude			http*://*comicslate.org/*do=revisions*
-// @exclude			http*://browsershots.org/*
+// @match			http*://comicslate.org/*
+// @exclude			/^https?://comicslate\.org\/.+do=[^e]+/
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
