@@ -9,11 +9,13 @@ body {
 	max-width: 100%; padding: 0 10px;
 }
 
+
 /* прибираемся в верхнем меню, языках, подоконных кнопках и внизу */
 .dl_header_menu_v2__items,
-button[dl-test="translator-lang-option-en-GB"],
-button[dl-test="translator-lang-option-nl-NL"],
-button[dl-test="translator-lang-option-pt-BR"],
+button[dl-test*="lang-option-auto"],
+button[dl-test*="lang-option-en-GB"],
+button[dl-test*="lang-option-nl"],
+button[dl-test*="lang-option-pt-BR"],
 .lmt__target_toolbar__share,
 .lmt__rating-up, .lmt__rating-down,
 #lmt_pro_ad_container, #lmt_quotes_article {
@@ -38,6 +40,34 @@ button[dl-test="translator-lang-option-pt-BR"],
 /* жмём футер */
 footer, .dl_footer__container { padding: 0 !important; }
 .dl_footer__social { top: 0; }
+
+/* перестановка порядка языков, красота всякая */
+.lmt__language_select__menu {
+	border-radius: 16px;
+	display: inline-flex !important;
+	overflow: hidden;
+	padding: 8px;
+}
+
+.lmt__language_select__menu button {
+	border: 2px solid #f5f5f5;
+	border-radius: 12px;
+	min-width: 78px;
+	text-indent: 999px;
+	width: 0;
+}
+
+button[dl-test*="lang-option-be"] {order: 0; } button[dl-test*="lang-option-bg"] {order: 1;} button[dl-test*="lang-option-da"] {order: 2;} button[dl-test*="lang-option-de"] {order: 3;}
+button[dl-test*="lang-option-el"] {order: 4;} button[dl-test*="lang-option-en"] {order: 5;} button[dl-test*="lang-option-eo"] {order: 6;} button[dl-test*="lang-option-es"] {order: 7;}
+button[dl-test*="lang-option-fi"] {order: 8;} button[dl-test*="lang-option-fr"] {order: 9;} button[dl-test*="lang-option-iw"] {order: 10;} button[dl-test*="lang-option-hi"] {order: 11;}
+button[dl-test*="lang-option-hu"] {order: 12;} button[dl-test*="lang-option-id"] {order: 13;} button[dl-test*="lang-option-it"] {order: 14;} button[dl-test*="lang-option-ja"] {order: 15;}
+button[dl-test*="lang-option-ko"] {order: 16;} button[dl-test*="lang-option-pl"] {order: 17;} button[dl-test*="lang-option-pt"] {order: 18;} button[dl-test*="lang-option-ru"] {order: 19;}
+button[dl-test*="lang-option-tr"] {order: 20;} button[dl-test*="lang-option-uk"] {order: 21;} button[dl-test*="lang-option-zh"] {order: 22;}
+
+.lmt__language_select__menu button:before {
+	float: left;
+	text-indent: 0;
+}
 
 /* флажки */
 button[dl-test*="lang-option-be"]:before {content: '🇧🇾 be ';} button[dl-test*="lang-option-bg"]:before {content: '🇧🇬 bg ';} button[dl-test*="lang-option-da"]:before {content: '🇩🇰 da ';}
