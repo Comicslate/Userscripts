@@ -62,7 +62,7 @@ div.ordo2 { /* языки */
 
 @media(device-width:1920px) {
 	div.ordo2 {
-		width: calc((1920px - 41px)/23);
+		width: calc((1920px - 41px)/23); /* подгон под кнопкоязыки. на этом бросил, остальных надо уточнять. причём реально меняя экран монитора, а не в консоли */
 	}
 	div.ordo2 div:before {
 		text-indent: 24px;
@@ -103,27 +103,100 @@ div.ordo2 div { /* сдвигаем и белим полные названия 
 div.ordo2 div:before { /* новые отметки */
 	color: #000;
 	float: left;
+	position: relative;
+	left: 20px;
+	text-indent: 23px;
+	top: 4px;
 }
-div.ordo2[data-language-code="be"] > div:before {content: '🇧🇾 be ';}
-div.ordo2[data-language-code="bg"] > div:before {content: '🇧🇬 bg ';}
-div.ordo2[data-language-code="da"] > div:before {content: '🇩🇰 da ';}
-div.ordo2[data-language-code="de"] > div:before {content: '🇩🇪 de ';}
-div.ordo2[data-language-code="el"] > div:before {content: '🇬🇷 el ';}
-div.ordo2[data-language-code="en"] > div:before {content: '🇺🇸 en ';}
-div.ordo2[data-language-code="eo"] > div:before {content: '🏴 eo ';}
-div.ordo2[data-language-code="es"] > div:before {content: '🇪🇸 es ';}
-div.ordo2[data-language-code="fi"] > div:before {content: '🇫🇮 fi ';}
-div.ordo2[data-language-code="fr"] > div:before {content: '🇫🇷 fr ';}
-div.ordo2[data-language-code="iw"] > div:before {content: '🇮🇱 he ';}
-div.ordo2[data-language-code="hi"] > div:before {content: '🇮🇳 hi ';}
-div.ordo2[data-language-code="hu"] > div:before {content: '🇭🇺 hu ';}
-div.ordo2[data-language-code="id"] > div:before {content: '🇮🇩 id ';}
-div.ordo2[data-language-code="it"] > div:before {content: '🇮🇹 it ';}
-div.ordo2[data-language-code="ja"] > div:before {content: '🇯🇵 ja ';}
-div.ordo2[data-language-code="ko"] > div:before {content: '🇰🇷 ko ';}
-div.ordo2[data-language-code="pl"] > div:before {content: '🇵🇱 pl ';}
-div.ordo2[data-language-code="pt"] > div:before {content: '🇵🇹 pt ';}
-div.ordo2[data-language-code="ru"] > div:before {content: '🇷🇺 ru ';}
-div.ordo2[data-language-code="tr"] > div:before {content: '🇹🇷 tr ';}
-div.ordo2[data-language-code="uk"] > div:before {content: '🇺🇦 uk ';}
-div.ordo2[data-language-code="zh-CN"] > div:before {content: '🇨🇳 zh ';}
+div.ordo2[data-language-code="be"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/be.png) no-repeat;
+	content: 'be';
+}
+div.ordo2[data-language-code="bg"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/bg.png) no-repeat;
+	content: 'bg';
+}
+div.ordo2[data-language-code="da"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/dk.png) no-repeat;
+	content: 'da';
+}
+div.ordo2[data-language-code="de"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/de.png) no-repeat;
+	content: 'de';
+}
+div.ordo2[data-language-code="el"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/gr.png) no-repeat;
+	content: 'el';
+}
+div.ordo2[data-language-code="en"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/gb.png) no-repeat;
+	content: 'en';
+}
+div.ordo2[data-language-code="eo"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/eo.png) no-repeat;
+	content: 'eo';
+}
+div.ordo2[data-language-code="es"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/es.png) no-repeat;
+	content: 'es';
+}
+div.ordo2[data-language-code="fi"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/fi.png) no-repeat;
+	content: 'fi';
+}
+div.ordo2[data-language-code="fr"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/fr.png) no-repeat;
+	content: 'fr';
+}
+div.ordo2[data-language-code="iw"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/il.png) no-repeat;
+	content: 'he';
+}
+div.ordo2[data-language-code="hi"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/in.png) no-repeat;
+	content: 'hi';
+}
+div.ordo2[data-language-code="hu"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/hu.png) no-repeat;
+	content: 'hu';
+}
+div.ordo2[data-language-code="id"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/id.png) no-repeat;
+	content: 'id';
+}
+div.ordo2[data-language-code="it"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/it.png) no-repeat;
+	content: 'it';
+}
+div.ordo2[data-language-code="ja"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/jp.png) no-repeat;
+	content: 'ja';
+}
+div.ordo2[data-language-code="ko"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/kr.png) no-repeat;
+	content: 'ko';
+}
+div.ordo2[data-language-code="pl"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/pl.png) no-repeat;
+	content: 'pl';
+}
+div.ordo2[data-language-code="pt"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/pt.png) no-repeat;
+	content: 'pt';
+}
+div.ordo2[data-language-code="ru"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/ru.png) no-repeat;
+	content: 'ru';
+}
+div.ordo2[data-language-code="tr"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/tr.png) no-repeat;
+	content: 'tr';
+}
+div.ordo2[data-language-code="uk"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/ua.png) no-repeat;
+	content: 'uk';
+}
+div.ordo2[data-language-code="zh-CN"] > div:before {
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/cn.png) no-repeat;
+	content: 'zh';
+}
