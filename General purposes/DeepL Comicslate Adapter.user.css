@@ -71,108 +71,140 @@ button[dl-test*="lang-option-tr"] {order: 20;} button[dl-test*="lang-option-uk"]
 	top: 5px;
 }
 
+/* подписи */
+button[dl-test*="lang-option-be"]:before { content: 'be'; }
+button[dl-test*="lang-option-bg"]:before { content: 'bg'; }
+button[dl-test*="lang-option-da"]:before { content: 'da'; }
+button[dl-test*="lang-option-de"]:before { content: 'de'; }
+button[dl-test*="lang-option-el"]:before { content: 'el'; }
+button[dl-test*="lang-option-en"]:before,
+button[dl-test*="lang-option-en-US"]:before { content: 'en'; }
+button[dl-test*="lang-option-eo"]:before { content: 'eo'; }
+button[dl-test*="lang-option-es"]:before { content: 'es'; }
+button[dl-test*="lang-option-fi"]:before { content: 'fi'; }
+button[dl-test*="lang-option-fr"]:before { content: 'fr'; }
+button[dl-test*="lang-option-hi"]:before { content: 'hi'; }
+button[dl-test*="lang-option-hu"]:before { content: 'hu'; }
+button[dl-test*="lang-option-id"]:before { content: 'id'; }
+button[dl-test*="lang-option-it"]:before { content: 'it'; }
+button[dl-test*="lang-option-iw"]:before { content: 'he'; }
+button[dl-test*="lang-option-ja"]:before { content: 'ja'; }
+button[dl-test*="lang-option-ko"]:before { content: 'ko'; }
+button[dl-test*="lang-option-nl"]:before { content: 'nl'; }
+button[dl-test*="lang-option-pl"]:before { content: 'pl'; }
+button[dl-test*="lang-option-pt"]:before { content: 'pt'; }
+button[dl-test*="lang-option-pt-BR"]:before { content: 'br'; }
+button[dl-test*="lang-option-ru"]:before { content: 'ru'; }
+button[dl-test*="lang-option-tr"]:before { content: 'tr'; }
+button[dl-test*="lang-option-uk"]:before { content: 'uk'; }
+button[dl-test*="lang-option-zh"]:before { content: 'zh'; }
+
 /* флажки */
+div[dl-selected-lang*="be"] strong,
 button[dl-test*="lang-option-be"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/be.png) no-repeat;
-	content: 'be';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/be.png);
 }
+div[dl-selected-lang*="bg"] strong,
 button[dl-test*="lang-option-bg"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/bg.png) no-repeat;
-	content: 'bg';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/bg.png);
 }
+div[dl-selected-lang*="da"] strong,
 button[dl-test*="lang-option-da"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/dk.png) no-repeat;
-	content: 'da';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/dk.png);
 }
+div[dl-selected-lang*="de"] strong,
 button[dl-test*="lang-option-de"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/de.png) no-repeat;
-	content: 'de';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/de.png);
 }
+div[dl-selected-lang*="el"] strong,
 button[dl-test*="lang-option-el"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/gr.png) no-repeat;
-	content: 'el';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/gr.png);
 }
+div[dl-selected-lang*="en"] strong,
 button[dl-test*="lang-option-en"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/gb.png) no-repeat;
-	content: 'en';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/gb.png);
 }
+div[dl-selected-lang*="en-US"] strong,
 button[dl-test*="lang-option-en-US"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/us.png) no-repeat;
-	content: 'en';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/us.png);
 }
+div[dl-selected-lang*="eo"] strong,
 button[dl-test*="lang-option-eo"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/eo.png) no-repeat;
-	content: 'eo';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/eo.png);
 }
+div[dl-selected-lang*="es"] strong,
 button[dl-test*="lang-option-es"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/es.png) no-repeat;
-	content: 'es';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/es.png);
 }
+div[dl-selected-lang*="fi"] strong,
 button[dl-test*="lang-option-fi"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/fi.png) no-repeat;
-	content: 'fi';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/fi.png);
 }
+div[dl-selected-lang*="fr"] strong,
 button[dl-test*="lang-option-fr"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/fr.png) no-repeat;
-	content: 'fr';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/fr.png);
 }
+div[dl-selected-lang*="hi"] strong,
 button[dl-test*="lang-option-hi"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/in.png) no-repeat;
-	content: 'hi';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/in.png);
 }
+div[dl-selected-lang*="hu"] strong,
 button[dl-test*="lang-option-hu"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/hu.png) no-repeat;
-	content: 'hu';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/hu.png);
 }
+div[dl-selected-lang*="id"] strong,
 button[dl-test*="lang-option-id"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/id.png) no-repeat;
-	content: 'id';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/id.png);
 }
+div[dl-selected-lang*="it"] strong,
 button[dl-test*="lang-option-it"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/it.png) no-repeat;
-	content: 'it';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/it.png);
 }
+div[dl-selected-lang*="iw"] strong,
 button[dl-test*="lang-option-iw"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/il.png) no-repeat;
-	content: 'he';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/il.png);
 }
+div[dl-selected-lang*="ja"] strong,
 button[dl-test*="lang-option-ja"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/jp.png) no-repeat;
-	content: 'ja';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/jp.png);
 }
+div[dl-selected-lang*="ko"] strong,
 button[dl-test*="lang-option-ko"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/kr.png) no-repeat;
-	content: 'ko';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/kr.png);
 }
+div[dl-selected-lang*="nl"] strong,
 button[dl-test*="lang-option-nl"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/nl.png) no-repeat;
-	content: 'nl';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/nl.png);
 }
+div[dl-selected-lang*="pl"] strong,
 button[dl-test*="lang-option-pl"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/pl.png) no-repeat;
-	content: 'pl';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/pl.png);
 }
+div[dl-selected-lang*="pt"] strong,
 button[dl-test*="lang-option-pt"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/pt.png) no-repeat;
-	content: 'pt';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/pt.png);
 }
+div[dl-selected-lang*="pt-BR"] strong,
 button[dl-test*="lang-option-pt-BR"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/br.png) no-repeat;
-	content: 'br';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/br.png);
 }
+div[dl-selected-lang*="ru"] strong,
 button[dl-test*="lang-option-ru"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/ru.png) no-repeat;
-	content: 'ru';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/ru.png);
 }
+div[dl-selected-lang*="tr"] strong,
 button[dl-test*="lang-option-tr"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/tr.png) no-repeat;
-	content: 'tr';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/tr.png);
 }
+div[dl-selected-lang*="uk"] strong,
 button[dl-test*="lang-option-uk"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/ua.png) no-repeat;
-	content: 'uk';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/ua.png);
 }
+div[dl-selected-lang*="zh"] strong,
 button[dl-test*="lang-option-zh"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/cn.png) no-repeat;
-	content: 'zh';
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/cn.png);
+}
+div[dl-selected-lang] strong,
+button[dl-test]:before {
+	background-repeat: no-repeat;
 }
