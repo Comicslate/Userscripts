@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name            Comic Adapter: Freefall - Deutsche Version
+// @name            Comic Adapter: Freefall DE
 // @version			2021.03.14
 // @description     Auszug Info für Comicslate
 // @include         http*://freefall.purrsia.com/*
