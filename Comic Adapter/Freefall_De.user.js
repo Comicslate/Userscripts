@@ -227,7 +227,7 @@ switch ( true ) {	case num >= 3539: name = "Flo und Gregor auf dem Schiff - 11. 
 	case num >= 277: name = "Jahr 2000 - 3. Januar 2000"; break;
 	case num >= 244: name = "Spuren verwischen - 18. Oktober 1999"; break;
 	case num >= 226: name = "Wie man ein Reh fängt. So ungefähr - 6. September 1999"; break;
-	case num >= 209: name = "Reise zum "Goldenen Trog", dem Feinsten der schlechten Küche - 28. Juli 1999"; break;
+	case num >= 209: name = "Reise zum \"Goldenen Trog\", dem Feinsten der schlechten Küche - 28. Juli 1999"; break;
 	case num >= 199: name = "Eine unentgeltliche Duschszene - 5. Juli 1999"; break;
 	case num >= 183: name = "Mittagessen und Häschen - 28. Mai 1999"; break;
 	case num >= 179: name = "Diese Leute müssen ihre Prioritäten richtig setzen - 19. Mai 1999"; break;
