@@ -6,6 +6,8 @@
 // @icon			https://www.google.com/s2/favicons?domain=deepl.com
 // @author			Rainbow-Spike
 // @grant			none
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/General%20purposes/DeepL%20LangSorter.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/General%20purposes/DeepL%20LangSorter.user.js
 // ==/UserScript==
 
 function action ( ) {
