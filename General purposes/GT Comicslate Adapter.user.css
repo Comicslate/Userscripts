@@ -109,7 +109,7 @@ div.ordo2 div:before { /* новые отметки */
 	top: 4px;
 }
 div.ordo2[data-language-code="be"] > div:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/be.png) no-repeat;
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/by.png) no-repeat;
 	content: 'be';
 }
 div.ordo2[data-language-code="bg"] > div:before {
