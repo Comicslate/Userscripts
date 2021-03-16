@@ -19,16 +19,6 @@ div.container--baxID[dl-test*="source"] button:nth-of-type(19),
 div.container--baxID[dl-test*="source"] button:nth-of-type(22),
 div.container--baxID[dl-test*="source"] button:nth-of-type(23),
 div.container--baxID[dl-test*="source"] button:nth-of-type(24),
-div.container--baxID[dl-test*="target"] button:nth-of-type(8),
-div.container--baxID[dl-test*="target"] button:nth-of-type(9),
-div.container--baxID[dl-test*="target"] button:nth-of-type(11),
-div.container--baxID[dl-test*="target"] button:nth-of-type(14),
-div.container--baxID[dl-test*="target"] button:nth-of-type(15),
-div.container--baxID[dl-test*="target"] button:nth-of-type(17),
-div.container--baxID[dl-test*="target"] button:nth-of-type(18),
-div.container--baxID[dl-test*="target"] button:nth-of-type(21),
-div.container--baxID[dl-test*="target"] button:nth-of-type(22),
-div.container--baxID[dl-test*="target"] button:nth-of-type(23),
 .lmt__target_toolbar__share,
 .lmt__rating,
 #lmt_pro_ad_container,
@@ -90,23 +80,6 @@ div.container--baxID[dl-test*="source"] button:nth-of-type(14) { order: 12; } /*
 div.container--baxID[dl-test*="source"] button:nth-of-type(15) { order: 13; } /* pt */
 div.container--baxID[dl-test*="source"] button:nth-of-type(17) { order: 14; } /* ru */
 div.container--baxID[dl-test*="source"] button:nth-of-type(9) { order: 15; } /* zh */
-
-/* !!! РАБОТАЕТ ТОЛЬКО ПРИ ВЫБОРЕ АНГЛИЙСКОГО В СПИСКЕ СЛЕВА. НАДО ДУМАТЬ НАД ЮЗЕРСКРИПТОМ */
-div.container--baxID[dl-test*="target"] button:nth-of-type(1) { order: 1; } /* bg */
-div.container--baxID[dl-test*="target"] button:nth-of-type(4) { order: 2; } /* da */
-div.container--baxID[dl-test*="target"] button:nth-of-type(10) { order: 3; } /* de */
-div.container--baxID[dl-test*="target"] button:nth-of-type(3) { order: 4; } /* el */
-div.container--baxID[dl-test*="target"] button:nth-of-type(2) { order: 5; } /* en */
-div.container--baxID[dl-test*="target"] button:nth-of-type(5) { order: 6; } /* es */
-div.container--baxID[dl-test*="target"] button:nth-of-type(19) { order: 7; } /* fi */
-div.container--baxID[dl-test*="target"] button:nth-of-type(20) { order: 8; } /* fr */
-div.container--baxID[dl-test*="target"] button:nth-of-type(2) { order: 9; } /* hu */
-div.container--baxID[dl-test*="target"] button:nth-of-type(6) { order: 10; } /* it */
-div.container--baxID[dl-test*="target"] button:nth-of-type(24) { order: 11; } /* ja */
-div.container--baxID[dl-test*="target"] button:nth-of-type(12) { order: 12; } /* pl */
-div.container--baxID[dl-test*="target"] button:nth-of-type(13) { order: 13; } /* pt */
-div.container--baxID[dl-test*="target"] button:nth-of-type(16) { order: 14; } /* ru */
-div.container--baxID[dl-test*="target"] button:nth-of-type(7) { order: 15; } /* zh */
 div.container--baxID button div {
 	text-indent: 999px;
 }
