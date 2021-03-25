@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Spinnerette
-// @version         2020.11.15
+// @version         2021.03.26
 // @description     Extract Info for Comicslate
 // @include         http*://*spinnyverse.com*
 // @icon            https://www.google.com/s2/favicons?domain=spinnyverse.com
@@ -23,7 +23,7 @@ function selectblock ( name ) {
 }
 
 function action ( ) {
-	title = ( img != null ) ? '**' + img.getAttribute ( 'title' ).replace ( 'Issue', 'Выпуск' ) + '**' : '';
+	title = ( img != null ) ? '**' + img.getAttribute ( 'title' ).replace ( 'Issue', 'Выпуск' ) + '**<br>' : '';
 	insert.innerHTML = title;
 	( node != null ) ? node.appendChild ( insert ) : '';
 	selectblock ( insert );
