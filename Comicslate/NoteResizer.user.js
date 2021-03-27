@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NoteResizer
-// @version			2021.02.16
+// @version			2021.03.28
 // @description		Причёсывание наклеек под новый размер картинки
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
@@ -12,8 +12,8 @@
 // ==/UserScript==
 
 var wiki_text = document.querySelector ( '#wiki__text' ),
-	wtext = wiki_text.textContent./*replace ( /(\d\d\d\d)\.jpg/, '$1.png' ).*/replace ( /\{\{([^\>\}\.]+)\.png\}\}/, '{{cotan>$1.png}}\n{{<cotan}}' ),
-	k = 900 / 660;
+	wtext = wiki_text.value.replace ( /(\d\d\d\d)\.png/, '$1_1.png' ).replace ( /\{\{([^\>\}\.]+)\.png\}\}/, '{{cotan>$1.png}}\n{{<cotan}}' ),
+	k = 900 / 522;
 wiki_text.value = wtext;
 
 if (
