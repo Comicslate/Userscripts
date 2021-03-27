@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Spinnerette
-// @version         2021.03.26
+// @version         2021.03.27
 // @description     Extract Info for Comicslate
 // @include         http*://*spinnyverse.com*
 // @icon            https://www.google.com/s2/favicons?domain=spinnyverse.com
@@ -9,8 +9,8 @@
 // ==/UserScript==
 
 var insert = document.createElement ( 'div' ),
-	node = document.querySelector ( '#cc-comicbody' ),
-	img = document.querySelector ( '#cc-comic' ),
+	node = document.querySelector ( '#logo' ),
+	tit = document.querySelector ( 'title' ),
 	title;
 
 // SELECT
@@ -23,7 +23,7 @@ function selectblock ( name ) {
 }
 
 function action ( ) {
-	title = ( img != null ) ? '**' + img.getAttribute ( 'title' ).replace ( 'Issue', 'Выпуск' ) + '**<br>' : '';
+	title = ( tit != null ) ? '**' + tit.innerHTML.replace ( 'Spinnerette - ', '' ).replace ( 'Issue', 'Выпуск' ) + '**<br>' : '';
 	insert.innerHTML = title;
 	( node != null ) ? node.appendChild ( insert ) : '';
 	selectblock ( insert );
