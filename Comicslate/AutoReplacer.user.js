@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoReplacer
-// @version			2020.12.13
+// @version			2021.04.04
 // @description		Автозамены в Комикслейте
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -49,6 +49,9 @@ var wiki__text = document.querySelector ( "#wiki__text" ),
 		[ "Ambers-no-brainers", "Amber's No-Brainers" ],
 		[ "Peanut-berry-sundae", "Peanut Berry Sundae" ],
 		[ "Furry-guys", "Furry Guys" ],
+		[ "College-catastrophe", "College Catastrophe" ],
+		[ "Nine-to-nine", "Nine to Nine" ],
+		[ "Swords-and-sausages", "Swords and Sausages" ],
 
 		[ "Bunny-mischief", "Bunny Mischief" ],
 		[ "Goblin-hollow", "Goblin Hollow" ],
@@ -66,6 +69,7 @@ var wiki__text = document.querySelector ( "#wiki__text" ),
 		[ "Nerd-rage", "Nerd Rage" ],
 		[ "Diario-magico", "Diario Magico" ],
 		[ "Awkward-zombie", "AWKWARD ZOMBIE" ],
+		[ "It-sucks-to-be-weegie", "It sucks to be Weegie!" ],
 
 		[ "Vida-de-programador", "Vida de Programador" ],
 		[ "Sluggy-freelance", "Sluggy Freelance" ],
