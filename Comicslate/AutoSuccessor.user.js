@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoSuccessor
-// @version			2020.07.23
+// @version			2021.01.31
 // @description		Обрезка адреса после одобрения
 // @match			http*://*comicslate.org/*rev=*
 // @exclude			http*://browsershots.org/*
