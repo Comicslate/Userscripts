@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoSaveClicker
-// @version			2021.02.10
+// @version			2021.03.23
 // @description		Автоклик сохранения
 // @match			http*://comicslate.org/*
 // @exclude			/^https?://comicslate\.org\/.+do=[^e]+/
@@ -12,9 +12,11 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoSaveClicker.user.js
 // ==/UserScript==
 
+// при отсутствии реакции закрытия в фоксе - about:config -> dom.allow_scripts_to_close_windows -> true
+
 var lever = 1, // генератор страниц
 	sv = document.querySelector ( "#edbtn__save" ),
-	timer = 2;
+	timer = 10;
 
 sv
 	? sv.click ( )
@@ -23,8 +25,6 @@ sv
 		? setTimeout ( function ( ) { window.close ( ) }, timer * 1000 ) // 1 + Comicslate IndexEditor
 		: '' // 0 + Comicslate NaviClicker
 	)
-
-// при отсутствии реакции закрытия в фоксе - about:config -> dom.allow_scripts_to_close_windows -> true
 
 // спрятать нормальные десятники в индексах, сначала d, потом h (удалить файлы физически в тотале, генерить этим скриптом)
 // document.querySelectorAll ( '.idx .li a' ).forEach ( function ( e ) { if ( e.innerHTML.match ( 'Freefall d' ) == null ) e.style.display = 'none' } )
