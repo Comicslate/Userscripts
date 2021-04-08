@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comic Adapter: TwoKinds
-// @version			2020.06.03
+// @version			2021.04.08
 // @description		Extract Info for Comicslate
 // @include			http*://*twokinds.keenspot.com*
 // @icon			https://www.google.com/s2/favicons?domain=twokinds.keenspot.com
@@ -8,7 +8,7 @@
 // @grant			none
 // ==/UserScript==
 
-var titler1 = parseInt ( document.getElementsByTagName ( "title" )[0].innerHTML.split ( ': ' )[0] ),
+var titler1 = parseInt ( document.querySelector ( 'meta[name*="title"]' ).getAttribute('content').split ( ': ' )[0] ),
 	titler2 = document.querySelector ( "h1" ).innerHTML.split ( ': ' )[1],
 	trans = document.querySelector ( ".transcript-content" ),
 	trans_p = trans.querySelectorAll ( "p" ),
