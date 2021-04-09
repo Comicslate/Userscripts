@@ -6,6 +6,14 @@ body.dl_body--redesign .dl_top_element--wide {
 	padding: 0 5px;
 }
 
+.dl_body--translator {
+    overflow: auto;
+}
+
+.dl_translator_page_container {
+    min-height: calc(100vh - 138px);
+}
+
 /* прибираемся в верхнем меню, языках, подоконных кнопках и внизу */
 .dl_header_menu_v2__items,
 .lmt__docTrans-tab-container,
