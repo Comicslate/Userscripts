@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate ImageNice
-// @version			2020.07.23
+// @version			2021.04.15
 // @description		Вставка красоты под картинками
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -8,6 +8,9 @@
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			GM_addStyle
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/ImageNice.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/ImageNice.user.js
 // ==/UserScript==
 
 var in_div1 = document.createElement ( 'div' ),
