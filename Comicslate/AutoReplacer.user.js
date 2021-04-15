@@ -32,7 +32,7 @@ var wiki__text = document.querySelector ( "#wiki__text" ),
 		[ "The-lion-queen", "The Lion Queen"],
 		[ "Brokenfangs-commentcomic", "Brokenfangs CommentComic" ],
 		[ "Heir-to-pride-rock", "Heir to Pride Rock" ],
-		
+
 		[ "Ask-princess-molestia", "Ask Princess Molestia" ],
 
 		[ "Wolfs-rain-next-generation", "Wolf's Rain – Next Generation" ],
