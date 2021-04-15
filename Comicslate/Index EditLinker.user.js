@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate Index EditLinker
-// @version			2021.02.06
+// @version			2021.04.15
 // @description		Добавление do к ссылкам в "карте сайта"
 // @match			http*://*comicslate.org/*do=index*
 // @match			http*://*comicslate.org/*idx=*
@@ -9,8 +9,8 @@
 // @author			Rainbow-Spike
 // @grant			none
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
-// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Index EditLinker.user.js
-// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Index EditLinker.user.js
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Index%20EditLinker.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Index%20EditLinker.user.js
 // ==/UserScript==
 
 var lang = '', // подменять язык
