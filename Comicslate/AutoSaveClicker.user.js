@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoSaveClicker
-// @version			2021.03.23
+// @version			2021.04.15
 // @description		Автоклик сохранения
 // @match			http*://comicslate.org/*
 // @exclude			/^https?://comicslate\.org\/.+do=[^e]+/
