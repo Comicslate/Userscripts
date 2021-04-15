@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoClicker
-// @version			2020.09.03
+// @version			2021.04.15
 // @description		Листание комикса по таймеру
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
