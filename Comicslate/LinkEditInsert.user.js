@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate LinkEditInsert
-// @version			2020.08.18
+// @version			2021.04.15
 // @description		Дополнительные ссылки паблиша и редактора мессаджей
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/lib/exe/mediamanager.php*
@@ -9,6 +9,9 @@
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/LinkEditInsert.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/LinkEditInsert.user.js
 // ==/UserScript==
 
 var	mess = document.querySelector ( ".error, .info, .success, .notify, .approved_no" );
