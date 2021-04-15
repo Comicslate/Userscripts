@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate GradientFix
-// @version			2020.08.18
+// @version			2021.04.15
 // @description		Фиксатор градиентов
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -8,6 +8,9 @@
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/GradientFix.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/GradientFix.user.js
 // ==/UserScript==
 
 function grad_fix ( ) {
