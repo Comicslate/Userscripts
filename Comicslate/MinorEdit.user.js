@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate MinorEdit
-// @version			2020.08.18
+// @version			2021.04.15
 // @description		Автовыбор "малой правки"
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -9,6 +9,9 @@
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/MinorEdit.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/MinorEdit.user.js
 // ==/UserScript==
 
 var lever = 1, /*	1 - галочить только исправления, создания не галочить
