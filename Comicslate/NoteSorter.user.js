@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2021.01.30.2
+// @version			2021.04.15
 // @description		Сортировка наклеек
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
@@ -9,6 +9,9 @@
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/NoteSorter.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/NoteSorter.user.js
 // ==/UserScript==
 
 var wiki_text = document.querySelector ( '#wiki__text' ),
