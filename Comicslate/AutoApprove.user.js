@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoApprove
-// @version			2021.02.06
+// @version			2021.04.15
 // @description		Автоодобрение правок
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
