@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoCounter
-// @version			2021.04.15.1
+// @version			2021.04.15.2
 // @description		Автозамена номеров в Комикслейте
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -24,8 +24,6 @@ if ( wiki__text !== null ) {
 		if ( num !== null ) text = text.replace ( 'Страница *', 'Страница ' + num + '*' );
 	}
 	if ( window.location.href.match ( 'furry-guys' ) !== null ) {
-/*		var num1 = text.match ( /Furry Guys (\d+)/ )[1] * 1 - 992;
-		if ( num1 !== null ) text = text.replace ( 'Выпуск 14-*', 'Выпуск 14-' + num1 + '*' );*/
 		if ( window.location.href.match ( '\/en\/' ) !== null ) text = text.replace ( 'Выпуск', 'Issue' )
 	}
 	if ( window.location.href.match ( 'heavenly-nostrils' ) !== null
