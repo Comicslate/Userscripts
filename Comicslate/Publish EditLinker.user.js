@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate Publish EditLinker
-// @version			2021.02.06.1
+// @version			2021.04.15
 // @description		Добавление do к ссылкам в "паблише"
 // @match			https://comicslate.org/de/publish
 // @exclude			http*://browsershots.org/*
@@ -8,8 +8,8 @@
 // @author			Rainbow-Spike
 // @grant			none
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
-// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish EditLinker.user.js
-// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish EditLinker.user.js
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish%20EditLinker.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish%20EditLinker.user.js
 
 // ==/UserScript==
 
