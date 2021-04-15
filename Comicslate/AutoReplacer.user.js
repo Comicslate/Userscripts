@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoReplacer
-// @version			2021.04.04
+// @version			2021.04.15
 // @description		Автозамены в Комикслейте
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -8,6 +8,9 @@
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoReplacer.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoReplacer.user.js
 // ==/UserScript==
 
 var wiki__text = document.querySelector ( "#wiki__text" ),
