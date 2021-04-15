@@ -1,12 +1,15 @@
 // ==UserScript==
 // @name			Comicslate TimeFix
-// @version			2021.01.24
+// @version			2021.04.15
 // @description		Исправление часового пояса на Комикслейте
 // @match			http*://*comicslate.org/*
 // @exclude			http*://browsershots.org/*
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/TimeFix.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/TimeFix.user.js
 // ==/UserScript==
 
 function timefix ( ) {
