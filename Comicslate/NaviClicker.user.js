@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NaviClicker
-// @version			2021.01.07
+// @version			2021.04.15
 // @description		Добавление "?do=edit" прямой ссылки в редактор к красным/зелёным ссылкам в навигаторе, автоклик на них
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -8,6 +8,9 @@
 // @icon			https://www.google.com/s2/favicons?domain=comicslate.org
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/NaviClicker.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/NaviClicker.user.js
 // ==/UserScript==
 
 var cnav = document.querySelector ( ".cnav" ),
