@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoApprove
-// @version			2021.04.15
+// @version			2021.04.20
 // @description		Автоодобрение правок
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -14,11 +14,15 @@
 // ==/UserScript==
 
 var approve_link = document.querySelector ( ".approval_action a" ),
-	self = 'robot_spike',
-	lever = 0;
+	self = "Robot Spike",
+	lever = 1; // 0 - одобрять всё, 1 - только себя
 
 if ( approve_link != null ) {
 	( lever )
-		? ( ( document.querySelectorAll ( ".pageinfo bdi" ) [ 1 ].innerHTML == self ) ? approve_link.click ( ) : '' )
-		: approve_link.click ( )
+	? (
+		( document.querySelectorAll ( ".pageinfo bdi" ) [ 1 ].innerHTML == self )
+		? approve_link.click ( )
+		: ''
+	)
+	: approve_link.click ( )
 }
