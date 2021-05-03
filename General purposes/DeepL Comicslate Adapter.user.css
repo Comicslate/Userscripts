@@ -6,14 +6,6 @@ body.dl_body--redesign .dl_top_element--wide {
 	padding: 0 5px;
 }
 
-.dl_body--translator {
-    overflow: auto;
-}
-
-.dl_translator_page_container {
-    min-height: calc(100vh - 138px);
-}
-
 /* прибираемся в верхнем меню, языках, подоконных кнопках и внизу */
 .dl_header_menu_v2__items,
 .lmt__docTrans-tab-container,
@@ -33,6 +25,10 @@ footer { top: 42px; }
 .dl_footer__container { padding: 0 !important; }
 .dl_footer .dl_menu_item { padding: 0 10px; }
 .dl_footer__social { top: 0; }
+
+/* мелкие штрихи */
+.dl_translator_page_container { min-height: calc(100vh - 138px); }
+.dl_body--translator { overflow: auto; }
 
 
 
@@ -74,56 +70,78 @@ div.lmt__language_select[dl-selected-lang*="et"] strong { background: url(https:
 
 /* ВЫБОР ЯЗЫКОВ */
 
-.Select_module_container__8aa3ae8b { /* 1 уровень */
+.lmt__language_select__menu {
 	border-radius: 20px;
-	height: auto;
-	width: 1024px;
+	display: flex !important;
+	overflow: hidden;
+	padding: 0;
+	width: 950px; /* настраивать здесь. половина ширины экрана - 20px */
 }
-.Select_module_itemContainer__8aa3ae8b { /* 2 уровень */
-	column-gap: 0;
-	display: flex;
-	padding: 0 0 1px 1px;
-}
-.Select_module_item__8aa3ae8b { /* 3 уровень */
+.lmt__language_select__menu[dl-test*="source"] { left: 1px !important; }
+.lmt__language_select__menu[dl-test*="target"] { left: -19px !important; }
+.lmt__language_select__menu button {
 	border: 2px solid #eee;
 	border-radius: 20px;
-	width: 6.66%;
-}
-.Select_module_item__8aa3ae8b button { /* 4 уровень */
 	color: white;
-	text-indent: 99px;
+	display: flex !important;
+	padding: 0 0 5px 6px;
+	text-indent: 29px;
+	min-width: 6.66%;
 }
+button[dl-test*="en"] { order: 0; }
+button[dl-test*="-ru"] { order: 1; }
+button[dl-test*="-de"] { order: 2; }
+button[dl-test*="-fr"] { order: 3; }
+button[dl-test*="-bg"] { order: 4; }
+button[dl-test*="-da"] { order: 5; }
+button[dl-test*="-el"] { order: 6; }
+button[dl-test*="-es"] { order: 7; }
+button[dl-test*="-fi"] { order: 8; }
+button[dl-test*="-hu"] { order: 9; }
+button[dl-test*="-it"] { order: 10; }
+button[dl-test*="-ja"] { order: 11; }
+button[dl-test*="-pl"] { order: 12; }
+button[dl-test*="-pt"] { order: 13; }
+button[dl-test*="-zh"] { order: 14; }
+
+button[dl-test*="-auto"],
+button[dl-test*="en-GB"],
+button[dl-test*="-lv"],
+button[dl-test*="-lt"],
+button[dl-test*="-nl"],
+button[dl-test*="pt-BR"],
+button[dl-test*="-ro"],
+button[dl-test*="-sk"],
+button[dl-test*="-sl"],
+button[dl-test*="-cs"],
+button[dl-test*="-sv"],
+button[dl-test*="-et"] {
+	display: none !important;
+}
+
 button[dl-test]:before { /* свои подписи */
 	background-repeat: no-repeat !important;
-	bottom: 1px;
 	color: black;
-	float: right;
-	position: relative;
 }
 button[dl-test*="-bg"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/bg.png) right 23px bottom 8px;
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/bg.png) right 25px bottom 9px;
 	content: 'bg';
-	right: 5px;
 }
 button[dl-test*="-da"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/dk.png) right 22px bottom 8px;
 	content: 'da';
-	right: 5px;
 }
 button[dl-test*="-de"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/de.png) right 24px bottom 8px;
 	content: 'de';
-	right: 5px;
 }
 button[dl-test*="-el"]:before {
-	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/gr.png) right 17px bottom 8px;
+	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/gr.png) right 23px bottom 8px;
 	content: 'el';
-	right: 8px;
 }
 button[dl-test*="-en"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/gb.png) right 25px bottom 8px;
 	content: 'en';
-	right: 5px;
 }
 button[dl-test*="-en-US"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/us.png) right 25px bottom 8px;
@@ -131,50 +149,40 @@ button[dl-test*="-en-US"]:before {
 button[dl-test*="-es"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/es.png) right 22px bottom 8px;
 	content: 'es';
-	right: 6px;
 }
 button[dl-test*="-fi"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/fi.png) right 15px bottom 8px;
 	content: 'fi';
-	right: 9px;
 }
 button[dl-test*="-fr"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/fr.png) right 18px bottom 8px;
 	content: 'fr';
-	right: 7px;
 }
 button[dl-test*="-hu"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/hu.png) right 23px bottom 8px;
 	content: 'hu';
-	right: 5px;
 }
 button[dl-test*="-it"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/it.png) right 18px bottom 8px;
 	content: 'it';
-	right: 7px;
 }
 button[dl-test*="-ja"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/jp.png) right 20px bottom 8px;
 	content: 'ja';
-	right: 7px;
 }
 button[dl-test*="-pl"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/pl.png) right 21px bottom 8px;
 	content: 'pl';
-	right: 7px;
 }
 button[dl-test*="-pt"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/pt.png) right 22px bottom 8px;
 	content: 'pt';
-	right: 6px;
 }
 button[dl-test*="-ru"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/ru.png) right 22px bottom 8px;
 	content: 'ru';
-	right: 5px;
 }
 button[dl-test*="-zh"]:before {
 	background: url(https://github.com/DavideViolante/Wikipedia-Flag-Icons/raw/master/Chrome%20Extension/WikipediaFlagIcons/flags/cn.png) right 24px bottom 8px;
 	content: 'zh';
-	right: 5px;
 }
