@@ -34,4 +34,4 @@ function action ( ) {
 	document . querySelector ( 'table.apr_table' ) . tBodies [ 0 ] . append ( ...trs1 );
 }
 
-setTimeout ( action, 3000 );
+setTimeout ( action, 1000 );
