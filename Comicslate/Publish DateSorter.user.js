@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate Publish DateSorter
-// @version			2021.05.04.1
+// @version			2021.05.04.2
 // @description		Сортировка по дате
 // @match			https://comicslate.org/*/publish
 // @exclude			http*://browsershots.org/*
@@ -13,25 +13,25 @@
 
 // ==/UserScript==
 
-var i, times = [], trs1 = [];
+var i, times = [], trs1 = [], lever = 0;
 
 function action ( ) {
 	var trs = document . querySelectorAll ( 'tr.apr_table' );
 	for ( i = 0; i < trs . length; i++ ) {
-		times.push ( [ i, i, Date.parse ( trs [ i ] . querySelector ( '.apr_upd a' ).innerHTML . replace ( '&nbsp;', 'T' ) . replaceAll ( '/', '-' ) ) ] );
+		times.push ( [
+			i,
+			Date.parse ( trs [ i ] . querySelector ( '.apr_upd a' ) . innerHTML . replace ( '&nbsp;', 'T' ) . replaceAll ( '/', '-' ) )
+		] );
 	}
-
-	times.sort ( ( a, b ) => a [ 2 ] - b [ 2 ] );
-
+	times.sort (
+		( a, b ) => lever
+		? ( a [ 1 ] - b [ 1 ] ) // lever 1 ascending
+		: ( b [ 1 ] - a [ 1 ] ) // lever 0 descending
+	);
 	for ( i = 0; i < trs . length; i++ ) {
-		times [ i ] [ 0 ] = i;
+		trs1 [ i ] = trs [ times [ i ] [ 0 ] ];
 	}
-
-	for ( i = 0; i < trs . length; i++ ) {
-		trs1 [ i ] = trs [ times [ i ] [ 1 ] ];
-	}
-
-	document . querySelector ( 'table.apr_table' ) . tBodies[0] . append ( ...trs1 );
+	document . querySelector ( 'table.apr_table' ) . tBodies [ 0 ] . append ( ...trs1 );
 }
 
 setTimeout ( action, 3000 );
