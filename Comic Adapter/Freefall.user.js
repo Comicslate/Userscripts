@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2021.03.22
+// @version			2021.05.07
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -249,4 +249,4 @@ switch ( true ) {
 	case num = 1: name = "The adventure begins! – April 9, 1998"; break;
 	default: name = '×';
 };
-title.innerHTML += ' ' + number + ' – ' + name;
+title.innerHTML += ' ' + number + '<br>' + name + '<br>';
