@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate DeFIXME
-// @version			2021.05.09
+// @version			2021.05.09.1
 // @description		Удаление FIXME в немецком разделе
 // @match			http*://*comicslate.org/de/*do=edit*
 // @match			http*://*comicslate.org/de/*do=preview*
@@ -13,9 +13,9 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/DeFIXME.user.js
 // ==/UserScript==
 
-var author = document . querySelectorAll ( ".pageinfo bdi" ) [ 1 ] . innerHTML,
+var author = document . querySelector ( ".pageinfo bdi:last-child" ) . innerHTML,
 	wiki_text = document . querySelector ( '#wiki__text' ),
-	text = 'FIXME \*\*Diese Seite wurde noch nicht vollständig übersetzt. Bitte helfen Sie bei der Übersetzung.\*\*\\\\ \/\/\(Diesen Absatz entfernen, wenn die Übersetzung abgeschlossen wurde\)\/\/\n\n';
+	text = /FIXME \*\*Diese [^\n]+ wurde\)\/\/\n\n/;
 
 if (
 	(
@@ -26,5 +26,7 @@ if (
 		author == '2a01:c23:c419:5100:6eee:f62a:5551:41ad'
 	)
 	&&
-	wiki_text . value . match ( text ) != null
-	) wiki_text . value = wiki_text . value . replace ( text, '' );
+	wiki_text . value . match ( 'FIXME' ) != null
+) {
+	wiki_text . value = wiki_text . value . replace ( text, '' );
+}
