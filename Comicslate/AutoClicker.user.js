@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoClicker
-// @version			2021.04.15
+// @version			2021.05.12
 // @description		Листание комикса по таймеру
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -16,7 +16,7 @@
 var timer = 30;
 
 function clicker ( ) {
-	document.querySelector ( '#navnext.wikilink1' ).click ( );
+	document.querySelector ( '.wikilink1.nnext' ).click ( );
 }
 
 setTimeout ( clicker, timer * 1000 );
