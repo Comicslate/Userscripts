@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Webtoons / Zomcom
-// @version         2021.01.20
+// @version         2021.05.05
 // @description     Extract Info for Comicslate
 // @include         http*://*webtoons.com*zomcom*
 // @icon            https://www.google.com/s2/favicons?domain=webtoons.com
