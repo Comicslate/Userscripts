@@ -1,16 +1,15 @@
 // ==UserScript==
-// @name            Comic Adapter: Webtoons
-// @version         2021.01.04
+// @name            Comic Adapter: Webtoons / Zomcom
+// @version         2021.01.20
 // @description     Extract Info for Comicslate
-// @include         http*://*webtoons.com*
+// @include         http*://*webtoons.com*zomcom*
 // @icon            https://www.google.com/s2/favicons?domain=webtoons.com
 // @author          Rainbow-Spike
 // @grant           none
 // ==/UserScript==
 
-var lever = 2,
+var lever = 0,
 	comic = 'ZomKom',
-	//comic = 'Bethellium',
 	timer = 300,
 	nod = document.createElement ( "span" ),
 //	num = ( document.querySelector ( '._btnOpenEpisodeList' ).innerHTML.split ( '#' ) [ 1 ] * 1 - 0 ).toString ( ).padStart ( 4, "0" ),
@@ -54,17 +53,16 @@ switch ( lever ) {
 	case 2: // SUPPLY
 		nod.innerHTML = "== " + comic + " " + num + " ==<br>";
 		title = document.querySelector ( '.subj_episode' ).innerHTML.replace ( /^ ?(Bethellium: )? ?(.*?) ?$/, '$2' );
-		if ( title != null )
-			nod.innerHTML += "**" + title + "**<br>";
+		if ( title != null ) nod.innerHTML += "**" + title + "**<br>";
 		nod.innerHTML += "<br>{cnav}<br>";
 		comment = document.querySelector ( '.creator_note p' );
 		if ( comment != null ) nod.innerHTML += "&lt;box unborder unbg center>" + comment.innerHTML.replace ( / ?$/, "" ) + "&lt;/box><br>";
 		imgs = document.querySelectorAll ( "img._images" );
-		for ( x = 0; x < imgs.length; x++ )
+		for ( x = 0; x < imgs.length; x++ ) {
 			nod.innerHTML += "{{ " + num + "-" + ( x + 1 ) + ".jpg }}<br>";
 //			nod.innerHTML += "{{ " + num + ".png }}<br>";
-		if ( imgs.length == 1 )
-			nod.innerHTML = nod.innerHTML.replace ( "-1.", "." );
+		}
+		if ( imgs.length == 1 ) nod.innerHTML = nod.innerHTML.replace ( "-1.", "." );
 		nod.innerHTML += "{cnav}";
 		break
 	default:
@@ -77,7 +75,5 @@ selectblock ( nod );
 // HOTKEYS
 var prev = document.querySelector ( '.pg_prev' ),
 	next = document.querySelector ( '.pg_next' );
-if ( prev != null )
-	prev.accessKey = "z";
-if ( next != null )
-	next.accessKey = "x";
+if ( prev != null ) prev.accessKey = "z";
+if ( next != null ) next.accessKey = "x";
