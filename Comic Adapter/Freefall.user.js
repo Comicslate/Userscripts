@@ -252,4 +252,4 @@ switch ( true ) {
 	case num = 1: name = "April 9, 1998<br>The adventure begins!"; break;
 	default: name = '×';
 };
-title.innerHTML += ' ' + number + '<br>' + name + '<br>Flo und Gregor an Bord<br>Flo et Gregor sur le vaisseau<br>Flo y Gregor en el barco';
+title.innerHTML += ' ' + number + '<br>' + name + '<br>Florence und Gregor an Bord<br>Flo et Gregor sur le vaisseau<br>Flo y Gregor en el barco';
