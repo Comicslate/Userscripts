@@ -7,8 +7,8 @@
 // @author			Rainbow-Spike
 // @grant			GM_setClipboard
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
-// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Sandra%20&%20Woo.user.js
-// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Sandra%20&%20Woo.user.js
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Sandra%20%26%20Woo.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Sandra%20%26%20Woo.user.js
 // ==/UserScript==
 
 var nav = document . querySelector ( ".nav" ),
