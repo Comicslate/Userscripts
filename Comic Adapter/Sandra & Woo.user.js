@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comic Adapter: Sandra & Woo
-// @version			2021.05.19.1
+// @version			2021.05.20
 // @description		Extract Info for Comicslate
 // @include			http*://*sandraandwoo.com*
 // @icon			https://www.google.com/s2/favicons?domain=sandraandwoo.com
@@ -22,8 +22,6 @@ function action ( ) {
 		tag_div = document . querySelector ( ".tags" ),
 			tag_a = tag_div . querySelectorAll ( "a" ),
 		texter = '';
-
-	nav . style . cssText += 'position: absolute; top: 200px;';
 
 	// ТИТУЛ
 	texter += titler . innerHTML
