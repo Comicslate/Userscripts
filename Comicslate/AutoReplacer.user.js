@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name			Comicslate AutoReplacer
-// @version			2021.04.15.1
+// @version			2021.05.29
 // @description		Автозамены в Комикслейте
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
-// @exclude			http*://browsershots.org/*
-// @icon			https://www.google.com/s2/favicons?domain=comicslate.org
+// @exclude			http*://*comicslate.org/*/h*
+// @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			none
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
@@ -13,8 +13,11 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoReplacer.user.js
 // ==/UserScript==
 
-var wiki__text = document.querySelector ( "#wiki__text" ),
+var wiki__text = document . querySelector ( "#wiki__text" ),
+	sum = document . querySelector ( "#edit__summary" ),
 	repl = [
+		[ /(\S)\n{([^{<]*<)?cnav(>[^}>]*)?}/g, '$1' ],
+
 		//[ "New", "Commander Kitty" ],
 		//[ "Old", "Commander Kitty: Origins" ],
 		[ "Sequential-art", "Sequential Art" ],
@@ -82,12 +85,16 @@ var wiki__text = document.querySelector ( "#wiki__text" ),
 		[ "Little-bobby", "Little Bobby" ],
 		[ "Zomcom", "ZomCom" ],
 
-		// [ /\{\{(\d+).(gif|j?pn?g)\}\}/, "{{cotan>$1.$2}}\n{{<cotan}}" ],
 		// [ "", "" ],
 	];
 
 if ( wiki__text != null ) {
-	var text = wiki__text.innerHTML;
-	for ( var i = 0; i < repl.length; i++ ) text = text.replace ( repl [ i ][ 0 ], repl [ i ][ 1 ] );
-	wiki__text.innerHTML = text;
+	var text = wiki__text . value, text1 = text;
+	for ( var i = 0; i < repl . length; i++ ) text = text . replace ( repl [ i ] [ 0 ], repl [ i ] [ 1 ] );
+	wiki__text . value = text;
+}
+
+if ( sum && sum . value != null && text1 != text ) {
+	if ( sum . value != '' ) sum . value += ' / ';
+	sum . value += 'AutoReplacer 2021.05.29';
 }
