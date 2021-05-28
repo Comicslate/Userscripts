@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name			Comicslate AutoSaveClicker
-// @version			2021.04.15
+// @version			2021.05.28
 // @description		Автоклик сохранения
-// @match			http*://comicslate.org/*
+// @include			/comicslate.org.+(sci-fi|tlk|wolves|mlp|furry|gamer|other|interrobang)/
 // @exclude			/^https?://comicslate\.org\/.+do=[^e]+/
-// @icon			https://www.google.com/s2/favicons?domain=comicslate.org
+// @exclude			/^https?://comicslate\.org\/.+publish
+// @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			none
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
@@ -12,19 +13,27 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoSaveClicker.user.js
 // ==/UserScript==
 
-// при отсутствии реакции закрытия в фоксе - about:config -> dom.allow_scripts_to_close_windows -> true
+var sum = document . querySelector ( "#edit__summary" ),
 
-var lever = 1, // генератор страниц
-	sv = document.querySelector ( "#edbtn__save" ),
+	autosave = 1,
+	sv = document . querySelector ( "#edbtn__save" ),
+
+	autoclose = 1, // для NaviClicker - 0, для IndexEditLinker - 1
 	timer = 10;
 
-sv
-	? sv.click ( )
-	: (
-		lever
-		? setTimeout ( function ( ) { window.close ( ) }, timer * 1000 ) // 1 + Comicslate IndexEditor
-		: '' // 0 + Comicslate NaviClicker
-	)
+if ( sum && sum . value != null ) {
+	if ( sum . value != '' ) sum . value += ' / ';
+	sum . value += 'AutoSaveClicker 2021.05.26';
+}
 
-// спрятать нормальные десятники в индексах, сначала d, потом h (удалить файлы физически в тотале, генерить этим скриптом)
-// document.querySelectorAll ( '.idx .li a' ).forEach ( function ( e ) { if ( e.innerHTML.match ( 'Freefall d' ) == null ) e.style.display = 'none' } )
+( sv )
+	? (
+		( autosave )
+			? sv . click ( )
+			: ''
+	)
+	: (
+		( autoclose && timer > 2 )
+			? setTimeout ( function ( ) { window . close ( ) }, timer * 1000 ) // в Фаерфоксе требуется about:config -> dom.allow_scripts_to_close_windows -> true
+			: ''
+	)
