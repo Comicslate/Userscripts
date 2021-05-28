@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2021.05.14
+// @version			2021.05.28
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -13,13 +13,17 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Freefall.user.js
 // ==/UserScript==
 
-var	number = document.querySelector ( "img" ).src.match ( /f[cv]0(\d+)/ ) [ 1 ],
-	num = number * 1,
-	title = '',
-	name;
+var	title = document . querySelector ( "title" ) . innerText . split ( ' ' ),
+	num = title [ 1 ] . slice ( 1 ) * 1,
+	m_array = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
+	date = title [ 4 ] + '-' + title [ 2 ] + '-' + title [ 3 ] . slice ( 0, 2 ),
+	place, name, i;
 
-title = document.querySelector (
-	window.location.href.search ( "ff" ) != -1
+for ( i = 0; i < m_array . length; i++ ) {
+	date = date . replace ( m_array [ i ], ( i < 10 ? "0" + ( i + 1 ) : ( i + 1 ) ) )
+};
+place = document . querySelector (
+	window . location . href . search ( "ff" ) != -1
 	? "font"
 	: "table + b"
 );
@@ -252,4 +256,4 @@ switch ( true ) {
 	case num = 1: name = "April 9, 1998<br>The adventure begins!"; break;
 	default: name = '×';
 };
-title.innerHTML += ' ' + number + '<br>' + name + '<br>Florence und Gregor an Bord<br>Flo et Gregor sur le vaisseau<br>Flo y Gregor en el barco';
+place . innerHTML += ' ' + num + '<br>' + name + '<br>Florence und Gregor an Bord<br>Flo et Gregor sur le vaisseau<br>Flo y Gregor en el barco\\\\<br>[!0.987]' + date;
