@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2021.05.28
+// @version			2021.05.28.1
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -256,4 +256,4 @@ switch ( true ) {
 	case num = 1: name = "April 9, 1998<br>The adventure begins!"; break;
 	default: name = '×';
 };
-place . innerHTML += ' ' + num + '<br>' + name + '<br>Florence und Gregor an Bord<br>Flo et Gregor sur le vaisseau<br>Flo y Gregor en el barco\\\\<br>[!0.987]' + date;
+place . innerHTML += ' ' + num + '<br>' + name + '<br>**Florence und Gregor an Bord<br>Flo et Gregor sur le vaisseau<br>Flo y Gregor en el barco**\\\\<br>[!0.987]' + date;
