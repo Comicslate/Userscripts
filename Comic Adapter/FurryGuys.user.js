@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comic Adapter: FurryGuys
-// @version			2021.06.01
+// @version			2021.06.01.1
 // @description		Extract Info for Comicslate
 // @include			http*://*acomics.ru/~FurryGuys/*
 // @icon			https://www.google.com/s2/favicons?domain=acomics.ru
@@ -67,7 +67,8 @@ function action ( ) {
 				. replace ( /<em[^>]*>([^<]+)<\/em>/g, "//$1//" )
 				. replace ( /<strong[^>]*>([^<]+)<\/strong>/g, "**$1**" )
 			: ''
-		)
+		);
+	texter = texter . replace ( /\n$/, '' );
 	GM_setClipboard ( texter, "text" );
 }
 GM_registerMenuCommand ( "Start!", action );
