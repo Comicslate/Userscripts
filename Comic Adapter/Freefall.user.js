@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2021.05.28.4
+// @version			2021.06.02
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -15,12 +15,12 @@
 
 var	title = document . querySelector ( "title" ) . innerText . split ( ' ' ),
 	num = title [ 1 ] . toString ( ) . padStart ( 4, "0" ) * 1,
-	m_array = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
+	m_array = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
 	date = title [ 4 ] + '-' + title [ 2 ] + '-' + title [ 3 ] . slice ( 0, 2 ),
-	place, name, i;
+	place, name, i, ins = '**\\\\<br>**';
 
 for ( i = 0; i < m_array . length; i++ ) {
-	date = date . replace ( m_array [ i ], ( i < 10 ? "0" + ( i + 1 ) : ( i + 1 ) ) )
+	date = date . replace ( m_array [ i ], ( i + 1 ) ) . replace ( /-(\d)(\D)/g, '-0$1$2' ) . replace ( ',', '' )
 };
 place = document . querySelector (
 	window . location . href . search ( "ff" ) != -1
@@ -28,7 +28,7 @@ place = document . querySelector (
 	: "table + b"
 );
 switch ( true ) {
-	case num >= 3539: name = "January 11, 2021<br>**Flo and Gregor at the ship<br>Фло и Грегор на корабле<br>Florence und Gregor an Bord<br>Flo et Gregor sur le vaisseau<br>Flo y Gregor en el barco**\\\\"; break;
+	case num >= 3539: name = "January 11, 2021<br><br>**Flo and Gregor at the ship" + ins + "Фло и Грегор на корабле" + ins + "Florence und Gregor an Bord" + ins + "Flo et Gregor sur le vaisseau" + ins + "Flo y Gregor en el barco**\\\\"; break;
 	case num >= 3534: name = "December 30, 2020<br>Wake up with Niomi"; break;
 	case num >= 3530: name = "December 21, 2020<br>Focus back to Sam"; break;
 	case num >= 3506: name = "October 26, 2020<br>Dinner with the Thurmads"; break;
@@ -256,4 +256,4 @@ switch ( true ) {
 	case num = 1: name = "April 9, 1998<br>The adventure begins!"; break;
 	default: name = '×';
 };
-place . innerHTML += ' ' + num + '<br>' + name + '<br>[!0.987]' + date;
+place . innerHTML += ' ' + num + '<br>' + name + '<br>[!0.987]' + date + '<br><br>';
