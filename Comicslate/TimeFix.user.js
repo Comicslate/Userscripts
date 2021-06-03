@@ -1,10 +1,9 @@
 // ==UserScript==
 // @name			Comicslate TimeFix
-// @version			2021.04.15
+// @version			2021.06.03
 // @description		Исправление часового пояса на Комикслейте
 // @match			http*://*comicslate.org/*
-// @exclude			http*://browsershots.org/*
-// @icon			https://www.google.com/s2/favicons?domain=comicslate.org
+// @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			none
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
@@ -14,15 +13,15 @@
 
 function timefix ( ) {
 	var shift = 10, // fix it for your needs : поправь это под свои нужды
-		place = document.querySelectorAll ( ".pageinfo, .date, .diffnav option, th a, .approval_date, .approval_previous, .apr_upd, .apr_prev, .sum, .draft__status" );
-	if ( place.length > 0 ) {
+		place = document . querySelectorAll ( ".pageinfo, .date, .diffnav option, th a, .approval_date, .approval_previous, .apr_upd, .apr_prev, .sum, #draft__status" );
+	if ( place . length > 0 ) {
 		for ( var i in place ) {
-			if ( place [ i ].innerHTML != undefined ) {
-				var time = place [ i ].innerHTML.match ( /(\d\d\d\d)\/(\d\d)\/(\d\d) (\d\d):/ ); // 2019/05/31 10:
+			if ( place [ i ] . innerHTML != undefined ) {
+				var time = place [ i ] . innerHTML . match ( /(\d\d\d\d)\/(\d\d)\/(\d\d) (\d\d):/ );
 				if ( time != null ) {
 					var new_hour = +time [ 4 ] + shift,
 						fix_hour = new_hour % 24,
-						new_day = +time [ 3 ] + Math.floor ( new_hour / 24 ),
+						new_day = +time [ 3 ] + Math . floor ( new_hour / 24 ),
 						month = +time [ 2 ],
 						year = +time [ 1 ],
 						month_length = '';
@@ -52,19 +51,21 @@ function timefix ( ) {
 					};
 					var fix_day = new_day % month_length;
 					if ( fix_day == 0 ) fix_day = month_length;
-					var new_month = month + Math.ceil ( new_day / month_length - 1 ),
+					var new_month = month + Math . ceil ( new_day / month_length - 1 ),
 						fix_month = new_month % 12;
 					if ( fix_month == 0 ) fix_month = 12;
-					var new_year = year + Math.ceil ( new_month / 12 - 1 );
-					place [ i ].innerHTML = place [ i ].innerHTML.replace ( /(\d\d\d\d)\/(\d\d)\/(\d\d) (\d\d):/,
-																	new_year
-																	+ '/'
-																	+ ( ( fix_month < 10 ) ? ( '0' + fix_month ) : fix_month )
-																	+ '/'
-																	+ ( ( fix_day < 10 ) ? ( '0' + fix_day ) : fix_day )
-																	+ '&nbsp;'
-																	+ ( ( fix_hour < 10 ) ? ( '0' + fix_hour ) : fix_hour )
-																	+ ':' );
+					var new_year = year + Math . ceil ( new_month / 12 - 1 );
+					place [ i ] . innerHTML = place [ i ] . innerHTML . replace (
+						/(\d\d\d\d)\/(\d\d)\/(\d\d) (\d\d):/,
+						new_year
+						+ '/'
+						+ ( ( fix_month < 10 ) ? ( '0' + fix_month ) : fix_month )
+						+ '/'
+						+ ( ( fix_day < 10 ) ? ( '0' + fix_day ) : fix_day )
+						+ '&nbsp;'
+						+ ( ( fix_hour < 10 ) ? ( '0' + fix_hour ) : fix_hour )
+						+ ':' );
+					place [ i ] . style . textShadow = '#000 0 .5px .5px';
 				}
 			}
 		}
