@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2021.06.02
+// @version			2021.06.07
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -28,7 +28,7 @@ place = document . querySelector (
 	: "table + b"
 );
 switch ( true ) {
-	case num >= 3539: name = "January 11, 2021<br><br>**Flo and Gregor at the ship" + ins + "Фло и Грегор на корабле" + ins + "Florence und Gregor an Bord" + ins + "Flo et Gregor sur le vaisseau" + ins + "Flo y Gregor en el barco**\\\\"; break;
+	case num >= 3539: name = "January 11, 2021<br><br>**Flo and Gregor at the ship" + ins + "Фло и Грегор на корабле" + ins + "Florence und Gregor an Bord" + ins + "Flo et Gregor sur le vaisseau" + ins + "Flo y Gregor en el barco" + ins + "Flo és Gregor a hajónál**\\\\"; break;
 	case num >= 3534: name = "December 30, 2020<br>Wake up with Niomi"; break;
 	case num >= 3530: name = "December 21, 2020<br>Focus back to Sam"; break;
 	case num >= 3506: name = "October 26, 2020<br>Dinner with the Thurmads"; break;
