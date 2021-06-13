@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate CoTANizer
-// @version			2021.05.23.1
+// @version			2021.06.14
 // @description		Замена AIMG на CoTAN
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
@@ -14,17 +14,17 @@
 
 // ==/UserScript==
 
-var wiki_text = document.querySelector ( '#wiki__text' ),
-	wtext = wiki_text.value,
+var wiki_text = document . querySelector ( '#wiki__text' ),
 	place = document . querySelector ( '.editButtons' );
+
 function action ( ) {
 	newbtn . style . display = 'none';
-	wiki_text.value = wtext
+	wiki_text.value = wiki_text . value
 		. replace ( /(\{\{\<?)aimg(\>|\}\})/g, '$1cotan$2' )
 		. replace ( /@(.+)\n([^~]*)\n~/g, '@$1\n#\n~\n@$1\n$2\n~' );
 }
 
-if ( wtext.match ( 'aimg' ) != null ) {
+if ( wiki_text . value . match ( 'aimg' ) != null ) {
 	var newbtn = document . createElement ( 'button' );
 	newbtn . id = 'replace-script';
 	newbtn . type = 'button';
