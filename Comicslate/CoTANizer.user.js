@@ -18,7 +18,7 @@ var wiki_text, place, newbtn;
 
 function ctn_repl ( ) {
 	newbtn . style . display = 'none';
-	wiki_text.value = wiki_text.value
+	wiki_text . value = wiki_text . value
 		. replace ( /(\{\{\<?)aimg(\>|\}\})/g, '$1cotan$2' )
 		. replace ( /@(.+)\n([^~]*)\n~/g, '@$1\n#\n~\n@$1\n$2\n~' );
 }
@@ -28,7 +28,7 @@ function ctn_start ( ) {
 		wiki_text = document . querySelector ( '#wiki__text' );
 		place = document . querySelector ( '.editButtons' );
 		if ( wiki_text && place ) {
-			if ( wiki_text.value . match ( 'aimg' ) != null ) {
+			if ( wiki_text . value . match ( 'aimg' ) != null ) {
 				newbtn = document . createElement ( 'button' );
 				newbtn . type = 'button';
 				newbtn . className = 'ctn_stop';
