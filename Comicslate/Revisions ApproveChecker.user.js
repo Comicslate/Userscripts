@@ -6,6 +6,9 @@
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			none
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Revisions%20ApproveChecker.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Revisions%20ApproveChecker.user.js
 // ==/UserScript==
 
 /* предварительно нужно разрешение на загрузку вкладок в фоне
