@@ -21,7 +21,7 @@ var check = document . querySelectorAll ( ".unapproved_revision" ),
 	nump = ( num * 1 + 1 ) . toString ( ) . padStart ( 4, "0" ),
 	parts = window . location . href . split ( num );
 function fOpen ( i ) { window . open ( check [ i ] . querySelector ( ".wikilink1" ) . href ) };
-function fGo ( ) { window. location = parts [ 0 ] + nump + parts [ 1 ] };
+function fGo ( ) { window . location = parts [ 0 ] + nump + parts [ 1 ] };
 
 if ( num == 3606 ) return;
 if ( check && check . length > 0 ) {
