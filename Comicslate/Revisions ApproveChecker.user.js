@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate Revisions ApproveChecker
-// @version			2021.06.17
+// @version			2021.06.18
 // @description		Проверка ревизий на наличие неодобрений
 // @include			http*://comicslate.org/*do=revisions*
 // @icon			https://comicslate.org/favicon.ico
