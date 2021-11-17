@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2021.11.17
+// @version			2021.11.17.1
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -28,13 +28,16 @@ place = document . querySelector (
 	: "table + b"
 );
 switch ( true ) {
-	case num >= 3539: name = "June 30, 2021<br><br>**Provisional Title: Return to the Station"
+	case num >= 3613: name = "June 30, 2021<br><br>**Provisional Title: Return to the Station"
 		+ ins + "Предварительное название: Возвращение на станцию"
 		+ ins + "Vorläufiger Title: Rückkehr zur Station"
 		+ ins + "Foreløbig titel: Tilbage til stationen"
 		+ ins + "Titre provisoire : Retour à la station"
 		+ ins + "Título provisional: Regreso a la estación"
 		+ ins + "Ideiglenes cím: Visszatérés az állomásra**\\\\"; break;
+	case num >= 3599: name = "May 28, 2021<br>Unused assets at the bomb factory"; break;
+	case num >= 3575: name = "April 2, 2021<br>Out to get a reactor"; break;
+	case num >= 3539: name = "January 11, 2021<br>Flo and Gregor at the ship"; break;
 	case num >= 3534: name = "December 30, 2020<br>Wake up with Niomi"; break;
 	case num >= 3530: name = "December 21, 2020<br>Focus back to Sam"; break;
 	case num >= 3506: name = "October 26, 2020<br>Dinner with the Thurmads"; break;
