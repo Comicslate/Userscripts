@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall DE
-// @version			2021.05.12
+// @version			2021.11.17
 // @description     Auszug Info für Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -10,17 +10,20 @@
 // @run-at			document-end
 // ==/UserScript==
 
-var	number = document.querySelector ( "img" ).src.match ( /f[cv]0(\d+)/ ) [ 1 ],
+var	number = document . querySelector ( "img" ) . src . match ( /f[cv]0(\d+)/ ) [ 1 ],
 	num = number * 1,
 	title = '',
 	name;
 
-title = document.querySelector (
-	window.location.href.search ( "ff" ) != -1
+title = document . querySelector (
+	window . location . href . search ( "ff" ) != -1
 	? "font"
 	: "table + b"
 );
 switch ( true ) {
+	case num >= 3613: name = "Vorläufiger Title: Rückkehr zur Station<br>30. Juni 2021"; break;
+	case num >= 3599: name = "Ungenutzte Mittel in der Bombenfabrik<br>28. Mai 2021"; break;
+	case num >= 3575: name = "Auf der Suche nach einem Reaktor<br>2. April 2021"; break;
 	case num >= 3539: name = "Flo und Gregor auf dem Schiff<br>11. Januar 2021"; break;
 	case num >= 3534: name = "Aufwachen mit Niomi<br>30. Dezember 2020"; break;
 	case num >= 3530: name = "Fokus zurück zu Sam<br>21. Dezember 2020"; break;
@@ -249,4 +252,4 @@ switch ( true ) {
 	case num = 1: name = "Das Abenteuer beginnt!<br>9. April 1998"; break;
 	default: name = '×';
 };
-title.innerHTML += ' ' + number + '<br>' + name + '<br>';
+title . innerHTML += ' ' + number + '<br>' + name + '<br>';
