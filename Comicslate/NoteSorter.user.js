@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2021.12.10
+// @version			2021.12.10.1
 // @description		Сортировка наклеек
+// @description:en	Note sorting
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
 // @match			http*://*comicslate.org/*do=draft*
@@ -14,9 +15,10 @@
 // ==/UserScript==
 
 GM_addStyle ( '#sortnotes { margin-left: 4px; background-image: linear-gradient(to bottom,#7EF,#5CC); }' );
+GM_addStyle ( '#sortnotes:hover { background-image: linear-gradient(to bottom,#7EF,#3AB); }' );
 
 function h ( tag, props = {} ) {
-  return Object . assign ( document . createElement ( tag ), props );
+	return Object . assign ( document . createElement ( tag ), props );
 }
 
 function action ( ) {
