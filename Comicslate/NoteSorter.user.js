@@ -1,8 +1,7 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2021.12.08
+// @version			2021.12.10
 // @description		Сортировка наклеек
-// @description:en	Note sorting
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
 // @match			http*://*comicslate.org/*do=draft*
@@ -109,8 +108,4 @@ function insertButton ( ) {
 	lastButton . after ( sortButton );
 }
 
-if ( document . readyState === 'loading' ) {
-	window . addEventListener ( 'DOMContentLoaded', insertButton, false );
-} else {
-	insertButton ( );
-}
+insertButton ( );
