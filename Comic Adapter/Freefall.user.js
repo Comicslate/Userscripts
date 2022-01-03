@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2021.11.17.1
+// @version			2022.01.03
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -31,8 +31,9 @@ switch ( true ) {
 	case num >= 3613: name = "June 30, 2021<br><br>**Provisional Title: Return to the Station"
 		+ ins + "Предварительное название: Возвращение на станцию"
 		+ ins + "Vorläufiger Title: Rückkehr zur Station"
-		+ ins + "Foreløbig titel: Tilbage til stationen"
 		+ ins + "Titre provisoire : Retour à la station"
+		+ ins + "Título provisório: Retorno à Estação Espacial"
+		+ ins + "Foreløbig titel: Tilbage til stationen"
 		+ ins + "Título provisional: Regreso a la estación"
 		+ ins + "Ideiglenes cím: Visszatérés az állomásra**\\\\"; break;
 	case num >= 3599: name = "May 28, 2021<br>Unused assets at the bomb factory"; break;
