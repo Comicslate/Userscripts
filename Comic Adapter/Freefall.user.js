@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.01.03
+// @version			2022.01.03.1
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -16,7 +16,7 @@
 var	title = document . querySelector ( "title" ) . innerText . split ( ' ' ),
 	num = title [ 1 ] . toString ( ) . padStart ( 4, "0" ) * 1,
 	m_array = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
-	date = title [ 4 ] + '-' + title [ 2 ] + '-' + title [ 3 ] . slice ( 0, 2 ),
+	date = title [ 4 ] + '-' + title [ 2 ] + '-' + title [ 3 ] . slice ( 0, 2 ) . replace ( ',', '' ) . padStart ( 2, "0" ),
 	place, name, i, ins = '**\\\\<br>**';
 
 for ( i = 0; i < m_array . length; i++ ) {
