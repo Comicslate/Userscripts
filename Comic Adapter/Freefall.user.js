@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.01.03.1
+// @version			2022.01.10
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -16,7 +16,7 @@
 var	title = document . querySelector ( "title" ) . innerText . split ( ' ' ),
 	num = title [ 1 ] . toString ( ) . padStart ( 4, "0" ) * 1,
 	m_array = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
-	date = title [ 4 ] + '-' + title [ 2 ] + '-' + title [ 3 ] . slice ( 0, 2 ) . replace ( ',', '' ) . padStart ( 2, "0" ),
+	date = title [ 4 ] + '-' + title [ 2 ] + '-' + title [ 3 ] . slice ( 0, 2 ),
 	place, name, i, ins = '**\\\\<br>**';
 
 for ( i = 0; i < m_array . length; i++ ) {
@@ -28,8 +28,8 @@ place = document . querySelector (
 	: "table + b"
 );
 switch ( true ) {
-	case num >= 3613: name = "June 30, 2021<br><br>**Provisional Title: Return to the Station"
-		+ ins + "Предварительное название: Возвращение на станцию"
+	case num >= 3613: name = "June 30, 2021<br><br>**Предварительное название: Возвращение на станцию"
+		+ ins + "Provisional Title: Return to the Station"
 		+ ins + "Vorläufiger Title: Rückkehr zur Station"
 		+ ins + "Titre provisoire : Retour à la station"
 		+ ins + "Título provisório: Retorno à Estação Espacial"
