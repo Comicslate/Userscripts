@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.01.10
+// @version			2022.01.14
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -32,6 +32,7 @@ switch ( true ) {
 		+ ins + "Provisional Title: Return to the Station"
 		+ ins + "Vorläufiger Title: Rückkehr zur Station"
 		+ ins + "Titre provisoire : Retour à la station"
+		+ ins + "Временно заглавие: Връщане на гарата"
 		+ ins + "Título provisório: Retorno à Estação Espacial"
 		+ ins + "Foreløbig titel: Tilbage til stationen"
 		+ ins + "Título provisional: Regreso a la estación"
