@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name			Comicslate CoTANizer
-// @version			2021.06.14.1
+// @version			2022.02.23
 // @description		Замена AIMG на CoTAN
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
+// @match			http*://*comicslate.org/*do=draft*
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			GM_addStyle
@@ -12,33 +13,35 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/CoTANizer.user.js
 // ==/UserScript==
 
-GM_addStyle ( '.ctn_stop{background-image:linear-gradient(to bottom,#FFF,#A9D);border-radius:3px;border:1px solid #888;padding:1px 6px;}' );
+if ( window . location . href . match ( /\/(d|h)\d+/i) ) return;
+var wiki_text = document . querySelector ( '#wiki__text' );
+if ( wiki_text . value . match ( 'aimg' ) == null ) return;
 
-var wiki_text, place, newbtn;
+var sortButton;
 
-function ctn_repl ( ) {
-	newbtn . style . display = 'none';
+GM_addStyle ( '#cotanize { background-image: linear-gradient(to bottom,#FFF,#A9D); margin-left: 4px; }' );
+GM_addStyle ( '#cotanize:hover { background-image: linear-gradient(to bottom,#FFF,#87B); }' );
+
+function h ( tag, props = {} ) {
+	return Object . assign ( document . createElement ( tag ), props );
+}
+
+function action ( ) {
+	sortButton . style . display = 'none';
 	wiki_text . value = wiki_text . value
 		. replace ( /(\{\{\<?)aimg(\>|\}\})/g, '$1cotan$2' )
 		. replace ( /@(.+)\n([^~]*)\n~/g, '@$1\n#\n~\n@$1\n$2\n~' );
 }
 
-function ctn_start ( ) {
-	if ( !document . querySelector ( '.ctn_stop' ) ) {
-		wiki_text = document . querySelector ( '#wiki__text' );
-		place = document . querySelector ( '.editButtons' );
-		if ( wiki_text && place ) {
-			if ( wiki_text . value . match ( 'aimg' ) != null ) {
-				newbtn = document . createElement ( 'button' );
-				newbtn . type = 'button';
-				newbtn . className = 'ctn_stop';
-				newbtn . title = 'CoTANize';
-				newbtn . textContent = 'CoTANize';
-				newbtn . onclick = ctn_repl;
-				place . after ( newbtn );
-			}
-		}
-	}
+function insertButton ( ) {
+	sortButton = h ( 'input', {
+		type: 'button',
+		value: 'CoTANize!',
+		id: 'cotanize',
+		title: 'CoTANize!',
+		onclick: ( event ) => action ( ),
+	} );
+	document . querySelector ( '#edbtn__cancel' ) . after ( sortButton );
 }
 
-setInterval ( ctn_start, 100 );
+insertButton ( );
