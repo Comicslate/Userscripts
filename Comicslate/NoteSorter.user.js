@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NoteSorter
-// @version			2021.12.10.1
+// @version			2022.02.23
 // @description		Сортировка наклеек
 // @description:en	Note sorting
 // @match			http*://*comicslate.org/*do=edit*
@@ -14,7 +14,10 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/NoteSorter.user.js
 // ==/UserScript==
 
-GM_addStyle ( '#sortnotes { margin-left: 4px; background-image: linear-gradient(to bottom,#7EF,#5CC); }' );
+if ( window . location . href . match ( /\/(d|h)\d+/i) ) return;
+var wiki_text = document . querySelector ( '#wiki__text' ), lastButton, sortButton;
+
+GM_addStyle ( '#sortnotes { background-image: linear-gradient(to bottom,#7EF,#5CD); margin-left: 4px; }' );
 GM_addStyle ( '#sortnotes:hover { background-image: linear-gradient(to bottom,#7EF,#3AB); }' );
 
 function h ( tag, props = {} ) {
@@ -22,8 +25,7 @@ function h ( tag, props = {} ) {
 }
 
 function action ( ) {
-	const wiki_text = document . querySelector ( '#wiki__text' ),
-	wtext = wiki_text . value;
+	const wtext = wiki_text . value;
 
 	if (
 		!wtext . match ( 'Не_сортировать' )
@@ -97,17 +99,14 @@ function action ( ) {
 }
 
 function insertButton ( ) {
-	const lastButton = document . querySelector ( '#edbtn__cancel' );
-	if ( window . location . href . match ( /\/(d|h)\d+/i) ) return; // ленты имеют url вида /d0000 или h0000 и на них редактор не должен быть запущен
-
-	const sortButton = h ( 'input', {
+	sortButton = h ( 'input', {
 		type: 'button',
 		value: 'Sort notes!',
 		id: 'sortnotes',
 		title: 'Sort notes!',
 		onclick: ( event ) => action ( ),
 	} );
-	lastButton . after ( sortButton );
+	document . querySelector ( '#edbtn__cancel' ) . after ( sortButton );
 }
 
 insertButton ( );
