@@ -1,26 +1,57 @@
 // ==UserScript==
 // @name			Comicslate TimeFix
-// @version			2021.06.03
+// @version			2022.02.23
 // @description		Исправление часового пояса на Комикслейте
 // @match			http*://*comicslate.org/*
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
-// @grant			none
+// @grant			GM_addStyle
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
 // @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/TimeFix.user.js
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/TimeFix.user.js
 // ==/UserScript==
 
+GM_addStyle ( '#timezone { background-color: #fff; border: 1px dotted #090; border-radius: 5px; box-shadow: 0 0 1px 1px #090; color: #090; font-weight: bold; height: 15px; outline: none; padding: 0; text-align: center; width: 25px; }' );
+
+function h ( tag, props = {} ) {
+	return Object . assign ( document . createElement ( tag ), props );
+}
+
+function newtimezone ( e ) {
+	var key = e . keyCode || e . which;
+	if ( key == 13 ) {
+		localStorage . setItem ( 'timezone', timezone . value );
+		location . reload ( );
+	}
+}
+
+function insertField ( ) {
+	var timeshift = localStorage . getItem ( 'timezone' ) * 1 || 0;
+	const insertplace = document . querySelector ( "#dw__register" ),
+	timeinput = h ( 'input', {
+		id: 'timezone',
+		type: 'text',
+		value: timeshift,
+		onkeypress: ( event ) => newtimezone ( event ),
+	} );
+	if ( insertplace != null ) {
+		insertplace . after ( timeinput );
+		insertplace . after ( document . createTextNode ( "Timezone: UTC " ) );
+	}
+}
+
+insertField ( );
+
 function timefix ( ) {
-	var shift = 10, // fix it for your needs : поправь это под свои нужды
+	var timeshift = localStorage . getItem ( 'timezone' ) * 1 || 0,
 		place = document . querySelectorAll ( ".pageinfo, .date, .diffnav option, th a, .approval_date, .approval_previous, .apr_upd, .apr_prev, .sum, #draft__status" );
 	if ( place . length > 0 ) {
 		for ( var i in place ) {
 			if ( place [ i ] . innerHTML != undefined ) {
 				var time = place [ i ] . innerHTML . match ( /(\d\d\d\d)\/(\d\d)\/(\d\d) (\d\d):/ );
 				if ( time != null ) {
-					var new_hour = +time [ 4 ] + shift,
-						fix_hour = new_hour % 24,
+					var new_hour = +time [ 4 ] + timeshift,
+						fix_hour = new_hour % 24 + ( new_hour < 0 ? 24 : 0 ),
 						new_day = +time [ 3 ] + Math . floor ( new_hour / 24 ),
 						month = +time [ 2 ],
 						year = +time [ 1 ],
