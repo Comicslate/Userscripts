@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate TimeFix
-// @version			2022.02.23
+// @version			2022.02.23.1
 // @description		Исправление часового пояса на Комикслейте
 // @match			http*://*comicslate.org/*
 // @icon			https://comicslate.org/favicon.ico
@@ -27,7 +27,7 @@ function newtimezone ( e ) {
 
 function insertField ( ) {
 	var timeshift = localStorage . getItem ( 'timezone' ) * 1 || 0;
-	const insertplace = document . querySelector ( "#dw__register" ),
+	const insertplace = document . querySelector ( "#dw__register, #dw__login" ),
 	timeinput = h ( 'input', {
 		id: 'timezone',
 		type: 'text',
