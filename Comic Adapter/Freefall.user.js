@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.01.14
+// @version			2022.03.23
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -28,15 +28,15 @@ place = document . querySelector (
 	: "table + b"
 );
 switch ( true ) {
-	case num >= 3613: name = "June 30, 2021<br><br>**Предварительное название: Возвращение на станцию"
-		+ ins + "Provisional Title: Return to the Station"
-		+ ins + "Vorläufiger Title: Rückkehr zur Station"
-		+ ins + "Titre provisoire : Retour à la station"
+	case num >= 3613: name = "June 30, 2021<br><br>**Предварительное название: Калмар в цехе технического обслуживания"
+		+ ins + "Provisional Title: Sqid in the maintenance shop"
+		+ ins + "Vorläufiger Title: Tintefisch in der Wartungswerkstatt"
+		+ ins + "Titre provisoire : Le kalmar dans l'atelier de maintenance"
 		+ ins + "Временно заглавие: Връщане на гарата"
-		+ ins + "Título provisório: Retorno à Estação Espacial"
-		+ ins + "Foreløbig titel: Tilbage til stationen"
-		+ ins + "Título provisional: Regreso a la estación"
-		+ ins + "Ideiglenes cím: Visszatérés az állomásra**\\\\"; break;
+		+ ins + "Título provisório: Lul na oficina de manutenção"
+		+ ins + "Foreløbig titel: Bleksprutte i vedligeholdelsesværkstedet"
+		+ ins + "Título provisional: Calmar en el taller de mantenimiento"
+		+ ins + "Ideiglenes cím: Tinthal a karbantartó műhelyben**\\\\"; break;
 	case num >= 3599: name = "May 28, 2021<br>Unused assets at the bomb factory"; break;
 	case num >= 3575: name = "April 2, 2021<br>Out to get a reactor"; break;
 	case num >= 3539: name = "January 11, 2021<br>Flo and Gregor at the ship"; break;
