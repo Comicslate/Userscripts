@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate TimeConfig
-// @version			2022.03.26
+// @version			2022.03.26.1
 // @description		Настройка часового пояса на Комикслейте
 // @match			http*://*comicslate.org/*do=register
 // @match			http*://*comicslate.org/*do=login
@@ -21,9 +21,7 @@ function insertField ( ) {
 		return Object . assign ( document . createElement ( tag ), props );
 	}
 	function newTimeZone ( e ) {
-		var timeInSt = ( /^\-?\d+$/ . test ( timeInput . value ) )
-			? ( timeInput . value % 24 + ( timeInput . value < 0 ? 24 : 0 ) )
-			: ( 0 );
+		var timeInSt = ( /^\-?\d+(\.5)?$/ . test ( timeInput . value ) && timeInput . value > -11 && timeInput . value < 12 ) ? timeInput . value : 0;
 		localStorage . setItem ( 'timezone', timeInSt );
 		location . reload ( );
 	}
@@ -46,7 +44,7 @@ function insertField ( ) {
 			style: 'border: 1px solid #999; border-radius: 5px 100% 100% 5px; font-weight: bold; text-align: center; width: 25px;'
 		} );
 	timeDiv . append ( timeText, timeInput, timeButton );
-	insertPlace . after ( timeDiv );
+	return insertPlace . after ( timeDiv );
 }
 
 if ( insertPlace != null ) {
