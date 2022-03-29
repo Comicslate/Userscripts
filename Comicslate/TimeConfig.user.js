@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate TimeConfig
-// @version			2022.03.26.1
+// @version			2022.03.29
 // @description		Настройка часового пояса на Комикслейте
 // @match			http*://*comicslate.org/*do=register
 // @match			http*://*comicslate.org/*do=login
@@ -39,7 +39,7 @@ function insertField ( ) {
 		} ),
 		timeButton = h ( 'input', {
 			type: 'button',
-			value: '≡',
+			value: '🗘',
 			onclick: ( event ) => newTimeZone ( event ),
 			style: 'border: 1px solid #999; border-radius: 5px 100% 100% 5px; font-weight: bold; text-align: center; width: 25px;'
 		} );
