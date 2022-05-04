@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name			Comicslate Publish EditLinker
-// @version			2022.05.04.1
+// @name			Comicslate Publish Links and Dates
+// @version			2022.05.04.2
 // @description		Добавление do к ссылкам в "паблише"
 // @match			https://comicslate.org/*/publish
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			none
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
-// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish%20EditLinker.user.js
-// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish%20EditLinker.user.js
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish%20Publish%20Links%20and%20Dates.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish%20Publish%20Links%20and%20Dates.user.js
 // ==/UserScript==
 
 function insertAttr ( num, action ) {
