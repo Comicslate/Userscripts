@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.03.23
+// @version			2022.05.04
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
@@ -34,6 +34,7 @@ switch ( true ) {
 		+ ins + "Titre provisoire : Le kalmar dans l'atelier de maintenance"
 		+ ins + "Временно заглавие: Връщане на гарата"
 		+ ins + "Título provisório: Lul na oficina de manutenção"
+		+ ins + "Prozatímní název: Chbotnice v údržbářské dílně"
 		+ ins + "Foreløbig titel: Bleksprutte i vedligeholdelsesværkstedet"
 		+ ins + "Título provisional: Calmar en el taller de mantenimiento"
 		+ ins + "Ideiglenes cím: Tinthal a karbantartó műhelyben**\\\\"; break;
