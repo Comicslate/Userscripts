@@ -1,15 +1,18 @@
 // ==UserScript==
 // @name			Comicslate Publish Links and Dates
-// @version			2022.05.04.2
+// @version			2022.05.06
 // @description		Добавление do к ссылкам в "паблише"
 // @match			https://comicslate.org/*/publish
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
-// @grant			none
+// @grant			GM_addStyle
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
 // @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish%20Publish%20Links%20and%20Dates.user.js
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Publish%20Publish%20Links%20and%20Dates.user.js
 // ==/UserScript==
+
+GM_addStyle ( '.publishlink div * { margin: 5px; background-image: linear-gradient(to bottom,#7EF,#5CC); border-radius: 3px; border: 1px solid #888; }' );
+GM_addStyle ( '.publishlink div *:hover { background-image: linear-gradient(to bottom,#7EF,#3AB); }' );
 
 function insertAttr ( num, action ) {
 	switch ( num ) {
