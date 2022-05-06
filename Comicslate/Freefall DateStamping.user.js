@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name			Comicslate DateStamping
-// @version			2021.10.03
+// @name			Comicslate Freefall DateStamping
+// @version			2022.05.06
 // @description		Date stamping in Freefall
 // @match			http*://*comicslate.org/*freefall*do=edit*
 // @match			http*://*comicslate.org/*freefall*do=draft*
@@ -10,8 +10,8 @@
 // @author			Rainbow-Spike
 // @grant			none
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
-// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/DateStamping.user.js
-// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/DateStamping.user.js
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Freefall%20DateStamping.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Freefall%20DateStamping.user.js
 // ==/UserScript==
 
 var wiki__text = document . querySelector ( "#wiki__text" ),
