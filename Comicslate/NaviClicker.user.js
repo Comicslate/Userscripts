@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate NaviClicker
-// @version			2022.01.31
+// @version			2022.05.06
 // @description		Добавление "?do=edit" прямой ссылки в редактор к красным/зелёным ссылкам в навигаторе, автоклик на них
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -14,7 +14,6 @@
 
 var cnav = document . querySelector ( ".cnavn" ),
 	c_green = 0,
-	editor,
 
 	/* автоклик */
 	c_prev = 0,
@@ -23,12 +22,7 @@ var cnav = document . querySelector ( ".cnavn" ),
 	timer = 2000;
 
 if ( cnav != null ) {
-	editor = (
-		c_green != 0
-		? ".nnext:not([href$='do=edit']), .nprev:not([href$='do=edit'])"
-		: ".wikilink2.nnext:not([href$='do=edit']), .wikilink2.nprev:not([href$='do=edit'])"
-	);
-	document . querySelectorAll ( editor ) . forEach (
+	document . querySelectorAll ( ( c_green != 0 ) ? ".nnext:not([href$='do=edit']), .nprev:not([href$='do=edit'])" : ".wikilink2.nnext:not([href$='do=edit']), .wikilink2.nprev:not([href$='do=edit'])" ) . forEach (
 		function ( e ) {
 			e . href += (
 				e . href . search ( "\\?" ) != -1
