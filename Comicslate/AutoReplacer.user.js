@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name			Comicslate AutoReplacer
-// @version			2021.05.29
+// @version			2021.06.01
 // @description		Автозамены в Комикслейте
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
-// @exclude			http*://*comicslate.org/*/h*
+// @exclude			http*://*comicslate.org/*/index*
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			none
@@ -16,10 +16,7 @@
 var wiki__text = document . querySelector ( "#wiki__text" ),
 	sum = document . querySelector ( "#edit__summary" ),
 	repl = [
-		[ /(\S)\n{([^{<]*<)?cnav(>[^}>]*)?}/g, '$1' ],
-
 		//[ "New", "Commander Kitty" ],
-		//[ "Old", "Commander Kitty: Origins" ],
 		[ "Sequential-art", "Sequential Art" ],
 		//[ " Fur ", " Sequential Art (Версия Зверь *TranslayerЪ* Внутри) " ],
 
@@ -33,13 +30,11 @@ var wiki__text = document . querySelector ( "#wiki__text" ),
 		[ "Short-stories", "Истории от Savu" ],
 		[ "The-lost-days", "The Lost Days" ],
 		[ "The-lion-queen", "The Lion Queen"],
-		[ "Brokenfangs-commentcomic", "Brokenfangs CommentComic" ],
 		[ "Heir-to-pride-rock", "Heir to Pride Rock" ],
 
 		[ "Ask-princess-molestia", "Ask Princess Molestia" ],
 
 		[ "Wolfs-rain-next-generation", "Wolf's Rain – Next Generation" ],
-		[ "Chakra-battle-of-the-titans", "Chakra: Battle of the Titans" ],
 		[ "Be-reflected-in-my-eyes", "Be reflected in my eyes" ],
 		[ "Behind-the-woods", "Behind the woods" ],
 
@@ -65,8 +60,6 @@ var wiki__text = document . querySelector ( "#wiki__text" ),
 		[ "Goblin-hollow", "Goblin Hollow" ],
 		[ "Legend-of-zhathar", "Legend of Zhathar" ],
 		[ "Conejo-frustrado", "Conejo Frustrado" ],
-		//[ "Big", "Inverloch /resize/" ],
-		//[ "Orig", "Inverloch" ],
 		[ "Off-white", "Off-White" ],
 		[ "The-roomies", "The Roomies" ],
 
@@ -96,5 +89,5 @@ if ( wiki__text != null ) {
 
 if ( sum && sum . value != null && text1 != text ) {
 	if ( sum . value != '' ) sum . value += ' / ';
-	sum . value += 'AutoReplacer 2021.05.29';
+	sum . value += 'AR 2021.05.30';
 }
