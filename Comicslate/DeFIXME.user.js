@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate DeFIXME
-// @version			2021.06.01
+// @version			2021.07.28
 // @description		Удаление FIXME в немецком разделе и лентах
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
@@ -24,9 +24,11 @@ if (
 		lhref . match ( /\/[dh]\d+/ ) != null
 		||
 		(
-			lhref . match ( '/de/' ) != null
+			lhref . match ( '/de/sci-fi/freefall' ) != null
+			/*&&
+			author != 'Robot Spike'*/
 			&&
-			author != 'Robot Spike'
+			lhref . match ( '/37' ) == null
 		)
 		||
 		lhref . match ( '/en/sci-fi/freefall' ) != null
