@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name			Comicslate AutoClicker
-// @version			2021.05.12
+// @version			2021.05.26
 // @description		Листание комикса по таймеру
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
-// @exclude			http*://browsershots.org/*
-// @icon			https://www.google.com/s2/favicons?domain=comicslate.org
+// @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			none
 // @supportURL		https://github.com/Comicslate/Userscripts/issues
@@ -16,7 +15,7 @@
 var timer = 30;
 
 function clicker ( ) {
-	document.querySelector ( '.wikilink1.nnext' ).click ( );
+	document . querySelector ( '.wikilink1.nnext' ) . click ( );
 }
 
 setTimeout ( clicker, timer * 1000 );
