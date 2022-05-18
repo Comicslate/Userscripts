@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.05.06
+// @version			2022.05.18
 // @description     Extract Info for Comicslate
 // @include         http*://freefall.purrsia.com/*
 // @include         http*://freefall.glasswings.com/*
