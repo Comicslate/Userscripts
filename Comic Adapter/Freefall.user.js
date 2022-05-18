@@ -32,7 +32,7 @@ switch ( true ) {
 		+ ins + "Provisional Title: Sqid in the maintenance shop"
 		+ ins + "Vorläufiger Title: Tintefisch in der Wartungswerkstatt"
 		+ ins + "Titre provisoire : Le kalmar dans l'atelier de maintenance"
-		+ ins + "Временно заглавие: Връщане на гарата"
+		+ ins + "Временно заглавие: Калма в цеха за поддръжка"
 		+ ins + "Título provisório: Lul na oficina de manutenção"
 		+ ins + "Prozatímní název: Kraktice v údržbářské dílně"
 		+ ins + "Foreløbig titel: Bleksprutte i vedligeholdelsesværkstedet"
