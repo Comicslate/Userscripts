@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.05.18
+// @version			2022.05.19
 // @description     Extract Info for Comicslate
-// @include         http*://freefall.purrsia.com/*
-// @include         http*://freefall.glasswings.com/*
+// @match           http*://freefall.purrsia.com/*
+// @match           http*://freefall.glasswings.com/*
 // @icon            https://www.google.com/s2/favicons?domain=freefall.purrsia.com
 // @author			Rainbow-Spike
 // @grant           none
@@ -28,7 +28,7 @@ place = document . querySelector (
 	: "table + b"
 );
 switch ( true ) {
-	case num >= 3613: name = "June 30, 2021<br><br>**Предварительное название: Калмар в цехе технического обслуживания"
+	case num >= 3727: name = "June 30, 2021...<br><br>**Предварительное название: Калмар в цехе технического обслуживания"
 		+ ins + "Provisional Title: Sqid in the maintenance shop"
 		+ ins + "Vorläufiger Title: Tintefisch in der Wartungswerkstatt"
 		+ ins + "Titre provisoire : Le kalmar dans l'atelier de maintenance"
@@ -38,6 +38,15 @@ switch ( true ) {
 		+ ins + "Foreløbig titel: Bleksprutte i vedligeholdelsesværkstedet"
 		+ ins + "Título provisional: Calmar en el taller de mantenimiento"
 		+ ins + "Ideiglenes cím: Tinthal a karbantartó műhelyben**\\\\"; break;
+	case num >= 3706: name = "June 30, 2021<br><br>Sqid in the maintenance shop"; break;
+	case num >= 3696: name = "January 10, 2022<br>Sam\'s hunt for money and savings begins:"; break;
+	case num >= 3667: name = "November 3, 2021<br>Prepping for dinner on a space station, with a slight detour:"; break;
+	case num >= 3659: name = "October 15, 2021<br>Sam, Money, and the pits:"; break;
+	case num >= 3649: name = "September 22, 2021<br>Gregor returns home:"; break;
+	case num >= 3635: name = "August 20, 2021<br>Niomi passes the entrance courses:"; break;
+	case num >= 3629: name = "August 6, 2021<br>A robot\'s interpretation of desires:"; break;
+	case num >= 3617: name = "July 9, 2021<br>Meeting the Station Manager:"; break;
+	case num >= 3613: name = "June 30, 2021<br>Return to the station:"; break;
 	case num >= 3599: name = "May 28, 2021<br>Unused assets at the bomb factory"; break;
 	case num >= 3575: name = "April 2, 2021<br>Out to get a reactor"; break;
 	case num >= 3539: name = "January 11, 2021<br>Flo and Gregor at the ship"; break;
