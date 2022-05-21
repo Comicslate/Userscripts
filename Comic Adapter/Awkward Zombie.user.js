@@ -1,73 +1,79 @@
 // ==UserScript==
 // @name			Comic Adapter: Awkward Zombie
-// @version			2020.06.03
+// @version			2022.05.21
 // @description		Extract Info for Comicslate
-// @include			http*://*awkwardzombie.com*
+// @match			https://www.awkwardzombie.com
 // @icon			https://www.google.com/s2/favicons?domain=awkwardzombie.com
 // @author			Rainbow-Spike
-// @grant			none
+// @grant			GM_setClipboard
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Awkward%20Zombie.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Awkward%20Zombie.user.js
 // ==/UserScript==
 
-// ВЫДЕЛЕНИЕ
-function selectblock ( name ) {
-	var rng = document.createRange ( );
-	rng.selectNode ( name );
-	var sel = window.getSelection ( );
-	sel.removeAllRanges ( );
-	sel.addRange ( rng );
+function h ( tag, props = {} ) {
+	return Object . assign ( document . createElement ( tag ), props );
 }
 
-function gap ( ) {
-	var titler = document.querySelector ( ".cc-newsheader" ),
-		numb = document.querySelector ( "#cc-comic" ).getAttribute ( 'src' ).replace ( /.*comic(\d+).*/, "$1" ) * 1 + 0,
-		num = numb.toString().padStart ( 4, "0" ),
-		index = "{" + ( numb == 1 ? "index&lt;": "" ) + "cnav}",
-		blarg = document.querySelector ( "#bottom-left" ),
-		tagline = document.querySelector ( ".news-storyline" ),
-		comm = document.querySelector ( ".cc-newsbody" ),
-		texter = '';
+function action ( ) {
+	const title = document . querySelector ( ".cc-newsheader a" ) . innerHTML || document . querySelector ( ".cc-newsheader" ) . innerHTML || "",
+		tag = document . querySelector ( ".news-storyline a" ) . innerHTML || "",
+		comm = document . querySelector ( ".cc-newsbody" ) . innerHTML || "",
+		num = document . querySelector ( "#cc-comic" ) . getAttribute ( 'src' ) . replace ( /.*comic(\d+).*/, "$1" ) * 1 + 0,
+		num0 = num . toString ( ) . padStart ( 4, "0" ),
+		texter = "== AWKWARD ZOMBIE " + num0 + " ==\n"
 
-	texter += "== AWKWARD ZOMBIE " + num + " ==<br>";
-	// ТИТУЛ
-	if ( titler !== null ) {
-		var title = titler.innerHTML.charAt ( 0 ).toUpperCase ( ) + titler.innerHTML.slice ( 1 ).replace ( /\.$/, "" ).replace ( /Part(\d)/, "Часть $1" );
-		texter += "**" + title + "**<br>";
-	}
+		+ (
+			title != ""
+			? "**" + title . charAt ( 0 ) . toUpperCase ( ) + title . slice ( 1 ) . replace ( /\.$/, "" ) . replace ( /Part(\d)/, "Часть $1" ) + "**\n"
+			: ""
+		)
+		+ "\n"
 
-	texter += "<br>" + index + "<br>{{" + num + ".png}}<br>";
+		+ "{"
+		+ (
+			num == 1
+			? "index&lt;"
+			: ""
+		)
+		+ "cnav}\n"
 
-	if ( numb <= 12 ) texter += "<br>== Фотошоп ==<br><br>{{" + num + "-r.jpg}}<br>";
+		+ "{{" + num0 + ".png}}\n"
 
-	// ТЕГ
-	if ( tagline !== null ) {
-		var tag = tagline.querySelector ( 'a' );
-		texter += ( tag !== null && tag.innerHTML !== "None" ) ? '{{tag>"' + tag.innerHTML + '"}}' : "";
-	}
-	texter += "<br>";
+		+ (
+			num <= 12
+			? "\n=== Фотошоп ===\n\n{{" + num0 + "-r.jpg}}\n"
+			: ""
+		)
 
-	// КОММЕНТАРИИ
-	if ( comm !== null ) {
-		texter += comm.innerHTML // докувикификация
-		.replace ( /\\\"/g, '"' )
-		.replace ( /<a href="(\\&quot;)?([^"]+?)(\\&quot;)?"> *([^<]+?)<\/a>/g, "[[$2|$4]]" )
-		.replace ( /<img src="(\\&quot;)?([^"]+?)(\\&quot;)?"> *([^>]+?)>/g, "{{$2}}" )
-		.replace ( / ?<br>(<br>)+/g, "<br /><br />" )
-		.replace ( / <br>/g, " " )
-		.replace ( /<br>/g, "\\\\<br>" )
-		.replace ( /<\/?(p)>/g, "" )
-		.replace ( /<\/?(i|em)[^>m]*>/g, "//" )
-		.replace ( /<\/?(b|strong)[^>r]*>/g, "**" )
-		.replace ( /<\/?u[^>]*>/g, "__" )
-		.replace ( /<center>/g, "&lt;box center unborder unbg>" )
-		.replace ( /<\/center>/g, "&lt;/box>" )
-		.replace ( /--/g, "–" )
-		.replace ( /\.\.\./g, "…" )
-		+ '<br>';
-	}
+		+ (
+			tag !== "None"
+			? '{{tag>"' + tag + '"}}'
+			: "" ) + "\n"
 
-	blarg.innerHTML = texter + index;
+		+ (
+			comm != ""
+			? comm
+				. replace ( /<a href="([^"]+?)" *> *([^<]+?) *<\/a>/g, "[[$1|$2]]" ) . replace ( /<img src="([^"]+?)" *>/g, "{{$1}}" )
+				. replace ( / *<br>(<br>)+/g, "\n\n" ) . replace ( / <br>/g, " " ) . replace ( /<br>/g, "\\\\\n" )
+				. replace ( /<\/?(p)>/g, "" ) . replace ( /<\/?(i|em)[^>m]*>/g, "//" ) . replace ( /<\/?(b|strong)[^>r]*>/g, "**" ) . replace ( /<\/?u[^>]*>/g, "__" )
+				. replace ( /<center>/g, "&lt;box center unborder unbg>" ) . replace ( /<\/center>/g, "&lt;/box>" )
+				. replace ( /--/g, "–" ) . replace ( /\.\.\./g, "…" )
+			+ '\n'
+			: ""
+		);
+	GM_setClipboard ( texter, "text" );
+};
 
-	selectblock ( blarg );
+function insertButton ( ) {
+	const Button = h ( 'input', {
+		type: 'button',
+		value: '[[ ]]',
+		title: '[[ ]]',
+		style: 'position: fixed; bottom: 20px; left: 50px;',
+		onclick: ( event ) => action ( ),
+	} );
+	document . body . appendChild ( Button );
 }
 
-setTimeout ( gap, 0 );
+insertButton ( );
