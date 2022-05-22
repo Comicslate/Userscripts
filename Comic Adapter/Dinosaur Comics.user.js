@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name            Comic Adapter: Dinosaur Comics
-// @version         2022.05.22
+// @version         2022.05.22.1
 // @description     Extract Info for Comicslate
-// @include         http*://*qwantz.com*
+// @match           http*://qwantz.com/*
 // @icon            https://www.google.com/s2/favicons?domain=qwantz.com
 // @author          Rainbow-Spike
 // @grant           GM_setClipboard
