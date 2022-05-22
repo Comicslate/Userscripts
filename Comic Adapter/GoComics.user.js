@@ -1,34 +1,52 @@
 // ==UserScript==
 // @name			Comic Adapter: GoComics
-// @version			2020.06.03
+// @version			2022.05.22
 // @description     Extract Info for Comicslate
-// @include			http*://*gocomics.com*
+// @match			http*://www.gocomics.com/*
 // @icon			https://www.google.com/s2/favicons?domain=gocomics.com
 // @author			Rainbow-Spike
-// @grant			none
+// @grant           GM_setClipboard
+// @supportURL      https://github.com/Comicslate/Userscripts/issues
+// @updateURL       https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/GoComics.user.js
+// @downloadURL     https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/GoComics.user.js
 // ==/UserScript==
 
-var prev = document.querySelector ( '.fa-caret-left' ),
-	next = document.querySelector ( '.fa-caret-right' );
-prev.accessKey = "z";
-next.accessKey = "x";
+const prev = document . querySelector ( '.fa-caret-left' ),
+	next = document . querySelector ( '.fa-caret-right' ),
+	img = document . querySelector ( ".js-item-comic-link img" ) . getAttribute ( 'src' ) + '.gif';
+if ( prev ) prev . accessKey = "z";
+if ( next ) next . accessKey = "x";
 
-var strip = document.querySelector ( '.js-item-comic-link' ),
-	img = strip.querySelector ( "img" ).getAttribute ( 'src' ),
-	dlink = document.createElement ( 'a' );
-
-// SELECT
-function selectblock ( name ) {
-	var rng = document.createRange ( );
-	rng.selectNode ( name );
-	var sel = window.getSelection ( );
-	sel.removeAllRanges ( );
-	sel.addRange ( rng );
+function h ( tag, props = { } ) {
+	return Object . assign ( document . createElement ( tag ), props );
 }
 
-dlink.setAttribute ( 'href', img + '.gif' );
-dlink.innerHTML = img + '.gif';
-dlink.setAttribute ( 'style', 'font-size: 20px; display: block;' );
-strip.parentNode.insertBefore ( dlink, strip.parentNode.firstChild );
+/* Button click link copy */
+function action ( ) {
+	GM_setClipboard ( img );
+}
 
-selectblock ( dlink );
+function insertButton ( ) {
+	const Button = h ( 'input', {
+		type: 'button',
+		value: '[[ ]]',
+		title: '[[ ]]',
+		style: 'position: fixed; bottom: 20px; left: 50px;',
+		onclick: ( event ) => action ( ),
+	} );
+	document . body . appendChild ( Button );
+}
+
+insertButton ( );
+
+/* Automated link copy */
+/* function insertLink ( ) {
+	const Link = h ( 'span', {
+		innerHTML: 'Link',
+		style: 'position: fixed; bottom: 20px; left: 50px;',
+		onclick: GM_setClipboard ( img ),
+	} );
+	document . body . appendChild ( Link );
+}
+
+insertLink ( ); */
