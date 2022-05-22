@@ -1,37 +1,35 @@
 // ==UserScript==
 // @name            Comic Adapter: DMFA
-// @version         2020.06.03
+// @version         2022.05.22
 // @description     Extract Info for Comicslate
-// @include         http*://*missmab.com*
+// @match           http*://missmab.com/*
 // @icon            https://www.google.com/s2/favicons?domain=missmab.com
 // @author          Rainbow-Spike
-// @grant           none
+// @grant           GM_setClipboard
+// @supportURL      https://github.com/Comicslate/Userscripts/issues
+// @updateURL       https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/DMFA.user.js
+// @downloadURL     https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/DMFA.user.js
 // ==/UserScript==
 
-var insert = document.querySelector ( "i" ), // search target for text insertion
-	text = insert.innerHTML.replace ( /\.\.\./g, "…" ), // replace 3 dots BTW
-	title = '', number = '',
-	chapter = 'Chapter 31: Friends in High Places'; // name of chapter
-
-// SELECT
-function selectblock ( name ) {
-	var rng = document.createRange ( );
-	rng.selectNode ( name );
-	var sel = window.getSelection ( );
-	sel.removeAllRanges ( );
-	sel.addRange ( rng );
+function h ( tag, props = { } ) {
+	return Object . assign ( document . createElement ( tag ), props );
 }
 
-// MAINWORK
-if ( window.location.href.search ( "index.php" ) != -1 ) { // if last page
-	number = document.querySelector ( "table" ).rows[2].querySelector ( "table" ).rows[0].cells[1].querySelectorAll ( "a" )[2].href.match ( /Vol_(\d+)/ )[1] * 1 + 1; // search number of stripe in back link
-	title = text.match ( /^(.*)$/ )[1];
-} else { // if non-last page
-	number = text.match ( /#(\d+):/ )[1] * 1;
-	title = text.match ( /#\d+: (.*)$/ )[1];
+function action ( ) {
+	const num = document . querySelector ( "img[src*='comicprev']" ) . parentNode . href . match ( /.+_(\d+)\..+/ ) [ 1 ] * 1 + 1,
+		title = document . querySelector ( "i" ) . innerHTML . replace ( /\.\.\./g, "…" ) . match ( /(#\d+: )?(.*)\.+?$/ ) [ 2 ];
+	GM_setClipboard ( "== Dan and Mab's Furry Adventures " + num + " ==\n**" + title + "**\n\n{cnav}\n{{" + num + ".png}}", 'text' );
 }
-title = title.replace ( /\.?$/, "" ); // cut ending dot
 
-insert.innerHTML = "== Dan and Mab's Furry Adventures " + number + " ==<br>**" + chapter + " - " + title + "**<br><br>{cnav}<br>{{" + number + ".png}}<br>{cnav}"; // dokuwikification
+function insertButton ( ) {
+	const Button = h ( 'input', {
+		type: 'button',
+		value: '[[ ]]',
+		title: '[[ ]]',
+		style: 'position: fixed; bottom: 20px; left: 50px;',
+		onclick: ( event ) => action ( ),
+	} );
+	document . body . appendChild ( Button );
+}
 
-selectblock ( insert );
+insertButton ( );
