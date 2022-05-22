@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name			Comic Adapter: Awkward Zombie
-// @version			2022.05.21
+// @version			2022.05.22
 // @description		Extract Info for Comicslate
-// @match			https://www.awkwardzombie.com
+// @match			http*://www.awkwardzombie.com/*
 // @icon			https://www.google.com/s2/favicons?domain=awkwardzombie.com
 // @author			Rainbow-Spike
 // @grant			GM_setClipboard
