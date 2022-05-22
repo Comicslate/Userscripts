@@ -1,51 +1,53 @@
 // ==UserScript==
 // @name            Comic Adapter: Dinosaur Comics
-// @version         2020.06.19
+// @version         2022.05.22
 // @description     Extract Info for Comicslate
 // @include         http*://*qwantz.com*
 // @icon            https://www.google.com/s2/favicons?domain=qwantz.com
 // @author          Rainbow-Spike
-// @grant           none
+// @grant           GM_setClipboard
+// @supportURL      https://github.com/Comicslate/Userscripts/issues
+// @updateURL       https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Dinosaur%20Comics.user.js
+// @downloadURL     https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Dinosaur%20Comics.user.js
+// @noframes
 // ==/UserScript==
 
-let node = document.querySelector ( '#header' ),
-	insert = document.createElement ( 'span' ),
-	number = window.location.search.split ( '=' ) [ 1 ].padStart ( 4, "0" ),
-	img = document.querySelector ( 'img.comic' );
+const prevLink = document . querySelector ( '[rel="prev"]' ),
+	nextLink = document . querySelector ( '[rel="next"]' );
+let num = '';
+if ( prevLink ) { prevLink . accessKey = 'z'; num = prevLink . href . split ( '=' ) [ 1 ] * 1 + 1 };
+if ( nextLink ) { nextLink . accessKey = 'x'; num = nextLink . href . split ( '=' ) [ 1 ] * 1 - 1 };
 
-// SELECT
-function selectblock ( name ) {
-	let rng = document.createRange ( );
-	rng.selectNode ( name );
-	let sel = window.getSelection ( );
-	sel.removeAllRanges ( );
-	sel.addRange ( rng );
-}
-
-// HOTKEYS
-let prevLink = document.querySelector ( '[rel="prev"]' ),
-	nextLink = document.querySelector ( '[rel="next"]' );
-    if ( prevLink ) prevLink.accessKey = 'z';
-    if ( nextLink ) nextLink.accessKey = 'x';
-
-function title ( ) {
-	let comm = img.getAttribute ( 'title' ) || '',
-		title =
-			comm != ( '' | null )
-			? '<br>' + (
-				comm.charAt ( 0 ).toLowerCase ( ) != comm.charAt ( 0 ).toUpperCase ( )
-					? comm.charAt ( 0 ).toUpperCase ( ) + comm.slice ( 1 )
-					: comm.charAt ( 0 ).toLowerCase ( ) + comm.charAt ( 1 ).toUpperCase ( ) + comm.slice ( 2 )
-				) + '<br>'
-			: '';
-	return title;
+function h ( tag, props = { } ) {
+	return Object . assign ( document . createElement ( tag ), props );
 }
 
 function action ( ) {
-	insert.innerHTML = '== Dinosaur Comics ' + number + ' ==<br><br>{cnav}<br>{{' + number + '.png}}<br>' + title ( ) + '{cnav}';
-	( node != null )
-		? node.insertBefore ( insert, node.firstChild )
-		: '';
-	selectblock ( insert );
+	const num0 = num . toString ( ) . padStart ( 4, '0' ),
+		text = document . querySelector ( 'img.comic' ) . getAttribute ( 'title' ) || '',
+		text1 = text . charAt ( 0 ) . toLowerCase ( ) || '',
+		comm = (
+			text != ''
+			? '\n' + (
+					text1 != text1 . toUpperCase ( )
+					? text1 . toUpperCase ( ) + text . slice ( 1 )
+					: text1 + text . charAt ( 1 ) . toUpperCase ( ) + text . slice ( 2 )
+				)
+			: ''
+			),
+		texter = '== Dinosaur Comics ' + num0 + ' ==\n\n{cnav}\n{{' + num0 + '.png}}\n' + comm;
+	GM_setClipboard ( texter, 'text' );
 }
-action ( );
+
+function insertButton ( ) {
+	const Button = h ( 'input', {
+		type: 'button',
+		value: '[[ ]]',
+		title: '[[ ]]',
+		style: 'position: fixed; bottom: 20px; left: 50px;',
+		onclick: ( event ) => action ( ),
+	} );
+	document . body . appendChild ( Button );
+}
+
+insertButton ( );
