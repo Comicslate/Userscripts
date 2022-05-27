@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.05.19
+// @version			2022.05.27
 // @description     Extract Info for Comicslate
 // @match           http*://freefall.purrsia.com/*
 // @match           http*://freefall.glasswings.com/*
@@ -13,7 +13,7 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Freefall.user.js
 // ==/UserScript==
 
-var	title = document . querySelector ( "title" ) . innerText . split ( ' ' ),
+var	title = document . querySelector ( "title" ) . innerText . split ( / +/ ),
 	num = title [ 1 ] . toString ( ) . padStart ( 4, "0" ) * 1,
 	m_array = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
 	date = title [ 4 ] + '-' + title [ 2 ] + '-' + title [ 3 ] . slice ( 0, 2 ),
