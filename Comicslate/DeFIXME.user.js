@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name			Comicslate DeFIXME
-// @version			2021.07.28
-// @description		Удаление FIXME в немецком разделе и лентах
+// @version			2022.07.04
+// @description		Удаление FIXME
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=preview*
 // @icon			https://comicslate.org/favicon.ico
@@ -12,25 +12,12 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/DeFIXME.user.js
 // ==/UserScript==
 
-var author = document . querySelector ( ".user bdi" ) . innerHTML,
-	wiki_text = document . querySelector ( '#wiki__text' ),
+var wiki_text = document . querySelector ( '#wiki__text' ),
 	lhref = window . location . href,
-	text = /FIXME \*\*[^\n]+\)\/\/\n\n/;
+	text = /FIXME \*\*[^\n]+[\)）]\/\/\n\n/;
 
 if (
-	wiki_text . value . match ( 'FIXME' ) != null
+	/FIXME/ . test ( wiki_text . value )
 	&&
-	(
-		lhref . match ( /\/[dh]\d+/ ) != null
-		||
-		(
-			lhref . match ( '/de/sci-fi/freefall' ) != null
-			/*&&
-			author != 'Robot Spike'*/
-			&&
-			lhref . match ( '/37' ) == null
-		)
-		||
-		lhref . match ( '/en/sci-fi/freefall' ) != null
-	)
+	/(\/[dh]\d+|\/en\/sci\-fi\/freefall)/ . test ( lhref ) /* в лентах и англ. фрифоле */
 ) wiki_text . value = wiki_text . value . replace ( text, '' );
