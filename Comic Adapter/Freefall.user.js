@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.05.27
+// @version			2022.07.09
 // @description     Extract Info for Comicslate
 // @match           http*://freefall.purrsia.com/*
 // @match           http*://freefall.glasswings.com/*
@@ -28,16 +28,23 @@ place = document . querySelector (
 	: "table + b"
 );
 switch ( true ) {
-	case num >= 3727: name = "June 30, 2021...<br><br>**Предварительное название: Калмар в цехе технического обслуживания"
-		+ ins + "Provisional Title: Sqid in the maintenance shop"
-		+ ins + "Vorläufiger Title: Tintefisch in der Wartungswerkstatt"
-		+ ins + "Titre provisoire : Le kalmar dans l'atelier de maintenance"
-		+ ins + "Временно заглавие: Калма в цеха за поддръжка"
-		+ ins + "Título provisório: Lul na oficina de manutenção"
-		+ ins + "Prozatímní název: Kraktice v údržbářské dílně"
-		+ ins + "Foreløbig titel: Bleksprutte i vedligeholdelsesværkstedet"
-		+ ins + "Título provisional: Calmar en el taller de mantenimiento"
-		+ ins + "Ideiglenes cím: Tinthal a karbantartó műhelyben**\\\\"; break;
+	case num >= 3727: name = "June 30, 2021...<br><br>**Предварительное название: Калмар в цехе технического обслуживания" // ru
+		+ ins + "Provisional Title: Sqid in the maintenance shop" // en
+		+ ins + "Vorläufiger Title: Tintefisch in der Wartungswerkstatt" // de
+		+ ins + "Titre provisoire : Le kalmar dans l'atelier de maintenance" // fr
+		+ ins + "Временно заглавие: Калма в цеха за поддръжка" // bg
+		+ ins + "Título provisório: Lul na oficina de manutenção" // br
+		+ ins + "Prozatímní název: Kraktice v údržbářské dílně" // cs
+		+ ins + "Foreløbig titel: Bleksprutte i vedligeholdelsesværkstedet" // da
+		+ ins + "Título provisional: Calmar en el taller de mantenimiento" // es
+		+ ins + "Ideiglenes cím: Tinthal a karbantartó műhelyben" // hu
+		+ ins + "Väliaikainen nimi: Calmari huoltoliikkeessä" // fi
+		+ ins + "仮のタイトル 整備工場のイア" // ja
+		+ ins + "Tymczasowy tytuł: Calmar w warsztacie konserwatorskim" // pl
+		+ ins + "Título provisório: Luls na loja de manutenção" // pt
+		+ ins + "临时标题:维修车间里的鱿余" // zh
+/*		+ ins + "Geçici unvan: Bakım atölyesinde kalmar" // tr */
+		+ "**\\\\"; break;
 	case num >= 3706: name = "June 30, 2021<br><br>Sqid in the maintenance shop"; break;
 	case num >= 3696: name = "January 10, 2022<br>Sam\'s hunt for money and savings begins:"; break;
 	case num >= 3667: name = "November 3, 2021<br>Prepping for dinner on a space station, with a slight detour:"; break;
