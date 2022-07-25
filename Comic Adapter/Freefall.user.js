@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.07.09
+// @version			2022.07.25
 // @description     Extract Info for Comicslate
 // @match           http*://freefall.purrsia.com/*
 // @match           http*://freefall.glasswings.com/*
@@ -37,8 +37,8 @@ switch ( true ) {
 		+ ins + "Prozatímní název: Kraktice v údržbářské dílně" // cs
 		+ ins + "Foreløbig titel: Bleksprutte i vedligeholdelsesværkstedet" // da
 		+ ins + "Título provisional: Calmar en el taller de mantenimiento" // es
-		+ ins + "Ideiglenes cím: Tinthal a karbantartó műhelyben" // hu
 		+ ins + "Väliaikainen nimi: Calmari huoltoliikkeessä" // fi
+		+ ins + "Ideiglenes cím: Tinthal a karbantartó műhelyben" // hu
 		+ ins + "仮のタイトル 整備工場のイア" // ja
 		+ ins + "Tymczasowy tytuł: Calmar w warsztacie konserwatorskim" // pl
 		+ ins + "Título provisório: Luls na loja de manutenção" // pt
