@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.07.25
+// @version			2022.09.09
 // @description     Extract Info for Comicslate
 // @match           http*://freefall.purrsia.com/*
 // @match           http*://freefall.glasswings.com/*
@@ -42,8 +42,9 @@ switch ( true ) {
 		+ ins + "仮のタイトル 整備工場のイア" // ja
 		+ ins + "Tymczasowy tytuł: Calmar w warsztacie konserwatorskim" // pl
 		+ ins + "Título provisório: Luls na loja de manutenção" // pt
-		+ ins + "临时标题:维修车间里的鱿余" // zh
+		+ ins + "Попередня назва: Калмар у цеху технічного обслуговування" // uk
 /*		+ ins + "Geçici unvan: Bakım atölyesinde kalmar" // tr */
+		+ ins + "临时标题:维修车间里的鱿余" // zh
 		+ "**\\\\"; break;
 	case num >= 3706: name = "June 30, 2021<br><br>Sqid in the maintenance shop"; break;
 	case num >= 3696: name = "January 10, 2022<br>Sam\'s hunt for money and savings begins:"; break;
