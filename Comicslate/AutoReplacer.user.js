@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoReplacer
-// @version			2021.06.01
+// @version			2022.09.10
 // @description		Автозамены в Комикслейте
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -16,10 +16,11 @@
 var wiki__text = document . querySelector ( "#wiki__text" ),
 	sum = document . querySelector ( "#edit__summary" ),
 	repl = [
+	/* Sci-fi */
 		//[ "New", "Commander Kitty" ],
 		[ "Sequential-art", "Sequential Art" ],
 		//[ " Fur ", " Sequential Art (Версия Зверь *TranslayerЪ* Внутри) " ],
-
+	/* TLK */
 		[ "Missing-pieces", "Missing Pieces" ],
 		[ "The-first-king", "The First King" ],
 		[ "Maishas-story", "Maisha's story"],
@@ -31,13 +32,13 @@ var wiki__text = document . querySelector ( "#wiki__text" ),
 		[ "The-lost-days", "The Lost Days" ],
 		[ "The-lion-queen", "The Lion Queen"],
 		[ "Heir-to-pride-rock", "Heir to Pride Rock" ],
-
+	/* MLP */
 		[ "Ask-princess-molestia", "Ask Princess Molestia" ],
-
+	/* Wolves */
 		[ "Wolfs-rain-next-generation", "Wolf's Rain – Next Generation" ],
 		[ "Be-reflected-in-my-eyes", "Be reflected in my eyes" ],
 		[ "Behind-the-woods", "Behind the woods" ],
-
+	/* Furry */
 		[ "Ozy-and-millie", "Ozy and Millie" ],
 		[ "Dan-and-mabs-furry-adventures", "Dan and Mab's Furry Adventures" ],
 		// [ "New", "My Life with Fel (new)" ],
@@ -55,14 +56,13 @@ var wiki__text = document . querySelector ( "#wiki__text" ),
 		[ "College-catastrophe", "College Catastrophe" ],
 		[ "Nine-to-nine", "Nine to Nine" ],
 		[ "Swords-and-sausages", "Swords and Sausages" ],
-
 		[ "Bunny-mischief", "Bunny Mischief" ],
 		[ "Goblin-hollow", "Goblin Hollow" ],
 		[ "Legend-of-zhathar", "Legend of Zhathar" ],
 		[ "Conejo-frustrado", "Conejo Frustrado" ],
 		[ "Off-white", "Off-White" ],
 		[ "The-roomies", "The Roomies" ],
-
+	/* Gamer */
 		[ "Yet-another-fantasy-gamer-comic", "Yet Another Fantasy Gamer Comic" ],
 		[ "Nerf-now", "Nerf Now!!" ],
 		[ "Gamercat", "GaMERCaT" ],
@@ -71,14 +71,13 @@ var wiki__text = document . querySelector ( "#wiki__text" ),
 		[ "Diario-magico", "Diario Magico" ],
 		[ "Awkward-zombie", "AWKWARD ZOMBIE" ],
 		[ "It-sucks-to-be-weegie", "It sucks to be Weegie!" ],
-
+	/* Other */
 		[ "Vida-de-programador", "Vida de Programador" ],
 		[ "Sluggy-freelance", "Sluggy Freelance" ],
 		[ "Dinosaur-comics", "Dinosaur Comics" ],
 		[ "Little-bobby", "Little Bobby" ],
 		[ "Zomcom", "ZomCom" ],
-
-		// [ "", "" ],
+		[ "Jesus-and-mo", "Jesus and Mo" ],
 	];
 
 if ( wiki__text != null ) {
@@ -89,5 +88,5 @@ if ( wiki__text != null ) {
 
 if ( sum && sum . value != null && text1 != text ) {
 	if ( sum . value != '' ) sum . value += ' / ';
-	sum . value += 'AR 2021.05.30';
+	sum . value += 'AR 2022.09.10';
 }
