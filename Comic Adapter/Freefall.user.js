@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2022.09.09
+// @version			2022.10.12
 // @description     Extract Info for Comicslate
 // @match           http*://freefall.purrsia.com/*
 // @match           http*://freefall.glasswings.com/*
@@ -30,7 +30,7 @@ place = document . querySelector (
 switch ( true ) {
 	case num >= 3727: name = "June 30, 2021...<br><br>**Предварительное название: Калмар в цехе технического обслуживания" // ru
 		+ ins + "Provisional Title: Sqid in the maintenance shop" // en
-		+ ins + "Vorläufiger Title: Tintefisch in der Wartungswerkstatt" // de
+		+ ins + "Vorläufiger Titel: Tintefisch in der Wartungswerkstatt" // de
 		+ ins + "Titre provisoire : Le kalmar dans l'atelier de maintenance" // fr
 		+ ins + "Временно заглавие: Калма в цеха за поддръжка" // bg
 		+ ins + "Título provisório: Lul na oficina de manutenção" // br
