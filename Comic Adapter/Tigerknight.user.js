@@ -1,11 +1,15 @@
 // ==UserScript==
 // @name            Comic Adapter: Tigerknight
-// @version         2022.11.06
+// @version         2022.11.06.1
 // @description     Extract Info for Comicslate
 // @include         http*://*tigerknight.com*
 // @icon            https://www.google.com/s2/favicons?domain=tigerknight.com
 // @author          Rainbow-Spike
 // @grant           none
+// @run-at			document-end
+// @supportURL		https://github.com/Comicslate/Userscripts/issues
+// @updateURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Tigerknight.user.js
+// @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Tigerknight.user.js
 // ==/UserScript==
 
 var chapter = document.querySelector ( '.comic-bookmark-nav option' );
