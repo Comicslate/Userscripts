@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Tigerknight
-// @version         2021.01.13
+// @version         2022.11.06
 // @description     Extract Info for Comicslate
 // @include         http*://*tigerknight.com*
 // @icon            https://www.google.com/s2/favicons?domain=tigerknight.com
@@ -13,7 +13,7 @@ chapter = /*( chapter != null )
 	? chapter.innerHTML + ' - '
 	:*/ '' ;
 
-var title = document.querySelector ( '.comic-title' );
+var title = document.querySelector ( 'article > h1' );
 title = ( title != null )
 	? title.innerHTML.replace ( /^[^-]+ - /g, '' ).replace ( / ?<a.+<\/a>/g, '' )
 	: '';
