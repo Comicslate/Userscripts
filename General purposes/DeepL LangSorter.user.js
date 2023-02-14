@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name			DeepL LangSorter
-// @version			2022.02.02
-// @description		Отрыватель языков из колонок
-// @include			http*://*deepl.com/*
+// @version			2023.02.15
+// @description		Отрыватель языков из колонок + автоклик рекламки
+// @match			http*://*deepl.com/*
 // @icon			https://www.google.com/s2/favicons?domain=deepl.com
 // @author			Rainbow-Spike
 // @grant			none
@@ -17,5 +17,6 @@ function action ( ) {
         father . append(...cols [ i ] . children);
         father . removeChild ( cols [ i ] );
     }
+	document . querySelector ( '.dl_button.dl_button--3' ) . click ( );
 }
 setInterval ( action, 200 );
