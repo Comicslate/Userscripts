@@ -2,7 +2,7 @@
 // @name			DeepL LangSorter
 // @version			2023.02.15
 // @description		Отрыватель языков из колонок + автоклик рекламки
-// @match			http*://*deepl.com/*
+// @match			https://www.deepl.com/*
 // @icon			https://www.google.com/s2/favicons?domain=deepl.com
 // @author			Rainbow-Spike
 // @grant			none
