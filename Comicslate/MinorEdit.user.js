@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate MinorEdit
-// @version			2021.04.26
+// @version			2023.05.12
 // @description		Автовыбор "малой правки"
 // @match			http*://*comicslate.org/*do=edit*
 // @match			http*://*comicslate.org/*do=draft*
@@ -17,7 +17,7 @@ var lever = 1, /*	1 - галочить только исправления, со
 					0 - галочить всех подряд (для генерации страниц-десятников)
 					первая правка (создание) не может быть малой!! */
 	mark = document . querySelector ( "#minoredit" ),
-	gt = document . querySelector ( "#edit__summary" ) . value . search ( /(створ(ана|ено)|създадена|oprettet|angelegt|δημιουργήθηκε|cr(ea(ted|do|ta)|éée|iação)|kreita|luotu|נוצר|निर्मित|dibuat|作成|만듦|utworzono|создано|创建)/ ),
+	gt = document . querySelector ( "#edit__summary" ) . value . search ( /(створ(ана|ено)|създадена|oprettet|angelegt|δημιουργήθηκε|cr(ea(ted|do|ta)|éée|ia(ção|da))|kreita|luotu|létrehozva|נוצר|निर्मित|dibuat|作成|만듦|vytvořeno|utworzono|создано|创建)/ ),
 	timer = 2;
 
 function minor ( ) {
