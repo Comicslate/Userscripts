@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name			Comicslate Freefall DateStamping
-// @version			2022.05.06
+// @version			2023.09.04
 // @description		Date stamping in Freefall
-// @match			http*://*comicslate.org/*freefall*do=edit*
-// @match			http*://*comicslate.org/*freefall*do=draft*
+// @match			http*://*comicslate.org/*/freefall/*do=edit*
+// @match			http*://*comicslate.org/*/freefall/*do=draft*
 // @exclude			http*://*comicslate.org/*/h*
 // @exclude			http*://*comicslate.org/*/d*
+// @exclude			http*://*comicslate.org/*/index*
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			none
@@ -3608,15 +3609,14 @@ var wiki__text = document . querySelector ( "#wiki__text" ),
 		{ id: 3588, text: "2021-05-03" },
 		{ id: 3589, text: "2021-05-05" }
 	],
-	date = dates . find ( item => item . id == num );
+	date = dates . find ( item => item . id == num ) || 0;
 
-if ( wiki__text != null && date . text != null ) {
+if ( wiki__text != null && date . text != 0 ) {
 	var text = wiki__text . value, text1 = text;
 	text = text . replace ( '\*\*\n\n\{cnav\}', '\*\*\\\\\n\[!0.987\]' + date . text + '\n\n\{cnav\}' );
 	wiki__text . value = text;
-}
-
-if ( sum && sum . value != null && text1 != text ) {
-	if ( sum . value != '' ) sum . value += ' / ';
-	sum . value += 'DateStamping 2021.10.03';
+	if ( sum && sum . value != null && text1 != text ) {
+		if ( sum . value != '' ) sum . value += ' / ';
+		sum . value += 'DSBot 2023.09.04';
+	}
 }
