@@ -4,6 +4,8 @@
 // @description		Автозамены титулов в Фрифоле
 // @match			http*://*comicslate.org/*/freefall/*do=edit*
 // @match			http*://*comicslate.org/*/freefall/*do=draft*
+// @exclude			http*://*comicslate.org/*/h*
+// @exclude			http*://*comicslate.org/*/d*
 // @exclude			http*://*comicslate.org/*/freefall/index*
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
