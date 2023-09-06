@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate StringReSorter
-// @version			2023.09.06
+// @version			2023.09.06.1
 // @description		Вкладывание переводов
 // @description:en	Translations sorting
 // @match			http*://*comicslate.org/*do=edit*
@@ -26,7 +26,7 @@ function h ( tag, props = {} ) {
 function action ( ) {
 	var
 		wiki_text = document . querySelector ( '#wiki__text' ), /* взять текст */
-		new_texts = wiki_text . value . split ( '\n== Freefall' ) [ 0 ] . split ( '\n' ), /* массив новых строк перед заглавием */
+		new_texts = wiki_text . value . split ( '\nFIXME' ) [ 0 ] . split ( '\n== ' ) [ 0 ] . split ( '\n' ), /* массив новых строк перед заглавием */
 		all_notes = wiki_text . value . split ( '{{cotan' ) [ 1 ] . split ( '\n{{<' ) [ 0 ] . split ( '\n@' ), /* ниже предварительная лапша старого текста */
 		old_texts = [ ];
 
