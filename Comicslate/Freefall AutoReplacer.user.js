@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate Freefall AutoReplacer
-// @version			2023.09.04
+// @version			2023.11.20
 // @description		Автозамены титулов в Фрифоле
 // @match			http*://*comicslate.org/*/freefall/*do=edit*
 // @match			http*://*comicslate.org/*/freefall/*do=draft*
@@ -35,4 +35,4 @@ var wiki__text = document . querySelector ( "#wiki__text" ),
 		zh: "临时标题:维修车间里的鱿余",
 	};
 
-if ( wiki__text != null ) wiki__text . value = wiki__text . value . replace ( repl . ru , repl [ JSINFO . lang ] )
+if ( wiki__text != null ) wiki__text . value = wiki__text . value . replace ( repl . ru , repl [ JSINFO . lang ] ) . replace ( repl . bg , repl [ JSINFO . lang ] )
