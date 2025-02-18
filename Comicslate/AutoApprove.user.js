@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoApprove
-// @version			2021.12.30
+// @version			2025.02.19
 // @description		Автоодобрение правок
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -13,9 +13,9 @@
 // ==/UserScript==
 
 var approve_link = document . querySelector ( ".approval_action a" ),
-	self = "Robot Spike",
+	self = "Rainbow Spike",
 	fr = "Arkane",
-	lever = 0; // 0 - одобрять всё, 1 - только себя и Аркейна
+	lever = 1; // 0 - одобрять всё, 1 - только себя и Аркейна
 
 if ( approve_link != null ) {
 	( lever )
