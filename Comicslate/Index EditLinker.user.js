@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate Index EditLinker
-// @version			2025.06.22
+// @version			2025.06.22.1
 // @description		Расширение функционала "Индекса"
 // @match			http*://*comicslate.org/*do=index*
 // @match			http*://*comicslate.org/*idx=*
@@ -25,13 +25,13 @@ function InsertButtons ( ) {
 				innerHTML:	'#iel { background-color: white; border: 3px solid #1ad4df; border-radius: 13px; bottom: 5px; opacity: 0.6; padding: 5px; position: fixed; right: 25px } ' +
 							'#iel * { font-size: 18px } ' +
 							'#iel:hover { border-color: #eaf1f1 } ' +
+							'span { text-align: right } ' +
 							'#iel input { margin: 2px } ' +
 							'#iel1 { padding-bottom: 3px } ' +
-							'#iel11 { text-align: right } ' +
-							'#iel [type="text"] { border: 0; width: 30px } '
+							'#iel [type="text"] { width: 30px } '
 			} ),
 			h ( 'div', { id: 'iel1' }, [
-				h ( 'input', { type: 'text',	value: 'do=',		title: "Действие…",			id: 'iel11'										} ),
+				h ( 'span', { innerHTML: 'do=' } ),
 				h ( 'input', { type: 'button',	value: 'edit',		title: "В редактор",		onclick: ( event ) => Atr ( 1, 'edit' )			} ),
 				h ( 'input', { type: 'button',	value: 'preview',	title: "В просмотр",		onclick: ( event ) => Atr ( 1, 'preview' )		} ),
 				h ( 'input', { type: 'button',	value: 'revs',		title: "В список версий",	onclick: ( event ) => Atr ( 1, 'revisions' )	} ),
