@@ -1,12 +1,8 @@
 // ==UserScript==
 // @name			Comicslate Freefall DateStamping
-// @version			2023.09.04
-// @description		Date stamping in Freefall
-// @match			http*://*comicslate.org/*/freefall/*do=edit*
-// @match			http*://*comicslate.org/*/freefall/*do=draft*
-// @exclude			http*://*comicslate.org/*/h*
-// @exclude			http*://*comicslate.org/*/d*
-// @exclude			http*://*comicslate.org/*/index*
+// @version			2025.06.22
+// @description		Простановка дат в Фрифоле
+// @match			http*://*comicslate.org/*
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
 // @grant			none
@@ -15,7 +11,7 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Freefall%20DateStamping.user.js
 // ==/UserScript==
 
-var wiki__text = document . querySelector ( "#wiki__text" ),
+var wiki__text = document . querySelector ( ".sci-fi.freefall.comic.editpage:not(.band) #wiki__text" ),
 	num = window . location . pathname . split ( /\// ) . pop ( ),
 	sum = document . querySelector ( "#edit__summary" ),
 	dates = [
@@ -3617,6 +3613,6 @@ if ( wiki__text != null && date . text != 0 ) {
 	wiki__text . value = text;
 	if ( sum && sum . value != null && text1 != text ) {
 		if ( sum . value != '' ) sum . value += ' / ';
-		sum . value += 'DSBot 2023.09.04';
+		sum . value += 'DSBot 2025.06.22';
 	}
 }
