@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name			Comicslate AutoSaveClicker
-// @version			2021.06.15
-// @description		Автоклик сохранения
+// @version			2022.01.23
+// @description		Автоклик сохранения + удалялка
 // @include			/comicslate.org.+(sci-fi|tlk|wolves|mlp|furry|gamer|other|interrobang)/
 // @exclude			/^https?://comicslate\.org\/.+do=[^e]+/
 // @exclude			/^https?://comicslate\.org\/.+publish
@@ -13,18 +13,23 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoSaveClicker.user.js
 // ==/UserScript==
 
-var sum = document . querySelector ( "#edit__summary" ),
-
-	autosave = 0,
+var wiki__text = document . querySelector ( "#wiki__text" ),
 	sv = document . querySelector ( "#edbtn__save" ),
+	sum = document . querySelector ( "#edit__summary" ),
 
-	autoclose = 1, // для NaviClicker - 0, для Index EditLinker - 1
-	timer = 2; // ≥2s!
+	autoeraser = 0, // для удаления текста - 1 !! ВНИМАНИЕ
+
+	autosave = 1, // для сохранения - 1, для простого посещения страницы - 0
+
+	autoclose = 1, // для NaviClicker - 0, для IndexEditLinker - 1
+	timer = 3;
 
 if ( sum && sum . value != null ) {
 	if ( sum . value != '' ) sum . value += ' / ';
-	sum . value += 'ASC 2021.05.30';
+	sum . value += 'ASC 2022.01.23';
 }
+
+if ( autoeraser && wiki__text !== null ) wiki__text . value = '';
 
 ( sv )
 	? (
@@ -33,7 +38,7 @@ if ( sum && sum . value != null ) {
 			: ''
 	)
 	: (
-		( autoclose && timer >= 2 )
+		( autoclose && timer > 2 )
 			? setTimeout ( function ( ) { window . close ( ) }, timer * 1000 ) // в Фаерфоксе требуется about:config -> dom.allow_scripts_to_close_windows -> true
 			: ''
 	)
