@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate Index EditLinker
-// @version			2025.06.22.1
+// @version			2025.06.22.2
 // @description		Расширение функционала "Индекса"
 // @match			http*://*comicslate.org/*do=index*
 // @match			http*://*comicslate.org/*idx=*
@@ -23,10 +23,9 @@ function InsertButtons ( ) {
 		h ( 'div', { id: 'iel' }, [
 			h ( 'style', {
 				innerHTML:	'#iel { background-color: white; border: 3px solid #1ad4df; border-radius: 13px; bottom: 5px; opacity: 0.6; padding: 5px; position: fixed; right: 25px } ' +
-							'#iel * { font-size: 18px } ' +
+							'#iel div * { font-size: 18px; margin: 2px } ' +
 							'#iel:hover { border-color: #eaf1f1 } ' +
 							'span { text-align: right } ' +
-							'#iel input { margin: 2px } ' +
 							'#iel1 { padding-bottom: 3px } ' +
 							'#iel [type="text"] { width: 30px } '
 			} ),
