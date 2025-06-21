@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name			Comicslate Index EditLinker
-// @version			2022.05.15
-// @description		Добавление do к ссылкам в "карте сайта"
+// @version			2025.06.22
+// @description		Расширение функционала "Индекса"
 // @match			http*://*comicslate.org/*do=index*
 // @match			http*://*comicslate.org/*idx=*
 // @icon			https://comicslate.org/favicon.ico
@@ -12,54 +12,70 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Index%20EditLinker.user.js
 // ==/UserScript==
 
-function insertAttr ( num, action ) {
-	document . querySelectorAll ( "#index__tree a:not(.idx_dir)" ) . forEach (
-		function ( e ) {
-			switch ( num ) {
-				case 1: e . href = e . href . split ( '?' ) [ 0 ] + '?do=' + action; break;
-				case 2: e . href = e . href . replace ( /\/s?..\//, '/' + action + '/' ); break;
-				case 3: e . href = e . href . split ( '?' ) [ 0 ] + '?do=edit&fromlang=' + action; break;
-				case 4:
-					if ( e . getAttribute ( 'wikititle' ) == null ) {
-						e . setAttribute ( 'wikititle', e . innerHTML );
-						e . innerHTML = e . href . split ( '/' ) [ e . href . split ( '/' ) . length - 1 ] . split ( '?' ) [ 0 ];
-					} else {
-						e . innerHTML = e . getAttribute ( 'wikititle' );
-						e . removeAttribute ( 'wikititle' );
-					};
-					break;
-			}
-		}
-	)
-}
-
 function h ( tag, props = { }, children = [ ] ) {
 	const element = Object . assign ( document . createElement ( tag ), props );
 	element . append ( ...children );
 	return element;
 }
 
-function insertButtons ( ) {
+function InsertButtons ( ) {
 	document . body . appendChild (
-		h ( 'div', {
-			className: 'indexlink',
-			style: 'background-color: white; position: fixed; bottom: 5px; right: 5px;'
-		}, [
-			h ( 'div', {	id: 'indexlink-top'	}, [
-				h ( 'input', { type: 'button',	value: 'lang = ',		style: 'margin:4px;',	onclick: ( event ) => insertAttr ( 2, indexLinkLang . value )	} ),
-				h ( 'input', { type: 'text',	value: lang,			id: 'indexLinkLang',	style: 'margin: 4px; width: 20px; text-align: center;'			} ),
-				h ( 'input', { type: 'button',	value: 'fromlang = ',	style: 'margin: 4px;',	onclick: ( event ) => insertAttr ( 3, indexLinkFLng . value )	} ),
-				h ( 'input', { type: 'text',	value: 'en',			id: 'indexLinkFLng',	style: 'margin: 4px; width: 20px; text-align: center;'			} ),
-				h ( 'input', { type: 'button',	value: 'iH',			style: 'margin: 4px;',	onclick: ( event ) => insertAttr ( 4, '' )						} )
+		h ( 'div', { id: 'iel' }, [
+			h ( 'style', {
+				innerHTML:	'#iel { background-color: white; border: 3px solid #1ad4df; border-radius: 13px; bottom: 5px; opacity: 0.6; padding: 5px; position: fixed; right: 25px } ' +
+							'#iel * { font-size: 18px } ' +
+							'#iel:hover { border-color: #eaf1f1 } ' +
+							'#iel input { margin: 2px } ' +
+							'#iel1 { padding-bottom: 3px } ' +
+							'#iel11 { text-align: right } ' +
+							'#iel [type="text"] { border: 0; width: 30px } '
+			} ),
+			h ( 'div', { id: 'iel1' }, [
+				h ( 'input', { type: 'text',	value: 'do=',		title: "Действие…",			id: 'iel11'										} ),
+				h ( 'input', { type: 'button',	value: 'edit',		title: "В редактор",		onclick: ( event ) => Atr ( 1, 'edit' )			} ),
+				h ( 'input', { type: 'button',	value: 'preview',	title: "В просмотр",		onclick: ( event ) => Atr ( 1, 'preview' )		} ),
+				h ( 'input', { type: 'button',	value: 'revs',		title: "В список версий",	onclick: ( event ) => Atr ( 1, 'revisions' )	} ),
+				h ( 'input', { type: 'button',	value: 'backlink',	title: "В список отсылок",	onclick: ( event ) => Atr ( 1, 'backlink' )		} ),
+				h ( 'input', { type: 'button',	value: '-',			title: "Страница",			onclick: ( event ) => Atr ( 1, '' )				} )
 			] ),
-			h ( 'div', {	id: 'indexlink-bottom'	}, [
-				h ( 'input', { type: 'button',	value: 'edit',		style: 'margin: 5px;',	onclick: ( event ) => insertAttr ( 1, 'edit' )		} ),
-				h ( 'input', { type: 'button',	value: 'preview',	style: 'margin: 5px;',	onclick: ( event ) => insertAttr ( 1, 'preview' )	} ),
-				h ( 'input', { type: 'button',	value: 'revisions',	style: 'margin: 5px;',	onclick: ( event ) => insertAttr ( 1, 'revisions' )	} ),
-				h ( 'input', { type: 'button',	value: 'backlink',	style: 'margin: 5px;',	onclick: ( event ) => insertAttr ( 1, 'backlink' )	} )
+			h ( 'div', { id: 'iel2' }, [
+				h ( 'input', { type: 'button',	value: 'lang=',		title: "Заменить на...",	onclick: ( event ) => Atr ( 2, iel21 . value )	} ),
+				h ( 'input', { type: 'text',	value: lang,		title: "…этот язык",		id: 'iel21'										} ),
+				h ( 'input', { type: 'button',	value: 'fromlang=',	title: "Перетащить на...",	onclick: ( event ) => Atr ( 3, iel22 . value )	} ),
+				h ( 'input', { type: 'text',	value: 'en',		title: "…этот язык",		id: 'iel22'										} ),
+				h ( 'input', { type: 'button',	value: 'indexer',	title: "Индексатор",		onclick: ( event ) => Atr ( 4, '' )				} )
 			] )
 		] )
-	);
+	)
 }
 
-insertButtons ( );
+function Atr ( num, action ) {
+	document . querySelectorAll ( "#index__tree a:not(.idx_dir)" ) . forEach (
+		function ( e ) {
+			switch ( num ) {
+				case 1:
+					e . href = e . href . split ( '?' ) [ 0 ] + ( action == '' ? '' : '?do=' ) + action;
+					break;
+				case 2:
+					e . href = e . href . replace ( /\/s?..\//, '/' + action + '/' );
+					e . title = e . title . replace ( /^s?..:/, action + ':' );
+					break;
+				case 3:
+					e . href = e . href . split ( '?' ) [ 0 ] + '?do=edit&fromlang=' + action;
+					break;
+				case 4:
+					if ( e . getAttribute ( 'wpn' ) == null ) {
+						e . setAttribute ( 'wpn', e . innerHTML );
+						e . innerHTML = e . href . split ( '/' ) [ e . href . split ( '/' ) . length - 1 ] . split ( '?' ) [ 0 ];
+					} else {
+						e . innerHTML = e . getAttribute ( 'wpn' );
+						e . removeAttribute ( 'wpn' );
+					};
+					break;
+				default: break;
+			}
+		}
+	)
+}
+
+InsertButtons ( );
