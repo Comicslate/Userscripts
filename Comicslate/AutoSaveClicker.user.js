@@ -1,9 +1,8 @@
 // ==UserScript==
 // @name			Comicslate AutoSaveClicker
-// @version			2022.01.23
+// @version			2025.06.22
 // @description		Автоклик сохранения + удалялка
-// @include			/comicslate.org.+(sci-fi|tlk|wolves|mlp|furry|gamer|other|interrobang)/
-// @exclude			/^https?://comicslate\.org\/.+do=[^e]+/
+// @match			http*://*comicslate.org/*
 // @exclude			/^https?://comicslate\.org\/.+publish
 // @icon			https://comicslate.org/favicon.ico
 // @author			Rainbow-Spike
@@ -13,7 +12,7 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoSaveClicker.user.js
 // ==/UserScript==
 
-var wiki__text = document . querySelector ( "#wiki__text" ),
+var wiki__text = document . querySelector ( ".comic.editpage #wiki__text" ),
 	sv = document . querySelector ( "#edbtn__save" ),
 	sum = document . querySelector ( "#edit__summary" ),
 
@@ -26,7 +25,7 @@ var wiki__text = document . querySelector ( "#wiki__text" ),
 
 if ( sum && sum . value != null ) {
 	if ( sum . value != '' ) sum . value += ' / ';
-	sum . value += 'ASC 2022.01.23';
+	sum . value += 'ASC 2025.06.22';
 }
 
 if ( autoeraser && wiki__text !== null ) wiki__text . value = '';
