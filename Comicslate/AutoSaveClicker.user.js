@@ -29,7 +29,7 @@ if ( editor != null ) {
 		const sum = editor . querySelector ( "#edit__summary" );
 		if ( sum && sum . value != null ) {
 			if ( sum . value != '' ) sum . value += ' / ';
-			sum . value += 'ASCBot 2025.06.22';
+			sum . value += 'ASCBot 2025.06.23';
 		}
 		if ( autoeraser ) wiki__text . value = '';
 		const save = editor . querySelector ( "#edbtn__save" );
