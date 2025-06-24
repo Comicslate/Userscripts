@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate Freefall DateStamping
-// @version			2025.06.24
+// @version			2025.06.24.1
 // @description		Простановка дат в Фрифоле
 // @match			http*://*comicslate.org/*
 // @icon			https://comicslate.org/favicon.ico
@@ -11,7 +11,7 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/Freefall%20DateStamping.user.js
 // ==/UserScript==
 
-const date = 'DSBot 2025.06.24',
+const mark = 'DSBot 2025.06.24',
 	editor = document . querySelector ( ".sci-fi.freefall.comic.editpage:not(.band)" );
 
 if ( editor != null ) {
@@ -748,7 +748,7 @@ if ( editor != null ) {
 			const sum = document . querySelector ( "#edit__summary" );
 			if ( sum && sum . value != null && text != old_text ) {
 				if ( sum . value != '' ) sum . value += ' / ';
-				sum . value += date;
+				sum . value += mark;
 			}
 		}
 	}
