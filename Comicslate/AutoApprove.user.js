@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			Comicslate AutoApprove
-// @version			2025.02.19
+// @version			2025.07.03
 // @description		Автоодобрение правок
 // @match			http*://*comicslate.org/*
 // @exclude			http*://*comicslate.org/*do=*
@@ -12,21 +12,35 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comicslate/AutoApprove.user.js
 // ==/UserScript==
 
-var approve_link = document . querySelector ( ".approval_action a" ),
-	self = "Rainbow Spike",
-	fr = "Arkane",
-	lever = 1; // 0 - одобрять всё, 1 - только себя и Аркейна
+// Константы для улучшения читаемости кода
+const APPROVAL_SELECTOR = '.approval_action a';
+const SELF_NAME = 'Rainbow Spike';
+const FRIEND_NAME = 'Arkane';
+const APPROVAL_LEVEL = 1; // 0 - одобрять всё, 1 - только себя и Аркейна
 
-if ( approve_link != null ) {
-	( lever )
-	? (
-		(
-			document . querySelectorAll ( ".pageinfo bdi" ) [ 1 ] . innerHTML == self
-			||
-			document . querySelectorAll ( ".lang-fr .pageinfo bdi" ) [ 1 ] . innerHTML == fr
-		)
-		? approve_link . click ( )
-		: ''
-	)
-	: approve_link . click ( )
+// Функция для получения текста из элемента
+function getTextFromElement(selector, index) {
+    const elements = document.querySelectorAll(selector);
+    return elements.length > index ? elements[index].innerHTML : '';
+}
+
+// Основная логика
+const approveLink = document.querySelector(APPROVAL_SELECTOR);
+
+if (approveLink) {
+    let shouldApprove = false;
+
+    if (APPROVAL_LEVEL === 0) {
+        shouldApprove = true; // Одобряем всё
+    } else {
+        // Проверяем имя автора
+        const authorName = getTextFromElement('.pageinfo bdi', 1);
+        const friendName = getTextFromElement('.lang-fr .pageinfo bdi', 1);
+
+        shouldApprove = (authorName === SELF_NAME) || (friendName === FRIEND_NAME);
+    }
+
+    if (shouldApprove) {
+        approveLink.click();
+    }
 }
