@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2023.09.04
+// @version			2026.01.06
 // @description     Extract Info for Comicslate
 // @match           http*://freefall.purrsia.com/*
 // @match           http*://freefall.glasswings.com/*
@@ -13,14 +13,16 @@
 // @downloadURL		https://github.com/Comicslate/Userscripts/raw/master/Comic%20Adapter/Freefall.user.js
 // ==/UserScript==
 
-var	title = document . querySelector ( "title" ) . innerText . split ( / +/ ),
+const title = document . querySelector ( "title" ) . innerText . split ( /,? +/ ),
 	num = title [ 1 ] . toString ( ) . padStart ( 4, "0" ) * 1,
 	m_array = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
-	date = title [ 4 ] + '-' + title [ 2 ] + '-' + title [ 3 ] . slice ( 0, 2 ),
-	place, chapter, i;
+	month = m_array . indexOf ( title [ 2 ], 0 ) + 1 . toString ( ),
+	day = title [ 3 ] . slice ( 0, 2 ) . padStart ( 2, "0" ),
+	year = title [ 4 ],
+	date = year + '-' + month + '-' + day;
+let place = document . querySelector ( window . location . href . search ( "ff" ) != -1 ? "font" : "table + b" ),
+	chapter;
 
-for ( i = 0; i < m_array . length; i++ ) date = date . replace ( m_array [ i ], ( i + 1 ) ) . replace ( /-(\d)(\D)/g, '-0$1$2' ) . replace ( ',', '' )
-place = document . querySelector ( window . location . href . search ( "ff" ) != -1 ? "font" : "table + b" );
 switch ( true ) {
 	case num >= 3706: chapter = "Sqid in the maintenance shop (2021-06-30)"; break;
 	case num >= 3696: chapter = "Sam\'s hunt for money and savings begins (2022-01-10)"; break;
