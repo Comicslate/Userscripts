@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Comic Adapter: Freefall
-// @version			2026.01.06
+// @version			2026.01.06.1
 // @description     Extract Info for Comicslate
 // @match           http*://freefall.purrsia.com/*
 // @match           http*://freefall.glasswings.com/*
@@ -16,7 +16,7 @@
 const title = document . querySelector ( "title" ) . innerText . split ( /,? +/ ),
 	num = title [ 1 ] . toString ( ) . padStart ( 4, "0" ) * 1,
 	m_array = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
-	month = m_array . indexOf ( title [ 2 ], 0 ) + 1 . toString ( ),
+	month = ( m_array . indexOf ( title [ 2 ], 0 ) + 1 ) . toString ( ) . padStart ( 2, "0" ),
 	day = title [ 3 ] . slice ( 0, 2 ) . padStart ( 2, "0" ),
 	year = title [ 4 ],
 	date = year + '-' + month + '-' + day;
